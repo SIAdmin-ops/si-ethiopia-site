@@ -10,7 +10,7 @@ name: Deploy site to GitHub Pages
 #  You can come back and change this line at any time.
 # ──────────────────────────────────────────────────────────────
 env:
-  CUSTOM_DOMAIN: ""
+  CUSTOM_DOMAIN: "siintnl.com"
 
 on:
   push:
