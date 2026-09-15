@@ -1,0 +1,11 @@
+{
+  "title": "Strategy Innovation",
+  "description": "Enhance user engagement with a mobile-first design that offers interactive features, making it ideal for businesses seeking to improve customer experience.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

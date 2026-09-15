@@ -1,0 +1,13 @@
+{
+	"servers": {
+		"my-mcp-server-c5258481": {
+			"url": "Implement this design from Figma. @https://www.figma.com/design/ZM89QPz5CLN62o1moPys24/Web-Design?node-id=165-410&m=dev",
+			"type": "http"
+		},
+		"figma": {
+			"url": "Implement this design from Figma. @https://www.figma.com/design/ZM89QPz5CLN62o1moPys24/Web-Design?node-id=165-410&m=dev",
+			"type": "http"
+		}
+	},
+	"inputs": []
+}

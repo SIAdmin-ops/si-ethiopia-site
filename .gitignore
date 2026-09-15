@@ -1,0 +1,13 @@
+node_modules/
+dist/
+package-lock.json
+
+# duplicate local scaffold not part of the deployed app
+Strategy-Innovation-website/
+
+.DS_Store
+Thumbs.db
+
+.env
+.env.local
+.env.*.local

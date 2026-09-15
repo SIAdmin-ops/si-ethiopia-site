@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Outfit', 'Noto Sans Ethiopic', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
+  --color-ink: #0f172a;
+  --color-slate-body: #625f5b;
+  --color-indigo-brand: #198388;
+
+  /* Client-supplied "Color System" reference: Primary = Teal, Secondary =
+     Amber, Neutral = warm Slate. Redefined at the Tailwind primitive level
+     (the teal, amber and slate scales) rather than only the semantic
+     primary, secondary and neutral aliases below, so every existing
+     utility class already used site-wide (division accents, buttons,
+     text, backgrounds) picks up the new palette without a file-by-file
+     rename. The indigo scale is redefined to the same teal values since
+     teal is now the site's single default brand color, replacing indigo
+     everywhere it was previously used as the default accent. */
+  --color-teal-50: #effafb;
+  --color-teal-100: #d0f1f3;
+  --color-teal-200: #a3e2e6;
+  --color-teal-300: #6bcfd4;
+  --color-teal-400: #3ab9bf;
+  --color-teal-500: #1f9ea4;
+  --color-teal-600: #198388;
+  --color-teal-700: #156a6e;
+  --color-teal-800: #115457;
+  --color-teal-900: #0d3f42;
+  --color-teal-950: #092c2e;
+
+  --color-indigo-50: var(--color-teal-50);
+  --color-indigo-100: var(--color-teal-100);
+  --color-indigo-200: var(--color-teal-200);
+  --color-indigo-300: var(--color-teal-300);
+  --color-indigo-400: var(--color-teal-400);
+  --color-indigo-500: var(--color-teal-500);
+  --color-indigo-600: var(--color-teal-600);
+  --color-indigo-700: var(--color-teal-700);
+  --color-indigo-800: var(--color-teal-800);
+  --color-indigo-900: var(--color-teal-900);
+  --color-indigo-950: var(--color-teal-950);
+
+  --color-amber-50: #fffcf0;
+  --color-amber-100: #fff6d6;
+  --color-amber-200: #ffeba8;
+  --color-amber-300: #ffdd73;
+  --color-amber-400: #ffcd42;
+  --color-amber-500: #e8b316;
+  --color-amber-600: #c49610;
+  --color-amber-700: #9e780d;
+  --color-amber-800: #7b5d0b;
+  --color-amber-900: #5b4508;
+  --color-amber-950: #3e3006;
+
+  --color-slate-50: #f8f9f8;
+  --color-slate-100: #f0f0ef;
+  --color-slate-200: #dfdedd;
+  --color-slate-300: #c6c4c2;
+  --color-slate-400: #adaaa6;
+  --color-slate-500: #93908b;
+  --color-slate-600: #7a7772;
+  --color-slate-700: #625f5b;
+  --color-slate-800: #4c4945;
+  --color-slate-900: #383532;
+  --color-slate-950: #262422;
+
+  --color-primary-50: var(--color-teal-50);
+  --color-primary-100: var(--color-teal-100);
+  --color-primary-200: var(--color-teal-200);
+  --color-primary-300: var(--color-teal-300);
+  --color-primary-400: var(--color-teal-400);
+  --color-primary-500: var(--color-teal-500);
+  --color-primary-600: var(--color-teal-600);
+  --color-primary-700: var(--color-teal-700);
+  --color-primary-800: var(--color-teal-800);
+  --color-primary-900: var(--color-teal-900);
+  --color-primary-950: var(--color-teal-950);
+
+  --color-secondary-50: var(--color-amber-50);
+  --color-secondary-100: var(--color-amber-100);
+  --color-secondary-200: var(--color-amber-200);
+  --color-secondary-300: var(--color-amber-300);
+  --color-secondary-400: var(--color-amber-400);
+  --color-secondary-500: var(--color-amber-500);
+  --color-secondary-600: var(--color-amber-600);
+  --color-secondary-700: var(--color-amber-700);
+  --color-secondary-800: var(--color-amber-800);
+  --color-secondary-900: var(--color-amber-900);
+  --color-secondary-950: var(--color-amber-950);
+
+  --color-neutral-50: var(--color-slate-50);
+  --color-neutral-100: var(--color-slate-100);
+  --color-neutral-200: var(--color-slate-200);
+  --color-neutral-300: var(--color-slate-300);
+  --color-neutral-400: var(--color-slate-400);
+  --color-neutral-500: var(--color-slate-500);
+  --color-neutral-600: var(--color-slate-600);
+  --color-neutral-700: var(--color-slate-700);
+  --color-neutral-800: var(--color-slate-800);
+  --color-neutral-900: var(--color-slate-900);
+  --color-neutral-950: var(--color-slate-950);
+}
+
+:root {
+  --ring: #198388;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
+  background-color: #f8f9f8;
+  color: #0f172a;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(25, 131, 136, 0.18);
+  color: #0d3f42;
+}
+
+/* Hide scrollbars until scrolling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: rgba(147, 144, 139, 0.35) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: rgba(147, 144, 139, 0.35);
+  background-clip: content-box;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Scroll reveal engine transition-based so it stays interruptible.
+   Direction set via data-variant; .in flips to the resting state. */
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+  will-change: opacity, transform;
+}
+.reveal[data-variant="up"] {
+  transform: translateY(34px);
+}
+.reveal[data-variant="left"] {
+  transform: translateX(-44px);
+}
+.reveal[data-variant="right"] {
+  transform: translateX(44px);
+}
+.reveal[data-variant="zoom"] {
+  transform: scale(0.92);
+}
+.reveal[data-variant="blur"] {
+  transform: translateY(24px);
+  filter: blur(10px);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.parallax {
+  will-change: transform;
+}
+
+/* ---------------------------------------------------------- interaction fx */
+
+/* Springy press feedback for clickable elements (buttons, tabs, links). */
+.press {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.press:active {
+  transform: scale(0.955);
+}
+
+/* Sheen that sweeps across a surface on hover. */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 32%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 68%
+  );
+  transform: translateX(-130%);
+}
+.shine:hover::after {
+  animation: shine-sweep 0.85s ease;
+}
+@keyframes shine-sweep {
+  to {
+    transform: translateX(130%);
+  }
+}
+
+/* Icon that pops when its parent card is hovered. */
+.group:hover .icon-pop {
+  transform: translateY(-2px) scale(1.08) rotate(-3deg);
+}
+.icon-pop {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Gentle continuous pulse for "live" indicators. */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Left-to-right fill for autoplaying step/segment progress bars. */
+@keyframes segment-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.segment-fill {
+  transform-origin: left;
+  animation: segment-fill var(--dur, 4200ms) linear forwards;
+}
+
+/* Cross-fade for master-detail panels that remount on selection (key={active}).
+   A CSS *transition* can't play on mount, the element never renders its
+   "before" state, so this uses a keyframe animation instead, which does. */
+@keyframes detail-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.detail-fade {
+  animation: detail-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Seamless looping marquee track holds two copies of the content back to
+   back; translating exactly -50% loops without a visible seam. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee var(--marquee-dur, 22s) linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  /* Must match [data-variant]'s specificity otherwise translateX/scale from
+     variant="left"/"right"/"zoom"/"blur" wins and elements sit off-screen
+     before their IntersectionObserver ever fires. */
+  .reveal,
+  .reveal[data-variant],
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .parallax { transform: none !important; }
+  .press,
+  .icon-pop { transition: none; }
+  .press:active,
+  .group:hover .icon-pop { transform: none; }
+  .shine:hover::after { animation: none; }
+  .segment-fill { animation: none; transform: scaleX(1); }
+  .marquee-track { animation: none; }
+  .detail-fade { animation: none; }
+}
