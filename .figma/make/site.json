@@ -1,8 +1,8 @@
 {
-  "title": "Strategy Innovation",
-  "description": "Enhance user engagement with a mobile-first design that offers interactive features, making it ideal for businesses seeking to improve customer experience.",
+  "title": "Strategy Innovations Ethiopia",
+  "description": "Capital markets, technology, training and financial literacy services supporting the growth of Ethiopia's financial sector.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
