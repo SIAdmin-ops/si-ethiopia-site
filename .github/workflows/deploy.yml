@@ -1,0 +1,81 @@
+name: Deploy site to GitHub Pages
+
+# ──────────────────────────────────────────────────────────────
+#  PUT YOUR DOMAIN BETWEEN THE QUOTES BELOW.
+#
+#    e.g.  CUSTOM_DOMAIN: "ebres.strategy-innovations.com"
+#
+#  Leave it empty ("") and the site publishes to
+#  https://siadmin-ops.github.io/si-ethiopia-site/ instead.
+#  You can come back and change this line at any time.
+# ──────────────────────────────────────────────────────────────
+env:
+  CUSTOM_DOMAIN: ""
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Work out the base path
+        id: base
+        run: |
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "path=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=/${GITHUB_REPOSITORY#*/}/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build the site
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: npx vite build --base="${{ steps.base.outputs.path }}"
+
+      - name: Add page-routing fallback and domain file
+        run: |
+          cp dist/index.html dist/404.html
+          if [ -n "$CUSTOM_DOMAIN" ]; then
+            echo "$CUSTOM_DOMAIN" > dist/CNAME
+            echo "Wrote CNAME for $CUSTOM_DOMAIN"
+          fi
+
+      - name: Package for Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4
