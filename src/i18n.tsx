@@ -1241,7 +1241,7 @@ const CONTENT = {
       scheduleCall: "Schedule a Call",
     },
     footer: {
-      tagline: "Capital Markets · Institutions · Advisory",
+      tagline: "Consultancy · Technology · Training",
       rights: "© 2026 Strategy Innovations Consultancy PLC. All rights reserved.",
       location: "Addis Ababa, Ethiopia",
     },
@@ -2477,7 +2477,7 @@ const CONTENT = {
       scheduleCall: "ጥሪ ያስይዙ",
     },
     footer: {
-      tagline: "የካፒታል ገበያ · ተቋማት · አማካሪነት",
+      tagline: "ማማከር · ቴክኖሎጂ · ስልጠና",
       rights: "© 2026 Strategy Innovations Consultancy PLC። መብቱ በሕግ የተጠበቀ ነው።",
       location: "አዲስ አበባ፣ ኢትዮጵያ",
     },
@@ -3710,7 +3710,7 @@ const CONTENT = {
       scheduleCall: "Bilbila Sagantaa'i",
     },
     footer: {
-      tagline: "Gabaa Kaappitaalaa · Dhaabbilee · Gorsa",
+      tagline: "Gorsaa · Teeknooloojii · Leenjii",
       rights: "© 2026 Strategy Innovations Consultancy PLC. Mirgi hundi seeraan eegameera.",
       location: "Finfinnee, Itoophiyaa",
     },
@@ -4943,7 +4943,7 @@ const CONTENT = {
       scheduleCall: "ጻውዒት ሓዙ",
     },
     footer: {
-      tagline: "ዕዳጋ ርእሰ-ማል · ትካላት · ምኽሪ",
+      tagline: "ምኽሪ · ቴክኖሎጂ · ስልጠና",
       rights: "© 2026 Strategy Innovations Consultancy PLC። ኩሉ መሰል ተሓልዩ እዩ።",
       location: "ኣዲስ ኣበባ፣ ኢትዮጵያ",
     },
