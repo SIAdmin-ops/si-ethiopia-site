@@ -12,6 +12,7 @@ export default function PageIntro({
   gradient = "linear-gradient(120deg, #0d3f42 0%, #198388 100%)",
   bgImage,
   size = "default",
+  overlapHeader = false,
   children,
 }: {
   eyebrow: string
@@ -20,18 +21,27 @@ export default function PageIntro({
   gradient?: string
   bgImage?: string
   size?: "default" | "large"
+  /** Runs the section full-bleed behind the fixed header instead of below
+      it, for the pages where this doubles as the page's own hero (see
+      Header.tsx's OVERLAY_ROUTES, which must list any route using this). */
+  overlapHeader?: boolean
   children?: ReactNode
 }) {
   const large = size === "large"
 
   return (
     <section
-      className="relative overflow-hidden text-white"
+      className={`relative overflow-hidden text-white ${overlapHeader ? "-mt-[68px]" : ""}`}
       style={!bgImage ? { backgroundImage: gradient } : undefined}
     >
       {bgImage && (
         <div aria-hidden className="absolute inset-0">
-          <img src={bgImage} alt="" className="absolute inset-0 size-full object-cover" loading="lazy" />
+          <img
+            src={bgImage}
+            alt=""
+            className={`absolute inset-0 size-full object-cover ${overlapHeader ? "hero-zoom" : ""}`}
+            loading="lazy"
+          />
           <div className="absolute inset-0 opacity-90" style={{ backgroundImage: gradient }} />
         </div>
       )}

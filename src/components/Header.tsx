@@ -16,6 +16,19 @@ const DIVISIONS = [
 /** Remaining flat nav destinations, positionally matched to `t.nav[3..4]`. */
 const OTHER_ROUTES = ["/about", "/contact"]
 
+/** Routes whose own hero runs full-bleed immediately under the header (a
+    photo, video, or dark gradient), so the header can start transparent and
+    glassed over it. Contact opens on a plain white section instead, so its
+    header stays solid from the start. */
+const OVERLAY_ROUTES = [
+  "/",
+  "/capital-markets",
+  "/technology",
+  "/training",
+  "/about",
+  "/financial-literacy",
+]
+
 /** Header accent per page, applied as CSS variables so every `[var(--brand)]`
     class below repaints instantly on navigation matches each division's own
     brand colour (Capital Markets' amber, Technology's deeper teal,
@@ -44,11 +57,10 @@ export default function Header() {
     "--brand-ring": theme.ring,
   } as CSSProperties
 
-  /* The homepage opens on a full-bleed video hero, so the header starts
+  /* Pages that open on a full-bleed hero get a header that starts
      transparent and glassed-over it, then crossfades to a solid blurred
-     bar once the hero scrolls away, matching every other page's header. */
-  const isHome = location.pathname === "/"
-  const overlay = isHome && !scrolled
+     bar once the hero scrolls away. */
+  const overlay = OVERLAY_ROUTES.includes(location.pathname) && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -65,12 +77,12 @@ export default function Header() {
   }, [open])
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 hover:text-[var(--brand)] hover:after:scale-x-100 ${
-      isActive
-        ? "text-[var(--brand)] after:scale-x-100"
-        : overlay
-          ? "text-white/85 after:scale-x-0 hover:bg-white/10"
-          : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+    `relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
+      overlay
+        ? `text-white after:bg-white hover:bg-white/10 ${isActive ? "after:scale-x-100" : "text-white/80 after:scale-x-0"}`
+        : `hover:text-[var(--brand)] after:bg-[var(--brand)] hover:after:scale-x-100 ${
+            isActive ? "text-[var(--brand)] after:scale-x-100" : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+          }`
     }`
 
   const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
@@ -123,12 +135,14 @@ export default function Header() {
             <button
               type="button"
               aria-haspopup="true"
-              className={`relative flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
-                onADivisionRoute
-                  ? "text-[var(--brand)] after:scale-x-100"
-                  : overlay
-                    ? "text-white/85 after:scale-x-0 hover:bg-white/10"
-                    : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+              className={`relative flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
+                overlay
+                  ? `text-white after:bg-white group-hover/divisions:bg-white/10 ${onADivisionRoute ? "after:scale-x-100" : "text-white/80 after:scale-x-0"}`
+                  : `after:bg-[var(--brand)] group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
+                      onADivisionRoute
+                        ? "text-[var(--brand)] after:scale-x-100"
+                        : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+                    }`
               }`}
             >
               {t.navDivisions}

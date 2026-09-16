@@ -9,12 +9,12 @@ export default function TrainingHero() {
   const h = t.training.hero
 
   return (
-    <section id="top" className="relative overflow-hidden text-white">
-      <div aria-hidden className="absolute inset-0">
+    <section id="top" className="relative -mt-[68px] overflow-hidden text-white">
+      <div aria-hidden className="absolute inset-0 overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop&auto=format"
           alt=""
-          className="absolute inset-0 size-full object-cover"
+          className="hero-zoom absolute inset-0 size-full object-cover"
           loading="lazy"
         />
         <div

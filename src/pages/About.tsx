@@ -22,6 +22,7 @@ export default function About() {
         sub={t.aboutPage.sub}
         bgImage="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1600&h=700&fit=crop&auto=format"
         size="large"
+        overlapHeader
       />
       <OurStory />
       <Purpose />

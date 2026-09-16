@@ -34,12 +34,12 @@ export default function Hero() {
   const imgParallax = useParallax<HTMLDivElement>(0.08)
 
   return (
-    <section id="top" className="relative overflow-hidden bg-slate-950 text-white">
+    <section id="top" className="relative -mt-[68px] overflow-hidden bg-slate-950 text-white">
       <div ref={imgParallax} className="parallax absolute inset-x-0 -top-[10%] h-[120%] w-full">
         <img
           src="https://images.unsplash.com/photo-1689732888407-310424e3a372?w=2000&h=1400&fit=crop&auto=format"
           alt=""
-          className="size-full object-cover"
+          className="hero-zoom size-full object-cover"
           loading="lazy"
         />
       </div>

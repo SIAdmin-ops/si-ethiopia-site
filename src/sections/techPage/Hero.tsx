@@ -17,7 +17,7 @@ export default function TechHero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden border-b border-[#0d3f42] bg-[#092c2e] text-white"
+      className="relative -mt-[68px] overflow-hidden border-b border-[#0d3f42] bg-[#092c2e] text-white"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

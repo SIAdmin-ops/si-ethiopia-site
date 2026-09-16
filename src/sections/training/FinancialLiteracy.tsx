@@ -23,7 +23,10 @@ export default function FinancialLiteracy() {
 
   return (
     <>
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-sky-700 to-blue-900 py-24 text-white sm:py-32">
+    <section
+      id="top"
+      className="relative -mt-[68px] overflow-hidden bg-gradient-to-br from-blue-700 via-sky-700 to-blue-900 py-24 pt-32 text-white sm:py-32 sm:pt-40"
+    >
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.1]"
