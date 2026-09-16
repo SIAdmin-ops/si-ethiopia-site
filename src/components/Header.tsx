@@ -69,10 +69,24 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  /* Locks the page under the open mobile panel. Plain `overflow: hidden` on
+     body doesn't reliably stop background scroll on iOS Safari; pinning it
+     with `position: fixed` (restoring the exact scroll offset on close) is
+     the standard workaround. */
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : ""
+    if (!open) return
+    const scrollY = window.scrollY
+    const { body } = document
+    body.style.position = "fixed"
+    body.style.top = `-${scrollY}px`
+    body.style.left = "0"
+    body.style.right = "0"
     return () => {
-      document.body.style.overflow = ""
+      body.style.position = ""
+      body.style.top = ""
+      body.style.left = ""
+      body.style.right = ""
+      window.scrollTo(0, scrollY)
     }
   }, [open])
 
@@ -95,7 +109,7 @@ export default function Header() {
       style={themeVars}
       className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
         overlay
-          ? "border-transparent bg-transparent"
+          ? "border-transparent bg-gradient-to-b from-black/40 via-black/10 to-transparent"
           : scrolled
             ? "border-slate-200/80 bg-white/80 shadow-sm shadow-slate-900/5 backdrop-blur-xl"
             : "border-transparent bg-white"
@@ -180,10 +194,14 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <LangToggle className="hidden sm:inline-flex" />
+          {/* Below `lg` these live in the slide-in panel instead, so the top
+              bar never has to cram logo + toggle + CTA + hamburger into one
+              row (the crowding that made the hamburger hard to hit/see on
+              phones and small tablets). */}
+          <LangToggle className="hidden lg:inline-flex" />
           <Link
             to="/contact"
-            className="press shine hidden rounded-lg bg-[var(--brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--brand)]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--brand-hover)] hover:shadow-xl hover:shadow-[var(--brand)]/30 sm:inline-block"
+            className="press shine hidden rounded-lg bg-[var(--brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--brand)]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--brand-hover)] hover:shadow-xl hover:shadow-[var(--brand)]/30 lg:inline-block"
           >
             {t.navCta}
           </Link>
@@ -191,9 +209,9 @@ export default function Header() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className={`press grid size-10 place-items-center rounded-lg ring-1 transition-colors lg:hidden ${
+            className={`press grid size-10 place-items-center rounded-lg ring-1 backdrop-blur-md transition-colors lg:hidden ${
               overlay
-                ? "text-white ring-white/30 hover:bg-white/10"
+                ? "bg-white/10 text-white ring-white/30 hover:bg-white/20"
                 : "text-slate-700 ring-slate-200 hover:bg-slate-50"
             }`}
           >
