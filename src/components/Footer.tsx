@@ -1,4 +1,4 @@
-import { ArrowUpRight, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Reveal, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
@@ -24,10 +24,12 @@ export default function Footer() {
       />
 
       <div className={`${wrap} relative py-20 sm:py-28`}>
-        <Reveal className="flex items-center gap-2">
-          <span className="grid size-9 place-items-center rounded-lg text-indigo-400 ring-1 ring-white/15">
-            <ArrowUpRight className="size-5" strokeWidth={2.4} />
-          </span>
+        <Reveal className="flex items-center gap-3">
+          <img
+            src="/Strategy_Innovations_Logo.png"
+            alt="Strategy Innovations Consultancy"
+            className="h-9 w-auto brightness-0 invert"
+          />
           <span className="font-display text-sm font-bold uppercase tracking-[3px] text-white/70">
             Strategy Innovations Consultancy PLC
           </span>

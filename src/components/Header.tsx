@@ -1,5 +1,5 @@
 import { useState, useEffect, type CSSProperties } from "react"
-import { ArrowUpRight, Menu, X, ChevronDown, Landmark, Cpu, GraduationCap } from "lucide-react"
+import { Menu, X, ChevronDown, Landmark, Cpu, GraduationCap } from "lucide-react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
@@ -102,30 +102,14 @@ export default function Header() {
       }`}
     >
       <div className={`${wrap} flex h-[68px] items-center justify-between`}>
-        <Link to="/" className="group flex items-center gap-3 sm:gap-4">
-          <span
-            className={`grid size-9 place-items-center rounded-lg ring-1 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-105 ${
-              overlay ? "text-white ring-white/30" : "text-[var(--brand)] ring-[var(--brand-ring)]"
+        <Link to="/" className="group flex items-center">
+          <img
+            src="/Strategy_Innovations_Logo.png"
+            alt="Strategy Innovations Consultancy"
+            className={`h-12 w-auto transition-all duration-500 group-hover:scale-105 ${
+              overlay ? "brightness-0 invert" : ""
             }`}
-          >
-            <ArrowUpRight className="size-5" strokeWidth={2.4} />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span
-              className={`font-display text-[19px] font-extrabold uppercase tracking-tight transition-colors duration-500 ${
-                overlay ? "text-white" : "text-slate-900"
-              }`}
-            >
-              Strategy
-            </span>
-            <span
-              className={`font-display text-[13px] font-light uppercase tracking-wide transition-colors duration-500 ${
-                overlay ? "text-teal-200" : "text-[var(--brand)]"
-              }`}
-            >
-              Innovation
-            </span>
-          </span>
+          />
         </Link>
 
         {/* desktop nav */}
