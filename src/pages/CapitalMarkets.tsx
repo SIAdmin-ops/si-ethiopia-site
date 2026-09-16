@@ -15,6 +15,7 @@ import FinalCta from "../sections/FinalCta"
 import { Reveal, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
 import { HighlightSI } from "../lib/highlightSI"
+import { useSeo } from "../lib/useSeo"
 
 /** Splits on explicit "\n" breaks so a field written as several distinct
     sentences renders as separate paragraphs instead of one run-on block. */
@@ -37,6 +38,11 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
 export default function CapitalMarkets() {
   const { t } = useI18n()
   const m = t.capitalMarketsPage
+  useSeo(
+    "Capital Markets Advisory",
+    "End-to-end capital markets advisory in Ethiopia — feasibility, licensing, business and operating model design, and market-infrastructure delivery from SIC.",
+    "/capital-markets",
+  )
 
   return (
     <>

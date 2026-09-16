@@ -2,7 +2,7 @@ import { HighlightSI } from "./highlightSI"
 
 /** Splits on explicit "\n" breaks so a field written as several distinct
     sentences renders as separate paragraphs instead of one run-on block.
-    Wraps each paragraph's text in HighlightSI so standalone "SI" mentions
+    Wraps each paragraph's text in HighlightSI so standalone "SIC" mentions
     pop out consistently wherever this is used. */
 export function Paragraphs({
   text,

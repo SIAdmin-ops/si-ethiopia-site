@@ -187,6 +187,17 @@ body {
   will-change: transform;
 }
 
+/* Slow continuous "Ken Burns" zoom for full-bleed hero video/image
+   backdrops, layered on a wrapper so it doesn't fight a scroll-driven
+   .parallax transform applied to the media element inside it. */
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.hero-zoom {
+  animation: hero-zoom 24s ease-out forwards;
+}
+
 /* ---------------------------------------------------------- interaction fx */
 
 /* Springy press feedback for clickable elements (buttons, tabs, links). */
@@ -288,6 +299,7 @@ body {
     transition: none;
   }
   .parallax { transform: none !important; }
+  .hero-zoom { animation: none; }
   .press,
   .icon-pop { transition: none; }
   .press:active,

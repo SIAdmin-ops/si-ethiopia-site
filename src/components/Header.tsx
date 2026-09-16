@@ -44,6 +44,12 @@ export default function Header() {
     "--brand-ring": theme.ring,
   } as CSSProperties
 
+  /* The homepage opens on a full-bleed video hero, so the header starts
+     transparent and glassed-over it, then crossfades to a solid blurred
+     bar once the hero scrolls away, matching every other page's header. */
+  const isHome = location.pathname === "/"
+  const overlay = isHome && !scrolled
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
@@ -59,34 +65,52 @@ export default function Header() {
   }, [open])
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative rounded-md px-3 py-2 text-sm transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 hover:bg-slate-50 hover:text-[var(--brand)] hover:after:scale-x-100 ${
-      isActive ? "text-[var(--brand)] after:scale-x-100" : "text-slate-600 after:scale-x-0"
+    `relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 hover:text-[var(--brand)] hover:after:scale-x-100 ${
+      isActive
+        ? "text-[var(--brand)] after:scale-x-100"
+        : overlay
+          ? "text-white/85 after:scale-x-0 hover:bg-white/10"
+          : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
     }`
 
   const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
+    `rounded-xl px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
       isActive ? "bg-[var(--brand-tint)] text-[var(--brand)]" : "text-slate-700"
     }`
 
   return (
     <header
       style={themeVars}
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "border-slate-200 bg-white/85 shadow-sm shadow-slate-900/5 backdrop-blur-md"
-          : "border-transparent bg-white"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
+        overlay
+          ? "border-transparent bg-transparent"
+          : scrolled
+            ? "border-slate-200/80 bg-white/80 shadow-sm shadow-slate-900/5 backdrop-blur-xl"
+            : "border-transparent bg-white"
       }`}
     >
       <div className={`${wrap} flex h-[68px] items-center justify-between`}>
-        <Link to="/" className="flex items-center gap-3 sm:gap-4">
-          <span className="grid size-9 place-items-center rounded-lg text-[var(--brand)] ring-1 ring-[var(--brand-ring)] transition-colors duration-300">
+        <Link to="/" className="group flex items-center gap-3 sm:gap-4">
+          <span
+            className={`grid size-9 place-items-center rounded-lg ring-1 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-105 ${
+              overlay ? "text-white ring-white/30" : "text-[var(--brand)] ring-[var(--brand-ring)]"
+            }`}
+          >
             <ArrowUpRight className="size-5" strokeWidth={2.4} />
           </span>
           <span className="flex flex-col leading-none">
-            <span className="font-display text-[19px] font-extrabold uppercase tracking-tight text-slate-900">
+            <span
+              className={`font-display text-[19px] font-extrabold uppercase tracking-tight transition-colors duration-500 ${
+                overlay ? "text-white" : "text-slate-900"
+              }`}
+            >
               Strategy
             </span>
-            <span className="font-display text-[13px] font-light uppercase tracking-wide text-[var(--brand)] transition-colors duration-300">
+            <span
+              className={`font-display text-[13px] font-light uppercase tracking-wide transition-colors duration-500 ${
+                overlay ? "text-teal-200" : "text-[var(--brand)]"
+              }`}
+            >
               Innovation
             </span>
           </span>
@@ -99,8 +123,12 @@ export default function Header() {
             <button
               type="button"
               aria-haspopup="true"
-              className={`relative flex items-center gap-1 rounded-md px-3 py-2 text-sm transition-colors after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 hover:bg-slate-50 hover:text-[var(--brand)] group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
-                onADivisionRoute ? "text-[var(--brand)] after:scale-x-100" : "text-slate-600 after:scale-x-0"
+              className={`relative flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--brand)] after:transition-transform after:duration-300 group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
+                onADivisionRoute
+                  ? "text-[var(--brand)] after:scale-x-100"
+                  : overlay
+                    ? "text-white/85 after:scale-x-0 hover:bg-white/10"
+                    : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
               }`}
             >
               {t.navDivisions}
@@ -165,26 +193,49 @@ export default function Header() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="press grid size-10 place-items-center rounded-lg text-slate-700 ring-1 ring-slate-200 transition-colors hover:bg-slate-50 lg:hidden"
+            className={`press grid size-10 place-items-center rounded-lg ring-1 transition-colors lg:hidden ${
+              overlay
+                ? "text-white ring-white/30 hover:bg-white/10"
+                : "text-slate-700 ring-slate-200 hover:bg-slate-50"
+            }`}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
 
-      {/* mobile drawer */}
+      {/* mobile nav: full-height slide-in panel over a blurred backdrop,
+          rather than pushing page content down under the header. */}
       <div
-        className={`overflow-hidden border-slate-200 bg-white transition-[max-height] duration-300 lg:hidden ${
-          open ? "max-h-[640px] border-t" : "max-h-0"
+        aria-hidden={!open}
+        onClick={() => setOpen(false)}
+        className={`fixed inset-0 z-[70] bg-slate-950/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          open ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      />
+      <div
+        className={`fixed inset-y-0 right-0 z-[70] flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <nav className="flex flex-col gap-1 px-5 py-4">
+        <div className="flex h-[68px] shrink-0 items-center justify-between border-b border-slate-100 px-5">
+          <span className="font-display text-sm font-bold uppercase tracking-[3px] text-slate-900">Menu</span>
+          <button
+            aria-label="Close menu"
+            onClick={() => setOpen(false)}
+            className="press grid size-10 place-items-center rounded-lg text-slate-700 ring-1 ring-slate-200 transition-colors hover:bg-slate-50"
+          >
+            <X className="size-5" />
+          </button>
+        </div>
+
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-5">
           {/* Divisions tap to expand/collapse */}
           <button
             type="button"
             aria-expanded={divisionsOpenMobile}
             onClick={() => setDivisionsOpenMobile((v) => !v)}
-            className={`flex items-center justify-between rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
+            className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
               onADivisionRoute ? "text-[var(--brand)]" : "text-slate-700"
             }`}
           >
@@ -230,18 +281,18 @@ export default function Header() {
               {t.nav[i + 3]}
             </NavLink>
           ))}
-
-          <div className="mt-2 flex items-center justify-between gap-3">
-            <LangToggle />
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="press shine flex-1 rounded-lg bg-[var(--brand)] px-4 py-3 text-center text-base font-semibold text-white"
-            >
-              {t.navCta}
-            </Link>
-          </div>
         </nav>
+
+        <div className="flex shrink-0 flex-col gap-3 border-t border-slate-100 px-5 py-5">
+          <LangToggle />
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="press shine rounded-lg bg-[var(--brand)] px-4 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-[var(--brand)]/20"
+          >
+            {t.navCta}
+          </Link>
+        </div>
       </div>
     </header>
   )

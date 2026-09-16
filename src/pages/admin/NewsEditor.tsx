@@ -9,6 +9,7 @@ import {
   type LocalizedText,
   type NewsItemInput,
 } from "../../lib/news"
+import { useSeo } from "../../lib/useSeo"
 
 const CATEGORY_LABELS = ["Capital Markets", "Technology", "Training", "Company"]
 const LANG_TABS: { code: Lang; label: string }[] = [
@@ -24,6 +25,7 @@ export default function NewsEditor() {
   const { id } = useParams()
   const isNew = !id
   const navigate = useNavigate()
+  useSeo(isNew ? "New News Item" : "Edit News Item", "", "/admin/news", { standaloneTitle: false, noindex: true })
 
   const [category, setCategory] = useState(0)
   const [itemDate, setItemDate] = useState(() => new Date().toISOString().slice(0, 10))

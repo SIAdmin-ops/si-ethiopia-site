@@ -3,6 +3,7 @@ import { Navigate, useLocation, type Location } from "react-router-dom"
 import { ArrowRight } from "lucide-react"
 import { useAdminAuth } from "../../context/AdminAuth"
 import { isSupabaseConfigured } from "../../lib/supabase"
+import { useSeo } from "../../lib/useSeo"
 
 export default function AdminLogin() {
   const { session, loading, signIn } = useAdminAuth()
@@ -11,6 +12,7 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("")
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
+  useSeo("Admin Login", "", "/admin/login", { standaloneTitle: false, noindex: true })
 
   const from = (location.state as { from?: Location })?.from?.pathname || "/admin"
 

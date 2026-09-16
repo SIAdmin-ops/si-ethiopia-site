@@ -10,7 +10,10 @@ export default function Layout() {
       <ScrollProgress />
       <ScrollToTop />
       <Header />
-      <main>
+      {/* Header is `fixed` (so the homepage hero can run full-bleed behind
+          it), so every page reserves its height here instead; Home's hero
+          cancels this out with a matching negative margin to sit behind it. */}
+      <main className="pt-[68px]">
         <Outlet />
       </main>
       <Footer />

@@ -3,17 +3,35 @@ import { Mail, Phone, MapPin, Zap, Check, ArrowRight } from "lucide-react"
 import { Reveal, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
 import Motif from "../components/Motif"
+import { submitContactForm } from "../lib/contact"
 
 export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
   const { t } = useI18n()
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(false)
   const [form, setForm] = useState({ name: "", email: "", org: "", msg: "" })
   const valid = form.name.trim() && /\S+@\S+\.\S+/.test(form.email)
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault()
-    if (!valid) return
-    setSent(true)
+    if (!valid || submitting) return
+    setSubmitting(true)
+    setError(false)
+    try {
+      await submitContactForm({
+        source: "contact",
+        name: form.name,
+        email: form.email,
+        organization: form.org,
+        message: form.msg,
+      })
+      setSent(true)
+    } catch {
+      setError(true)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const field =
@@ -122,12 +140,17 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
                   placeholder={t.contact.phMsg}
                 />
               </label>
+              {error && (
+                <p className="text-sm font-medium text-red-600" role="alert">
+                  {t.contact.error}
+                </p>
+              )}
               <button
                 type="submit"
-                disabled={!valid}
+                disabled={!valid || submitting}
                 className="group press shine inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-indigo-500 enabled:hover:shadow-xl enabled:hover:shadow-indigo-600/30 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                {t.contact.submit}
+                {submitting ? t.contact.submitting : t.contact.submit}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>

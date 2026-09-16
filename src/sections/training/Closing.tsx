@@ -6,7 +6,7 @@ import FlowChips from "../../components/FlowChips"
 
 /** "From Training to Capability", the closing section, mirroring the
     Technology page's Closing.tsx: two short flow chains (the training
-    journey, and the wider SI model), a tagline, and dual CTAs. */
+    journey, and the wider SIC model), a tagline, and dual CTAs. */
 export default function TrainingClosing() {
   const { t } = useI18n()
   const c = t.training.closing

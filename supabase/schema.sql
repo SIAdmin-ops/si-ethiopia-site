@@ -32,3 +32,29 @@ create policy "Authenticated users can manage news"
 -- No seed data: the site shows an explicit "no news yet" state when this
 -- table is empty (see src/sections/home/News.tsx), so nothing needs to be
 -- pre-populated here. Add real articles through /admin.
+
+-- Stores submissions from the two contact forms (the homepage's and the
+-- dedicated /contact page's, see src/lib/contact.ts). Anyone can insert
+-- (it's a public form); only signed-in admins can read the leads back.
+create table if not exists public.contact_submissions (
+  id uuid primary key default gen_random_uuid(),
+  source text not null check (source in ('home', 'contact')),
+  name text not null,
+  email text not null,
+  organization text,
+  division text,
+  message text,
+  created_at timestamptz not null default now()
+);
+
+alter table public.contact_submissions enable row level security;
+
+drop policy if exists "Anyone can submit the contact form" on public.contact_submissions;
+create policy "Anyone can submit the contact form"
+  on public.contact_submissions for insert
+  with check (true);
+
+drop policy if exists "Authenticated users can read contact submissions" on public.contact_submissions;
+create policy "Authenticated users can read contact submissions"
+  on public.contact_submissions for select
+  using (auth.role() = 'authenticated');

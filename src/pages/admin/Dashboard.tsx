@@ -9,10 +9,12 @@ import {
   formatNewsDate,
   type NewsItem,
 } from "../../lib/news"
+import { useSeo } from "../../lib/useSeo"
 
 const CATEGORY_LABELS = ["Capital Markets", "Technology", "Training", "Company"]
 
 export default function AdminDashboard() {
+  useSeo("Admin Dashboard", "", "/admin", { standaloneTitle: false, noindex: true })
   const [items, setItems] = useState<NewsItem[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busyId, setBusyId] = useState<string | null>(null)

@@ -7,8 +7,15 @@ import News from "../sections/home/News"
 import Divisions from "../sections/home/Divisions"
 import TrainingPartnership from "../sections/home/TrainingPartnership"
 import Contact from "../sections/home/Contact"
+import { useSeo } from "../lib/useSeo"
 
 export default function Home() {
+  useSeo(
+    "Strategy Innovations Consultancy PLC | Capital Markets, Technology & Training Advisory",
+    "SIC is Ethiopia's capital markets, technology, and training advisory firm, helping institutions launch, build, and grow through integrated Consult, Build, and Train capabilities.",
+    "/",
+    { standaloneTitle: true },
+  )
   return (
     <>
       <Hero />
