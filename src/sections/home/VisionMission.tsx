@@ -13,22 +13,27 @@ export default function VisionMission() {
   return (
     <section
       className="relative overflow-hidden text-white"
-      style={{ backgroundImage: "linear-gradient(120deg, #0d3f42 0%, #198388 100%)" }}
+      style={{ backgroundImage: "linear-gradient(120deg, #083a3e 0%, #198388 100%)" }}
     >
-      <div className={`${wrap} relative py-24 sm:py-32`}>
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
+      <div className={`${wrap} relative py-16 sm:py-24`}>
+        <div className="grid gap-12 md:grid-cols-2 md:gap-0">
           {cards.map((c, i) => (
             <Reveal
               key={c.title}
               delay={i * 120}
               variant={i === 0 ? "left" : "right"}
-              className="rounded-3xl border border-white/15 bg-white/[0.08] p-9 backdrop-blur-md transition-transform duration-300 hover:-translate-y-1 sm:p-12"
+              className={`group ${i === 1 ? "md:border-l md:border-white/15 md:pl-14" : "md:pr-14"}`}
             >
-              <span className="grid size-12 place-items-center rounded-2xl bg-white/10 text-indigo-200">
-                <c.icon className="size-6" strokeWidth={1.8} />
-              </span>
-              <h3 className="mt-6 font-display text-2xl font-extrabold tracking-tight sm:text-3xl">{c.title}</h3>
-              <p className="mt-5 text-[15px] leading-relaxed text-white/85 sm:text-base">{c.body}</p>
+              <div className="flex items-center gap-3 text-teal-200">
+                <c.icon
+                  className="size-5 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                  strokeWidth={1.8}
+                />
+                <h3 className="font-display text-xs font-bold uppercase tracking-[3px]">{c.title}</h3>
+              </div>
+              <p className="mt-6 font-display text-[22px] font-medium leading-[32px] tracking-tight text-white sm:text-[26px] sm:leading-[36px]">
+                {c.body}
+              </p>
             </Reveal>
           ))}
         </div>

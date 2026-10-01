@@ -69,11 +69,11 @@ export default function CapitalMarketsApproach() {
   const Icon = STEP_ICONS[active]
 
   return (
-    <section id="approach" className="relative overflow-hidden bg-white py-24 sm:py-32">
-      <Motif variant="markets" className="text-amber-600" />
+    <section id="approach" className="relative overflow-hidden bg-white py-16 sm:py-24">
+      <Motif variant="markets" className="text-teal-deep" />
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-amber-600" />
+          <span className="size-1.5 rounded-full bg-teal-deep" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-slate-500">
             {a.eyebrow}
           </span>
@@ -81,7 +81,7 @@ export default function CapitalMarketsApproach() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] lg:text-[44px]"
+          className="mt-4 max-w-xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {a.heading}
         </Reveal>
@@ -98,7 +98,7 @@ export default function CapitalMarketsApproach() {
             onKeyDown={onKeyDown}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
-            className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-[#211505] to-slate-900 p-6 text-white shadow-2xl shadow-slate-900/10 outline-none focus-visible:ring-2 focus-visible:ring-amber-400 sm:p-8 lg:p-10"
+            className="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-[#0e1f21] to-slate-900 p-6 text-white shadow-2xl shadow-slate-900/10 outline-none focus-visible:ring-2 focus-visible:ring-teal-400 sm:p-8 lg:p-10"
           >
             {/* segmented progress rail */}
             <div className="flex items-center gap-4">
@@ -112,17 +112,17 @@ export default function CapitalMarketsApproach() {
                     className="press h-[5px] flex-1 overflow-hidden rounded-full bg-white/15"
                   >
                     {i < active ? (
-                      <span className="block h-full rounded-full bg-amber-400" />
+                      <span className="block h-full rounded-full bg-white" />
                     ) : i > active ? (
-                      <span className="block h-full origin-left scale-x-0 rounded-full bg-amber-400" />
+                      <span className="block h-full origin-left scale-x-0 rounded-full bg-white" />
                     ) : autoplay && !reducedMotion ? (
                       <span
                         key={active}
-                        className="segment-fill block h-full origin-left rounded-full bg-amber-400"
+                        className="segment-fill block h-full origin-left rounded-full bg-white"
                         style={{ "--dur": `${STEP_DURATION}ms` } as React.CSSProperties}
                       />
                     ) : (
-                      <span className="block h-full rounded-full bg-amber-400" />
+                      <span className="block h-full rounded-full bg-white" />
                     )}
                   </button>
                 ))}
@@ -139,14 +139,14 @@ export default function CapitalMarketsApproach() {
               </span>
 
               <Reveal key={active} variant="right" className="grid gap-8 md:grid-cols-[auto_1fr] md:items-start">
-                <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-amber-500/20 text-amber-300">
+                <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-white/20 text-white">
                   <Icon className="size-8" strokeWidth={1.8} />
                 </div>
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-[0.66px] text-amber-300">
+                  <span className="text-xs font-bold uppercase tracking-[0.66px] text-white/85">
                     {String(active + 1).padStart(2, "0")} · {step.key}
                   </span>
-                  <h3 className="mt-2 text-2xl font-extrabold leading-tight sm:text-3xl">{step.tagline}</h3>
+                  <h3 className="mt-2 text-[20px] leading-[28px] font-semibold lg:text-[24px] lg:leading-[32px]">{step.tagline}</h3>
                   <div className="mt-4 max-w-2xl">
                     <Paragraphs text={step.desc} className="leading-relaxed text-white/75" />
                   </div>
@@ -160,15 +160,15 @@ export default function CapitalMarketsApproach() {
                         key={title}
                         className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-sm font-semibold text-white/85"
                       >
-                        <Check className="size-3.5 shrink-0 text-amber-300" />
+                        <Check className="size-3.5 shrink-0 text-white/85" />
                         {title}
                       </span>
                     ))}
                   </div>
 
                   {step.outcome && (
-                    <div className="mt-6 rounded-xl border border-amber-400/20 bg-amber-500/[0.07] p-4">
-                      <p className="text-xs font-bold uppercase tracking-wider text-amber-300">
+                    <div className="mt-6 rounded-2xl border border-white/20 bg-white/[0.07] p-4">
+                      <p className="text-xs font-bold uppercase tracking-wider text-white/85">
                         {a.outcomeLabel}
                       </p>
                       <p className="mt-1 text-sm font-semibold leading-relaxed text-white">{step.outcome}</p>

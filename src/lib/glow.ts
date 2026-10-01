@@ -7,17 +7,17 @@
 export type GlowAccent = "amber" | "teal" | "blue" | "indigo"
 
 const ACCENT_RGB: Record<GlowAccent, string> = {
-  amber: "196,150,16",
+  amber: "227,166,20",
   teal: "25,131,136",
-  blue: "37,99,235",
+  blue: "227,166,20",
   indigo: "25,131,136",
 }
 
 const COMPLEMENT_RGB: Record<GlowAccent, string> = {
   amber: "58,185,191",
-  teal: "255,205,66",
+  teal: "237,190,46",
   blue: "56,189,248",
-  indigo: "255,205,66",
+  indigo: "237,190,46",
 }
 
 export function glow(accent: GlowAccent = "amber") {
@@ -27,7 +27,7 @@ export function glow(accent: GlowAccent = "amber") {
 /** Same recipe with a dark scrim layered on top, for image/video-backed
     heroes that need the glow plus guaranteed text legibility. */
 export function glowWithScrim(accent: GlowAccent = "amber") {
-  return `linear-gradient(100deg, rgba(2,6,23,0.92) 0%, rgba(2,6,23,0.75) 45%, rgba(2,6,23,0.92) 100%), ${glow(accent)}`
+  return `linear-gradient(100deg, rgba(14,31,33,0.92) 0%, rgba(14,31,33,0.75) 45%, rgba(14,31,33,0.92) 100%), ${glow(accent)}`
 }
 
 /** Subtle dotted-grid texture overlay, reused across hero/statement sections. */

@@ -9,7 +9,7 @@ export default function PageIntro({
   eyebrow,
   heading,
   sub,
-  gradient = "linear-gradient(120deg, #0d3f42 0%, #198388 100%)",
+  gradient = "linear-gradient(120deg, #083a3e 0%, #198388 100%)",
   bgImage,
   size = "default",
   overlapHeader = false,
@@ -45,7 +45,7 @@ export default function PageIntro({
           <div className="absolute inset-0 opacity-90" style={{ backgroundImage: gradient }} />
         </div>
       )}
-      <div className={`${wrap} relative ${large ? "py-24 sm:py-32 lg:py-40" : "py-16 sm:py-20"}`}>
+      <div className={`${wrap} relative ${large ? "py-16 sm:py-24 lg:py-40" : "py-16 sm:py-20"}`}>
         <Reveal className="flex items-center gap-2.5">
           <span className="size-2 rounded-full bg-white" />
           <span
@@ -61,13 +61,13 @@ export default function PageIntro({
             as="h1"
             delay={80}
             text={heading}
-            className="mt-6 max-w-3xl font-display text-[40px] font-extrabold leading-[1.05] tracking-tight sm:text-[58px] lg:text-[72px]"
+            className="mt-6 max-w-3xl font-display text-[28px] leading-[36px] font-bold tracking-tight sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]"
           />
         ) : (
           <Reveal
             as="h1"
             delay={80}
-            className="mt-4 max-w-2xl font-display text-[30px] font-extrabold leading-tight tracking-tight sm:text-[44px]"
+            className="mt-4 max-w-2xl font-display text-[28px] leading-[36px] font-bold tracking-tight sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]"
           >
             {heading}
           </Reveal>

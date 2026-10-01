@@ -7,6 +7,7 @@ import News from "../sections/home/News"
 import Divisions from "../sections/home/Divisions"
 import TrainingPartnership from "../sections/home/TrainingPartnership"
 import Contact from "../sections/home/Contact"
+import FinalCta from "../sections/FinalCta"
 import { useSeo } from "../lib/useSeo"
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       <TrainingPartnership />
       <News />
       <Contact />
+      <FinalCta />
     </>
   )
 }

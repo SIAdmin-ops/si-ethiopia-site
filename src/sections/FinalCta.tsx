@@ -8,7 +8,7 @@ export default function FinalCta() {
   return (
     <section
       className="relative overflow-hidden text-white"
-      style={{ backgroundImage: "linear-gradient(120deg, #5b4508 0%, #c49610 100%)" }}
+      style={{ backgroundImage: "linear-gradient(120deg, #0e1f21 0%, #0b4f55 100%)" }}
     >
       <div
         aria-hidden
@@ -19,10 +19,10 @@ export default function FinalCta() {
           backgroundSize: "24px 24px",
         }}
       />
-      <div className={`${wrap} relative py-20 text-center sm:py-24`}>
+      <div className={`${wrap} relative py-16 text-center sm:py-24`}>
         <Reveal
           as="h2"
-          className="mx-auto max-w-2xl font-sans text-[32px] font-extrabold leading-tight tracking-tight sm:text-[52px]"
+          className="mx-auto max-w-2xl font-sans text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.finalCta.heading}
         </Reveal>
@@ -32,7 +32,7 @@ export default function FinalCta() {
         <Reveal delay={160} className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link
             to="/contact"
-            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-amber-800 shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
+            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-ink shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
           >
             {t.finalCta.contactPartners}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

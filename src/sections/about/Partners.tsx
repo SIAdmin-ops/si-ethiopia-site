@@ -3,9 +3,9 @@ import { useI18n } from "../../i18n"
 
 /* Fallback gradient (used when a partner has no photo yet), index-matched to partners.people. */
 const ACCENT_GRADIENTS = [
-  "linear-gradient(135deg, #198388 0%, #0d3f42 100%)",
-  "linear-gradient(135deg, #1f9ea4 0%, #115457 100%)",
-  "linear-gradient(135deg, #c49610 0%, #5b4508 100%)",
+  "linear-gradient(135deg, #198388 0%, #083a3e 100%)",
+  "linear-gradient(135deg, #1f9ea4 0%, #0b4f55 100%)",
+  "linear-gradient(135deg, #6bcfd4 0%, #0b4f55 100%)",
 ]
 
 /** Large alternating photo/name rows rather than a 3-up card grid —
@@ -16,13 +16,13 @@ export default function Partners() {
   const p = t.aboutPage.partners
 
   return (
-    <section className="bg-slate-50 py-24 sm:py-32">
+    <section className="bg-slate-50 py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-3 text-center">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-indigo-600">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
             {p.eyebrow}
           </span>
-          <h2 className="font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[40px] lg:text-[46px]">
+          <h2 className="font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {p.heading}
           </h2>
           <p className="leading-relaxed text-slate-600">{p.sub}</p>
@@ -38,7 +38,7 @@ export default function Partners() {
                 delay={i * 100}
                 className="grid items-center gap-8 sm:grid-cols-2 sm:gap-16"
               >
-                <div className={`group relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200 sm:aspect-[3/4] ${flip ? "sm:order-2" : ""}`}>
+                <div className={`group relative aspect-[4/5] overflow-hidden rounded-2xl bg-slate-200 sm:aspect-[3/4] ${flip ? "sm:order-2" : ""}`}>
                   {person.photo.length > 0 ? (
                     <img
                       src={person.photo}
@@ -58,8 +58,8 @@ export default function Partners() {
                 </div>
                 <div className={flip ? "sm:order-1" : ""}>
                   <span className="font-mono text-xs text-slate-400">{String(i + 1).padStart(2, "0")}</span>
-                  <p className="mt-3 text-xs font-bold uppercase tracking-wider text-indigo-600">{person.role}</p>
-                  <h3 className="mt-3 font-display text-3xl font-extrabold tracking-tight text-slate-900 sm:text-[40px]">
+                  <p className="mt-3 text-xs font-bold uppercase tracking-wider text-teal-600">{person.role}</p>
+                  <h3 className="mt-3 font-display text-[20px] leading-[28px] font-semibold tracking-tight text-slate-900 lg:text-[24px] lg:leading-[32px]">
                     {person.name}
                   </h3>
                   {/* person.focus hidden for now, per request */}

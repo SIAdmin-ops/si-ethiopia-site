@@ -15,54 +15,39 @@ export default function TrainingApproach() {
   const a = t.training.approach
 
   return (
-    <section className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-32">
-      <div aria-hidden className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1600&h=1000&fit=crop&auto=format"
-          alt=""
-          className="absolute inset-0 size-full object-cover opacity-30"
-          loading="lazy"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg, rgba(2,6,23,0.92) 0%, rgba(2,6,23,0.88) 45%, rgba(2,6,23,0.97) 100%), radial-gradient(55% 70% at 100% 0%, rgba(37,99,235,0.25) 0%, transparent 55%), radial-gradient(45% 60% at 0% 100%, rgba(2,132,199,0.18) 0%, transparent 50%)",
-          }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={`${wrap} relative`}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-300">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-gold-text">
           {a.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[40px] lg:text-[46px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-ink sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {a.heading}
         </Reveal>
         <Reveal delay={140} className="mt-5 max-w-2xl">
-          <Paragraphs text={a.body} className="leading-relaxed text-white/65" highlightClassName="text-blue-300" />
+          <Paragraphs text={a.body} className="leading-relaxed text-text-secondary" highlightClassName="text-gold-text" />
         </Reveal>
 
         <Reveal
           delay={180}
-          className="mt-10 max-w-2xl rounded-2xl border border-blue-400/20 bg-blue-500/[0.06] p-7 sm:p-9"
+          className="mt-10 max-w-2xl rounded-2xl border border-amber-200 bg-amber-50 p-7 sm:p-9"
         >
-          <p className="text-xs font-bold uppercase tracking-wider text-blue-300">{a.outcomeEyebrow}</p>
-          <p className="mt-2.5 text-sm leading-relaxed text-white/70 sm:text-base">{a.outcomeBody}</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-gold-text">{a.outcomeEyebrow}</p>
+          <p className="mt-2.5 text-sm leading-relaxed text-text-secondary sm:text-base">{a.outcomeBody}</p>
           <div className="mt-6">
             <FlowChips
               steps={a.flow}
-              chipClassName="border-blue-400/30 bg-blue-500/10 text-blue-200"
-              arrowClassName="text-white/25"
+              chipClassName="border-amber-300 bg-white text-gold-text"
+              arrowClassName="text-amber-300"
             />
           </div>
-          <p className="mt-7 text-sm font-semibold text-white/70">{a.questionsIntro}</p>
+          <p className="mt-7 text-sm font-semibold text-text-secondary">{a.questionsIntro}</p>
           <ul className="mt-3 flex flex-col gap-2">
             {a.questions.map((q) => (
-              <li key={q} className="text-sm leading-relaxed text-white/60">
+              <li key={q} className="text-sm leading-relaxed text-text-secondary">
                 {q}
               </li>
             ))}
@@ -71,16 +56,16 @@ export default function TrainingApproach() {
 
         <Reveal
           delay={220}
-          className="mt-8 max-w-2xl text-lg font-extrabold italic leading-snug tracking-tight text-blue-200 sm:text-xl"
+          className="mt-8 max-w-2xl text-lg font-extrabold italic leading-snug tracking-tight text-gold-text sm:text-xl"
         >
           {a.tagline}
         </Reveal>
 
-        <Reveal delay={260} className="mt-16 border-t border-white/10 pt-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-300">
+        <Reveal delay={260} className="mt-16 border-t border-border pt-10">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.66px] text-gold-text">
             {t.training.capabilitiesOverview.eyebrow}
           </p>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary sm:text-base">
             {t.training.capabilitiesOverview.intro}
           </p>
           <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -89,14 +74,14 @@ export default function TrainingApproach() {
               return (
                 <div
                   key={area.title}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition-all duration-200 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-white/[0.06]"
+                  className="group rounded-2xl border border-border bg-mist p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-300 hover:bg-amber-50"
                 >
-                  <span className="grid size-10 place-items-center rounded-xl bg-blue-500/15 text-blue-300 transition-colors duration-200 group-hover:bg-blue-500/25 group-hover:text-blue-200">
+                  <span className="grid size-10 place-items-center rounded-lg bg-amber-100 text-gold-text transition-colors duration-200 group-hover:bg-amber-200">
                     <Icon className="size-[18px]" strokeWidth={1.8} />
                   </span>
-                  <p className="mt-4 font-mono text-xs text-white/30">{String(i + 1).padStart(2, "0")}</p>
-                  <h4 className="mt-1 text-sm font-extrabold leading-tight text-white">{area.title}</h4>
-                  <p className="mt-2 text-xs leading-relaxed text-white/55">{area.desc}</p>
+                  <p className="mt-4 font-mono text-xs text-text-secondary/60">{String(i + 1).padStart(2, "0")}</p>
+                  <h4 className="mt-1 text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">{area.title}</h4>
+                  <p className="mt-2 text-xs leading-relaxed text-text-secondary">{area.desc}</p>
                 </div>
               )
             })}

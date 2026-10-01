@@ -33,9 +33,9 @@ const ACCENT: Record<string, { text: string; chip: string; num: string }> = {
     num: "text-amber-600",
   },
   emerald: {
-    text: "text-emerald-600",
-    chip: "bg-emerald-50 text-emerald-700 ring-emerald-200",
-    num: "text-emerald-600",
+    text: "text-teal-800",
+    chip: "bg-teal-100 text-teal-800 ring-teal-300",
+    num: "text-teal-800",
   },
   teal: {
     text: "text-teal-600",
@@ -48,7 +48,7 @@ const ACCENT: Record<string, { text: string; chip: string; num: string }> = {
 export default function Pillars() {
   const { t } = useI18n()
   return (
-    <section id="services" className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section id="services" className="relative overflow-hidden bg-white py-16 sm:py-24">
       <Motif variant="markets" className="text-amber-600" />
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
@@ -60,7 +60,7 @@ export default function Pillars() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] lg:text-[44px]"
+          className="mt-4 max-w-xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.pillars.heading}
         </Reveal>
@@ -82,7 +82,7 @@ export default function Pillars() {
                     {PILLAR_NUMS[i]}
                   </span>
                   <div>
-                    <h3 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-[28px]">
+                    <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
                       {p.title}
                     </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-slate-500">{p.lead}</p>

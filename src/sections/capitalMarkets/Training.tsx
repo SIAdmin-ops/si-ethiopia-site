@@ -23,7 +23,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-blue-600" />
+            <HighlightSI text={p} className="text-gold-text" />
           </p>
         ))}
     </div>
@@ -39,15 +39,15 @@ export default function CapitalMarketsTraining() {
   const tr = t.capitalMarketsPage.training
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section id="training-programs" className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={wrap}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-600">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-gold-text">
           {tr.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[40px] lg:text-[46px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {tr.heading}
         </Reveal>
@@ -62,9 +62,9 @@ export default function CapitalMarketsTraining() {
             {tr.areas.map((area, i) => (
               <div
                 key={area}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/60 p-4"
+                className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/60 p-4"
               >
-                <span className="font-mono text-xs font-bold text-blue-500">
+                <span className="font-mono text-xs font-bold text-gold-text">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-sm font-semibold leading-snug text-slate-800">{area}</span>
@@ -75,7 +75,7 @@ export default function CapitalMarketsTraining() {
 
         {/* training appropriate to your responsibility */}
         <Reveal delay={220} className="mt-16">
-          <h3 className="text-xl font-extrabold leading-tight text-slate-900 sm:text-2xl">
+          <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
             {tr.responsibility.heading}
           </h3>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
@@ -87,7 +87,7 @@ export default function CapitalMarketsTraining() {
               return (
                 <div
                   key={level.title}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-900/10"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/10"
                 >
                   <div className="relative h-28 overflow-hidden">
                     <img
@@ -97,12 +97,12 @@ export default function CapitalMarketsTraining() {
                       loading="lazy"
                     />
                     <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <span className="absolute bottom-2.5 left-2.5 grid size-9 place-items-center rounded-xl bg-white/95 text-blue-600 shadow-sm backdrop-blur-sm">
+                    <span className="absolute bottom-2.5 left-2.5 grid size-9 place-items-center rounded-lg bg-white/95 text-gold-text shadow-sm backdrop-blur-sm">
                       <Icon className="size-[18px]" strokeWidth={2} />
                     </span>
                   </div>
                   <div className="p-5">
-                    <h4 className="text-base font-extrabold leading-tight text-slate-900">
+                    <h4 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
                       {level.title}
                     </h4>
                     <p className="mt-2 text-sm leading-relaxed text-slate-500">{level.desc}</p>
@@ -111,7 +111,7 @@ export default function CapitalMarketsTraining() {
               )
             })}
           </div>
-          <p className="mt-6 text-sm font-semibold italic leading-relaxed text-blue-700 sm:text-base">
+          <p className="mt-6 text-sm font-semibold italic leading-relaxed text-gold-text sm:text-base">
             {tr.responsibility.tagline}
           </p>
         </Reveal>
@@ -119,9 +119,9 @@ export default function CapitalMarketsTraining() {
         {/* governance spotlight */}
         <Reveal
           delay={240}
-          className="mt-16 rounded-3xl border border-slate-200 bg-slate-950 p-8 text-white sm:p-10"
+          className="mt-16 rounded-2xl border border-slate-200 bg-slate-950 p-8 text-white sm:p-10"
         >
-          <h3 className="max-w-xl font-sans text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">
+          <h3 className="max-w-xl font-sans text-[20px] leading-[28px] font-semibold tracking-tight lg:text-[24px] lg:leading-[32px]">
             {tr.governance.heading}
           </h3>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-white/65 sm:text-base">
@@ -139,7 +139,7 @@ export default function CapitalMarketsTraining() {
             ))}
           </div>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-white/60">{tr.governance.closing}</p>
-          <p className="mt-3 max-w-2xl text-sm font-semibold italic leading-relaxed text-blue-300 sm:text-base">
+          <p className="mt-3 max-w-2xl text-sm font-semibold italic leading-relaxed text-gold sm:text-base">
             {tr.governance.tagline}
           </p>
         </Reveal>
@@ -147,7 +147,7 @@ export default function CapitalMarketsTraining() {
         <Reveal delay={260} className="mt-12 flex justify-center">
           <Link
             to="/training"
-            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-blue-700 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-xl shadow-blue-700/20 transition-all hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-2xl hover:shadow-blue-700/30"
+            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-amber-700 px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white shadow-xl shadow-amber-700/20 transition-all hover:-translate-y-0.5 hover:bg-amber-600 hover:shadow-2xl hover:shadow-amber-700/30"
           >
             <GraduationCap className="size-4" strokeWidth={2} />
             {tr.cta}

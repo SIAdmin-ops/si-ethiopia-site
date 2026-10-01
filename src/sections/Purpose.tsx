@@ -14,7 +14,7 @@ export default function Purpose() {
   ]
 
   return (
-    <section id="about" className="relative overflow-hidden bg-slate-950 text-white">
+    <section id="about" className="relative overflow-hidden bg-teal-900 text-white">
       <div aria-hidden className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1476304884326-cd2c88572c5f?w=1800&h=1000&fit=crop&auto=format"
@@ -26,7 +26,7 @@ export default function Purpose() {
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "linear-gradient(180deg, rgba(2,6,23,0.9) 0%, rgba(30,27,75,0.85) 55%, rgba(2,6,23,0.94) 100%)",
+              "linear-gradient(180deg, rgba(14,31,33,0.9) 0%, rgba(11,79,85,0.85) 55%, rgba(14,31,33,0.94) 100%)",
           }}
         />
       </div>
@@ -40,7 +40,7 @@ export default function Purpose() {
         }}
       />
 
-      <div className={`${wrap} relative py-24 sm:py-32`}>
+      <div className={`${wrap} relative py-16 sm:py-24`}>
         <Reveal className="flex items-center justify-center gap-2.5">
           <span className="size-2 rounded-full bg-white" />
           <span className="text-xs font-bold uppercase tracking-[0.96px] text-white/80">
@@ -51,7 +51,7 @@ export default function Purpose() {
           as="h2"
           delay={80}
           text={p.heading}
-          className="mx-auto mt-4 max-w-2xl text-center font-display text-[30px] font-extrabold leading-tight tracking-tight sm:text-[44px] lg:text-[52px]"
+          className="mx-auto mt-4 max-w-2xl text-center font-display text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         />
 
         <div className="relative mt-16 grid gap-14 sm:grid-cols-2 sm:gap-0">
@@ -66,10 +66,10 @@ export default function Purpose() {
               delay={i * 120}
               className={`flex flex-col items-start gap-5 ${i === 0 ? "sm:pr-14" : "sm:pl-14"}`}
             >
-              <span className="grid size-14 place-items-center rounded-2xl bg-white/10 text-indigo-300 ring-1 ring-white/15">
+              <span className="grid size-14 place-items-center rounded-2xl bg-white/10 text-teal-300 ring-1 ring-white/15">
                 <Icon className="size-6" strokeWidth={1.8} />
               </span>
-              <h3 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h3>
+              <h3 className="text-[20px] leading-[28px] font-semibold tracking-tight lg:text-[24px] lg:leading-[32px]">{title}</h3>
               <p className="max-w-md leading-relaxed text-white/75 sm:text-lg">{body}</p>
             </Reveal>
           ))}

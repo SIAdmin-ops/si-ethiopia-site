@@ -29,27 +29,27 @@ export default function Approach() {
   const step = t.approach.steps[active]
   const Icon = STEP_ICONS[active]
   return (
-    <section id="approach" className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-32">
+    <section id="approach" className="relative overflow-hidden bg-white py-16 text-ink sm:py-24">
       <div
         aria-hidden
-        className="absolute inset-0 opacity-50"
+        className="absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "radial-gradient(50% 50% at 80% 0%, rgba(25,131,136,0.3) 0%, transparent 60%)",
+            "radial-gradient(50% 50% at 80% 0%, rgba(25,131,136,0.08) 0%, transparent 60%)",
         }}
       />
       <div className={`${wrap} relative`}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-indigo-300">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
           {t.approach.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-2xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[40px] lg:text-[44px]"
+          className="mt-3 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.approach.heading}
         </Reveal>
-        <Reveal as="p" delay={140} className="mt-4 max-w-xl text-white/70">
+        <Reveal as="p" delay={140} className="mt-4 max-w-xl text-text-secondary">
           {t.approach.sub}
         </Reveal>
 
@@ -61,20 +61,20 @@ export default function Approach() {
               <button
                 key={s.key}
                 onClick={() => setActive(i)}
-                className={`press flex shrink-0 snap-start items-center gap-2.5 rounded-xl border px-4 py-3 text-left transition-all ${
+                className={`press flex shrink-0 snap-start items-center gap-2.5 rounded-lg border px-4 py-3 text-left transition-all ${
                   on
-                    ? "border-indigo-400 bg-indigo-500/20"
-                    : "border-white/10 bg-white/[0.04] hover:-translate-y-0.5 hover:border-white/25"
+                    ? "border-teal bg-teal-50"
+                    : "border-border bg-mist hover:-translate-y-0.5 hover:border-teal-200"
                 }`}
               >
                 <span
                   className={`grid size-8 place-items-center rounded-lg text-sm font-bold ${
-                    on ? "bg-indigo-500 text-white" : "bg-white/10 text-white/60"
+                    on ? "bg-teal text-white" : "bg-white text-text-secondary"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className={`text-sm font-semibold ${on ? "text-white" : "text-white/60"}`}>
+                <span className={`text-sm font-semibold ${on ? "text-teal-deep" : "text-text-secondary"}`}>
                   {s.key}
                 </span>
               </button>
@@ -85,30 +85,30 @@ export default function Approach() {
         {/* detail panel */}
         <div
           key={active}
-          className="reveal in mt-6 grid gap-8 rounded-2xl border border-white/10 bg-white/[0.05] p-6 backdrop-blur-sm sm:p-10 md:grid-cols-[auto_1fr]"
+          className="reveal in mt-6 grid gap-8 rounded-2xl border border-border bg-mist p-6 sm:p-10 md:grid-cols-[auto_1fr]"
         >
-          <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-indigo-500/20 text-indigo-300">
+          <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-teal-50 text-teal-deep">
             <Icon className="size-8" strokeWidth={1.8} />
           </div>
           <div>
-            <h3 className="text-2xl font-extrabold leading-tight sm:text-3xl">{step.tagline}</h3>
+            <h3 className="text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">{step.tagline}</h3>
             <div className="mt-4 max-w-2xl">
-              <Paragraphs text={step.desc} className="leading-relaxed text-white/75" />
+              <Paragraphs text={step.desc} className="leading-relaxed text-text-secondary" />
             </div>
 
-            <p className="mt-7 text-xs font-bold uppercase tracking-wider text-white/40">
+            <p className="mt-7 text-xs font-bold uppercase tracking-wider text-text-secondary/70">
               {t.approach.deliverLabel}
             </p>
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
               {step.items.map((it) => (
                 <div
                   key={it.title}
-                  className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4"
+                  className="flex items-start gap-3 rounded-2xl border border-border bg-white p-4"
                 >
-                  <Check className="mt-0.5 size-4 shrink-0 text-indigo-300" />
+                  <Check className="mt-0.5 size-4 shrink-0 text-teal" />
                   <div>
-                    <p className="text-sm font-bold">{it.title}</p>
-                    <p className="mt-1 text-sm leading-relaxed text-white/60">{it.desc}</p>
+                    <p className="text-sm font-bold text-ink">{it.title}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-text-secondary">{it.desc}</p>
                   </div>
                 </div>
               ))}

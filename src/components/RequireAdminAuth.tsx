@@ -10,11 +10,11 @@ export default function RequireAdminAuth() {
     return (
       <div className="flex min-h-screen items-center justify-center bg-slate-950 p-6 text-center text-white">
         <div className="max-w-md">
-          <h1 className="text-xl font-extrabold">Admin not configured</h1>
+          <h1 className="text-[28px] leading-[36px] font-bold sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">Admin not configured</h1>
           <p className="mt-3 text-sm text-white/70">
-            Set <code className="text-indigo-300">VITE_SUPABASE_URL</code> and{" "}
-            <code className="text-indigo-300">VITE_SUPABASE_ANON_KEY</code> in{" "}
-            <code className="text-indigo-300">.env.local</code>, then restart the dev server.
+            Set <code className="text-teal-300">VITE_SUPABASE_URL</code> and{" "}
+            <code className="text-teal-300">VITE_SUPABASE_ANON_KEY</code> in{" "}
+            <code className="text-teal-300">.env.local</code>, then restart the dev server.
           </p>
         </div>
       </div>

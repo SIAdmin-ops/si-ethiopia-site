@@ -719,6 +719,8 @@ const CONTENT = {
         heading: "Why we exist.",
         body1: "Strategy Innovations Consultancy PLC was built around a simple observation: Ethiopia's capital market was opening, but the advisory, technology, and talent infrastructure to support it did not yet exist at the standard international institutions expect. We set out to close that gap not by importing a foreign playbook, but by building the systems, training the people, and running the licensing processes ourselves, from the inside.",
         body2: "That approach took us from feasibility study to Ethiopia's first licensed investment bank, and from a handful of licence types to the full spectrum of securities intermediaries the Capital Market Proclamation 2021 makes possible. Today we operate as one group across three divisions Capital Markets, Technology, and Training each strengthening the others.",
+        parentPrefix: "SIC is the Ethiopian operating entity of ",
+        parentSuffix: ", headquartered in the United Kingdom.",
         stats: [
           { value: "3", label: "Integrated Divisions" },
           { value: "15+", label: "Licence Types Advised On" },
@@ -1248,6 +1250,7 @@ const CONTENT = {
       tagline: "Consultancy · Technology · Training",
       rights: "© 2026 Strategy Innovations Consultancy PLC. All rights reserved.",
       location: "Addis Ababa, Ethiopia",
+      parentCompany: "Part of Strategy Innovations —",
     },
   },
 
@@ -1959,6 +1962,8 @@ const CONTENT = {
         heading: "ለምን እንዳለን።",
         body1: "Strategy Innovations Consultancy PLC የተገነባው በአንድ ቀላል ምልከታ ዙሪያ ነው፦ የኢትዮጵያ ካፒታል ገበያ እየተከፈተ ነበር፣ ነገር ግን ዓለም አቀፍ ተቋማት የሚጠብቁትን ደረጃ የሚያሟላ የአማካሪነት፣ የቴክኖሎጂ እና የተሰጥዖ መሠረተ ልማት ገና አልነበረም። ያንን ክፍተት ለመድፈን ተነሳን የውጭ ስልትን በማስመጣት ሳይሆን፣ ስርዓቶችን በራሳችን በመገንባት፣ ሰዎችን በማሰልጠን እና የፈቃድ ሂደቶችን ከውስጥ ሆነን በማስኬድ።",
         body2: "ይህ አካሔድ ከአዋጭነት ጥናት እስከ ኢትዮጵያ የመጀመሪያ ፈቃድ ያለው የኢንቨስትመንት ባንክ ወሰደን፣ እንዲሁም ከጥቂት የፈቃድ ዓይነቶች ወደ ካፒታል ገበያ አዋጅ 2021 ወደሚፈቅደው ሙሉ የሴኪዩሪቲ አማላጆች ስፋት። ዛሬ እንደ አንድ ቡድን በሦስት ክፍሎች እንሰራለን ካፒታል ገበያዎች፣ ቴክኖሎጂ እና ስልጠና እያንዳንዱም ሌላውን የሚያጠናክር።",
+        parentPrefix: "SIC የ",
+        parentSuffix: " የኢትዮጵያ የስራ አካል ሲሆን፣ ዋና መሥሪያ ቤቱ በዩናይትድ ኪንግደም ይገኛል።",
         stats: [
           { value: "3", label: "የተዋሃዱ ክፍሎች" },
           { value: "15+", label: "የተመከረባቸው የፈቃድ ዓይነቶች" },
@@ -2488,6 +2493,7 @@ const CONTENT = {
       tagline: "ማማከር · ቴክኖሎጂ · ስልጠና",
       rights: "© 2026 Strategy Innovations Consultancy PLC። መብቱ በሕግ የተጠበቀ ነው።",
       location: "አዲስ አበባ፣ ኢትዮጵያ",
+      parentCompany: "የStrategy Innovations አካል —",
     },
   },
 
@@ -3197,6 +3203,8 @@ const CONTENT = {
         heading: "Maaliif akka jirru.",
         body1: "Strategy Innovations Consultancy PLC kan ijaarame ilaalcha salphaa tokko irratti hundaa'ee: gabaan kaappitaalaa Itoophiyaa banamaa ture, garuu bu'uurri gorsaa, teeknooloojii, fi ogummaa sadarkaa dhaabbileen addunyaa eegan hin jiru ture. Gargaarsa sana cufuuf ka'ne  karoora biyya alaa fiduun utuu hin taane, sirna ofuma keenyaa ijaarree, namoota leenjifnee, fi adeemsa hayyamaa mataa keenyaan geggeessuun.",
         body2: "Karaan kun qorannoo danda'amummaa irraa kaasee hanga baankii invastimantii hayyamamaa jalqabaa Itoophiyaatti nu geesse, akkasumas gosoota hayyamaa muraasa irraa hanga bal'ina guutuu dilaaltota qabeenyaa Labsii Gabaa Kaappitaalaa 2021 dandeessisutti. Har'a akka garee tokkootti dame sadii keessatti hojjenna  Gabaa Kaappitaalaa, Teeknooloojii, fi Leenjii  tokkoon tokkoon isaanii kan biraa cimsu.",
+        parentPrefix: "SIC damee hojii Itoophiyaa kan ",
+        parentSuffix: " yoo ta'u, buufatni isaa guddaan Yunaayitid Kingidam keessatti argama.",
         stats: [
           { value: "3", label: "Dameewwan Walitti Makaman" },
           { value: "15+", label: "Gosoota Hayyamaa Irratti Gorfaman" },
@@ -3725,6 +3733,7 @@ const CONTENT = {
       tagline: "Gorsaa · Teeknooloojii · Leenjii",
       rights: "© 2026 Strategy Innovations Consultancy PLC. Mirgi hundi seeraan eegameera.",
       location: "Finfinnee, Itoophiyaa",
+      parentCompany: "Kutaa Strategy Innovations —",
     },
   },
 
@@ -4434,6 +4443,8 @@ const CONTENT = {
         heading: "ስለምንታይ ንህሉ።",
         body1: "Strategy Innovations Consultancy PLC ኣብ ሓደ ቀሊል ርድኢት ዝተሃንጸ እዩ፦ ዕዳጋ ርእሰ-ማል ኢትዮጵያ ይኽፈት ነበረ፣ ግናኸ ትካላት ዓለምለኻዊ ደረጃ ዝጽበይዎ ትሕተ-ቅርጺ ምኽሪ፣ ቴክኖሎጂን ክእለትን ገና ኣይነበረን። ነቲ ክፍተት ንምዕጻው ተበጊስና  ናይ ወጻኢ ኣገባብ ብምምጻእ ዘይኮነስ፣ ስርዓታት ባዕልና ብምህናጽ፣ ሰባት ብምስልጣንን ኣሰራርሓ ፍቓድ ካብ ውሽጢ ባዕልና ብምምራሕን።",
         body2: "እዚ ኣገባብ ካብ መጽናዕቲ ተኻእሎነት ናብ ቀዳማይ ፍቓድ ዘለዎ ባንክ ኢንቨስትመንት ኢትዮጵያ ወሲዱና፣ ከምኡውን ካብ ውሑዳት ዓይነታት ፍቓድ ናብ ምሉእ ስፍሓት ደላሎ ዋሕስ ኣዋጅ ዕዳጋ ርእሰ-ማል 2021 ዘፍቅዶ። ሎሚ ከም ሓደ ጉጅለ ኣብ ሰለስተ ጨናፍር ንሰርሕ ኣሎና  ዕዳጋ ርእሰ-ማል፣ ቴክኖሎጂን ስልጠናን  ነፍስወከፎም ነቲ ካልእ ዘደልድል።",
+        parentPrefix: "SIC ትካል ኦፕሬሽን ኢትዮጵያ ናይ ",
+        parentSuffix: " ኮይኑ፣ ዋና ቤት ጽሕፈቱ ኣብ ዓባይ ብሪጣንያ ይርከብ።",
         stats: [
           { value: "3", label: "ዝተወሃሃዱ ጨናፍር" },
           { value: "15+", label: "ዝተመኸረሎም ዓይነታት ፍቓድ" },
@@ -4962,6 +4973,7 @@ const CONTENT = {
       tagline: "ምኽሪ · ቴክኖሎጂ · ስልጠና",
       rights: "© 2026 Strategy Innovations Consultancy PLC። ኩሉ መሰል ተሓልዩ እዩ።",
       location: "ኣዲስ ኣበባ፣ ኢትዮጵያ",
+      parentCompany: "ክፋል Strategy Innovations —",
     },
   },
 } as const

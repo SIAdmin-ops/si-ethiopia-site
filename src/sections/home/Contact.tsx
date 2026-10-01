@@ -36,7 +36,7 @@ export default function HomeContact() {
   }
 
   const field =
-    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-shadow placeholder:text-slate-400 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+    "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-shadow placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
 
   const infoRows = [
     { icon: Mail, label: c.emailLabel, value: c.email },
@@ -46,20 +46,20 @@ export default function HomeContact() {
   ]
 
   return (
-    <section id="contact" className="bg-slate-50 py-24 sm:py-32">
+    <section id="contact" className="bg-slate-50 py-16 sm:py-24">
       <div className={`${wrap} grid gap-12 lg:grid-cols-2`}>
         <Reveal variant="left">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-indigo-600">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
             {c.eyebrow}
           </span>
-          <h2 className="mt-3 font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[40px] lg:text-[44px]">
+          <h2 className="mt-3 font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {c.heading}
           </h2>
 
           <div className="mt-8 space-y-4">
             {infoRows.map((row) => (
               <div key={row.label} className="group flex items-center gap-3 text-slate-700">
-                <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-indigo-50 text-indigo-600 transition-colors group-hover:bg-indigo-600 group-hover:text-white">
+                <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
                   <row.icon className="icon-pop size-[18px]" strokeWidth={2} />
                 </span>
                 <span className="flex flex-col">
@@ -76,14 +76,14 @@ export default function HomeContact() {
         <Reveal
           delay={120}
           variant="right"
-          className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 sm:p-8"
+          className="rounded-2xl bg-white p-6 ring-1 ring-slate-200 sm:p-8"
         >
           {sent ? (
             <div className="flex h-full min-h-[400px] flex-col items-center justify-center text-center">
-              <span className="grid size-14 place-items-center rounded-full bg-emerald-100 text-emerald-600">
+              <span className="grid size-14 place-items-center rounded-full bg-success/10 text-success">
                 <Check className="size-7" strokeWidth={2.5} />
               </span>
-              <h3 className="mt-5 text-xl font-extrabold text-slate-900">
+              <h3 className="mt-5 text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
                 {c.successTitle.replace("{name}", form.name.split(" ")[0])}
               </h3>
               <p className="mt-2 max-w-xs text-sm text-slate-600">{c.successBody}</p>
@@ -92,14 +92,14 @@ export default function HomeContact() {
                   setSent(false)
                   setForm({ name: "", email: "", company: "", division: "", msg: "" })
                 }}
-                className="mt-6 text-sm font-semibold text-indigo-600"
+                className="mt-6 text-sm font-semibold text-teal-600"
               >
                 {c.sendAnother}
               </button>
             </div>
           ) : (
             <form onSubmit={submit} className="flex flex-col gap-4" noValidate>
-              <h3 className="text-lg font-extrabold text-slate-900">{c.formTitle}</h3>
+              <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">{c.formTitle}</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1.5">
                   <span className="text-xs font-semibold text-slate-600">{c.nameLabel}</span>
@@ -160,14 +160,14 @@ export default function HomeContact() {
                 />
               </label>
               {error && (
-                <p className="text-sm font-medium text-red-600" role="alert">
+                <p className="text-sm font-medium text-error" role="alert">
                   {c.error}
                 </p>
               )}
               <button
                 type="submit"
                 disabled={!valid || submitting}
-                className="group press shine inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-indigo-500 enabled:hover:shadow-xl enabled:hover:shadow-indigo-600/30 disabled:cursor-not-allowed disabled:opacity-50"
+                className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 enabled:hover:shadow-xl enabled:hover:shadow-teal-600/30 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {submitting ? c.submitting : c.submit}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

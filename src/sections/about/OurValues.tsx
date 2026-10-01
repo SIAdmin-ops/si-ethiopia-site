@@ -12,13 +12,13 @@ export default function OurValues() {
   const v = t.aboutPage.ourValues
 
   return (
-    <section className="bg-white py-24 sm:py-32">
+    <section className="bg-white py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-3 text-center">
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-indigo-600">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
             {v.eyebrow}
           </span>
-          <h2 className="font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[40px] lg:text-[46px]">
+          <h2 className="font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {v.heading}
           </h2>
           <p className="leading-relaxed text-slate-600">{v.sub}</p>
@@ -29,13 +29,13 @@ export default function OurValues() {
             const Icon = ICONS[i]
             return (
               <Reveal key={item.title} delay={i * 60} className="group flex items-start gap-4">
-                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-indigo-50 text-indigo-600 transition-colors duration-200 group-hover:bg-indigo-600 group-hover:text-white">
+                <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-600 transition-colors duration-200 group-hover:bg-teal-600 group-hover:text-white">
                   <Icon className="icon-pop size-[18px]" strokeWidth={2.2} />
                 </span>
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="font-mono text-xs text-slate-300">{String(i + 1).padStart(2, "0")}</span>
-                    <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
+                    <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
                   </div>
                   <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.desc}</p>
                 </div>

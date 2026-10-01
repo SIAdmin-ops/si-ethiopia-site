@@ -1,6 +1,7 @@
 import { GraduationCap, ArrowRight } from "lucide-react"
 import { Link } from "react-router-dom"
 import PageIntro from "../components/PageIntro"
+import SectionNav from "../components/SectionNav"
 import Hero from "../sections/Hero"
 import Pillars from "../sections/Pillars"
 import Consulting from "../sections/Consulting"
@@ -44,16 +45,26 @@ export default function CapitalMarkets() {
     "/capital-markets",
   )
 
+  const sectionNavItems = [
+    { id: "advisory", label: t.consulting.eyebrow },
+    { id: "approach", label: m.approach.eyebrow },
+    { id: "regulatory", label: m.regulatory.eyebrow },
+    { id: "services", label: t.services.eyebrow },
+    { id: "technology", label: m.technology.eyebrow },
+    { id: "training-programs", label: m.training.eyebrow },
+  ]
+
   return (
     <>
       <Hero />
       <Pillars />
+      <SectionNav items={sectionNavItems} />
       <Consulting />
 
       <PageIntro
         eyebrow={m.eyebrow}
         heading={m.heading}
-        gradient="linear-gradient(120deg, #5b4508 0%, #9e780d 100%)"
+        gradient="linear-gradient(120deg, #0e1f21 0%, #0b4f55 100%)"
       >
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {m.journey.items.map((item, i) => (
@@ -65,7 +76,7 @@ export default function CapitalMarkets() {
               <span className="text-xs font-extrabold uppercase tracking-wider text-white/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-2 text-lg font-extrabold leading-tight text-white">{item.title}</h3>
+              <h3 className="mt-2 text-[20px] leading-[28px] font-semibold text-white lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-white/80">{item.desc}</p>
             </Reveal>
           ))}
@@ -81,9 +92,9 @@ export default function CapitalMarkets() {
       <Regulatory />
 
       {/* academy teaser */}
-      <section className="bg-white py-16 sm:py-20">
+      <section className="bg-white py-16 sm:py-24">
         <Reveal
-          className={`${wrap} flex flex-col items-center gap-6 rounded-3xl bg-gradient-to-br from-amber-600 to-emerald-700 p-8 text-center text-white sm:p-12`}
+          className={`${wrap} flex flex-col items-center gap-6 rounded-2xl bg-gradient-to-br from-teal-deep to-teal-600 p-8 text-center text-white sm:p-12`}
         >
           <span className="grid size-12 place-items-center rounded-2xl bg-white/15">
             <GraduationCap className="size-6" strokeWidth={2} />
@@ -91,7 +102,7 @@ export default function CapitalMarkets() {
           <span className="text-xs font-bold uppercase tracking-[0.66px] text-amber-100">
             {m.academy.eyebrow}
           </span>
-          <h2 className="max-w-xl font-display text-2xl font-extrabold tracking-tight sm:text-3xl lg:text-4xl">
+          <h2 className="max-w-xl font-display text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {m.academy.heading}
           </h2>
           <Paragraphs text={m.academy.body} className="max-w-lg text-white/85" />
@@ -101,7 +112,7 @@ export default function CapitalMarkets() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               to="/training"
-              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold uppercase tracking-wide text-amber-800 transition-all hover:-translate-y-0.5"
+              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-amber-800 transition-all hover:-translate-y-0.5"
             >
               {m.academy.ctaPrimary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

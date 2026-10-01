@@ -39,7 +39,7 @@ export default function LangToggle({ className = "" }: { className?: string }) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="press flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:text-indigo-600"
+        className="press flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-100 px-3 py-1.5 text-xs font-semibold text-slate-600 transition-colors hover:text-teal-600"
       >
         {current.label}
         <ChevronDown className={`size-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
@@ -47,7 +47,7 @@ export default function LangToggle({ className = "" }: { className?: string }) {
 
       <div
         role="listbox"
-        className={`absolute right-0 top-full z-50 mt-2 w-48 origin-top-right rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl shadow-slate-900/10 transition-all duration-150 ${
+        className={`absolute right-0 top-full z-50 mt-2 w-48 origin-top-right rounded-2xl border border-slate-200 bg-white p-1.5 shadow-xl shadow-slate-900/10 transition-all duration-150 ${
           open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
         }`}
       >
@@ -61,8 +61,8 @@ export default function LangToggle({ className = "" }: { className?: string }) {
               setLang(o.code)
               setOpen(false)
             }}
-            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-indigo-50 hover:text-indigo-600 ${
-              lang === o.code ? "font-semibold text-indigo-600" : "text-slate-600"
+            className={`flex w-full items-center justify-between rounded-lg px-3 py-2 text-left text-sm transition-colors hover:bg-teal-50 hover:text-teal-600 ${
+              lang === o.code ? "font-semibold text-teal-600" : "text-slate-600"
             }`}
           >
             <span className="flex items-center gap-2">

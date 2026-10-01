@@ -96,12 +96,12 @@ export default function NewsEditor() {
         Back to news
       </Link>
 
-      <h1 className="mt-4 text-2xl font-extrabold text-slate-900">
+      <h1 className="mt-4 text-[28px] leading-[36px] font-bold text-slate-900 sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">
         {isNew ? "Add news item" : "Edit news item"}
       </h1>
 
       {error && (
-        <p className="mt-4 rounded-xl border border-rose-200 bg-rose-50 p-4 text-sm text-rose-700">
+        <p className="mt-4 rounded-2xl border border-error/30 bg-error/10 p-4 text-sm text-error">
           {error}
         </p>
       )}
@@ -113,7 +113,7 @@ export default function NewsEditor() {
             <select
               value={category}
               onChange={(e) => setCategory(Number(e.target.value))}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             >
               {CATEGORY_LABELS.map((label, i) => (
                 <option key={label} value={i}>
@@ -128,7 +128,7 @@ export default function NewsEditor() {
               type="date"
               value={itemDate}
               onChange={(e) => setItemDate(e.target.value)}
-              className="rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+              className="rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             />
           </label>
           <label className="flex items-end gap-2 pb-2.5">
@@ -136,7 +136,7 @@ export default function NewsEditor() {
               type="checkbox"
               checked={published}
               onChange={(e) => setPublished(e.target.checked)}
-              className="size-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+              className="size-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
             />
             <span className="text-sm font-semibold text-slate-700">Published</span>
           </label>
@@ -150,7 +150,7 @@ export default function NewsEditor() {
               value={imageUrl}
               onChange={(e) => setImageUrl(e.target.value)}
               placeholder="https://…"
-              className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+              className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
             />
           </label>
           {imageUrl.trim() && (
@@ -173,7 +173,7 @@ export default function NewsEditor() {
                 onClick={() => setActiveLang(tab.code)}
                 className={`press rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
                   activeLang === tab.code
-                    ? "bg-indigo-600 text-white"
+                    ? "bg-teal-600 text-white"
                     : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                 }`}
               >
@@ -191,7 +191,7 @@ export default function NewsEditor() {
               <input
                 value={title[activeLang] ?? ""}
                 onChange={(e) => setTitle({ ...title, [activeLang]: e.target.value })}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                className="rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
               />
             </label>
             <label className="flex flex-col gap-1.5">
@@ -201,7 +201,7 @@ export default function NewsEditor() {
               <textarea
                 value={summary[activeLang] ?? ""}
                 onChange={(e) => setSummary({ ...summary, [activeLang]: e.target.value })}
-                className="min-h-[110px] resize-y rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                className="min-h-[110px] resize-y rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
               />
             </label>
           </div>
@@ -217,7 +217,7 @@ export default function NewsEditor() {
           <button
             onClick={submit}
             disabled={saving}
-            className="press shine inline-flex items-center rounded-lg bg-indigo-600 px-6 py-2.5 text-sm font-bold text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="press shine inline-flex items-center rounded-lg bg-teal-600 px-6 py-2.5 text-sm font-bold text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {saving ? "Saving…" : "Save"}
           </button>

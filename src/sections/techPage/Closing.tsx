@@ -11,20 +11,20 @@ export default function TechClosing() {
 
   return (
     <section
-      className="py-20 sm:py-28"
-      style={{ background: "linear-gradient(90deg, #0d1b2e 0%, #0d3d35 100%)" }}
+      className="py-16 sm:py-24"
+      style={{ background: "linear-gradient(90deg, #0e1f21 0%, #083a3e 100%)" }}
     >
       <div className={wrap}>
         <Reveal className="block">
           <div
-            className="relative overflow-hidden rounded-xl border border-[#2a5a52] p-10 text-center sm:p-16"
-            style={{ background: "linear-gradient(90deg, #262422 0%, #0d3f42 100%)" }}
+            className="relative overflow-hidden rounded-2xl border border-[#14676b] p-10 text-center sm:p-16"
+            style={{ background: "linear-gradient(90deg, #0e1f21 0%, #083a3e 100%)" }}
           >
             <div aria-hidden className="absolute inset-0 opacity-[0.12]">
               <img alt="" className="size-full object-cover" src="/tech-page/cta-texture.webp" />
             </div>
             <div className="relative flex flex-col items-center gap-7">
-              <h2 className="max-w-2xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-50 sm:text-[36px] lg:text-[42px]">
+              <h2 className="max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-50 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
                 {c.heading}
               </h2>
               <Paragraphs
@@ -52,7 +52,7 @@ export default function TechClosing() {
 
               <Link
                 to="/contact"
-                className="group press shine inline-flex items-center gap-2.5 rounded-md bg-teal-600 px-8 py-4 text-sm font-bold uppercase tracking-[1.5px] text-white shadow-[0_4px_8px_rgba(13,148,135,0.4)] transition-all hover:-translate-y-0.5"
+                className="group press shine inline-flex items-center gap-2.5 rounded-lg bg-teal-600 px-8 py-4 text-[15px] font-bold uppercase tracking-[1.5px] text-white shadow-[0_4px_8px_rgba(13,148,135,0.4)] transition-all hover:-translate-y-0.5"
               >
                 {c.button}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

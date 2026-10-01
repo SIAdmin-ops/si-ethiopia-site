@@ -31,14 +31,14 @@ const OVERLAY_ROUTES = [
 
 /** Header accent per page, applied as CSS variables so every `[var(--brand)]`
     class below repaints instantly on navigation matches each division's own
-    brand colour (Capital Markets' amber, Technology's deeper teal,
-    Training's blue); everything else keeps the site's default teal. */
-const DEFAULT_THEME = { accent: "#198388", hover: "#156a6e", tint: "#effafb", ring: "#d0f1f3" }
+    brand colour (Capital Markets' deep teal, Technology's teal,
+    Training's gold); everything else keeps the site's default teal. */
+const DEFAULT_THEME = { accent: "#198388", hover: "#0b4f55", tint: "#effafb", ring: "#d0f1f3" }
 const PAGE_THEMES: Record<string, typeof DEFAULT_THEME> = {
-  "/capital-markets": { accent: "#c49610", hover: "#9e780d", tint: "#fffcf0", ring: "#fff6d6" },
-  "/technology": { accent: "#156a6e", hover: "#115457", tint: "#effafb", ring: "#d0f1f3" },
-  "/training": { accent: "#1d4ed8", hover: "#1e40af", tint: "#eff6ff", ring: "#dbeafe" },
-  "/financial-literacy": { accent: "#1d4ed8", hover: "#1e40af", tint: "#eff6ff", ring: "#dbeafe" },
+  "/capital-markets": { accent: "#0b4f55", hover: "#083a3e", tint: "#effafb", ring: "#d0f1f3" },
+  "/technology": { accent: "#198388", hover: "#0b4f55", tint: "#effafb", ring: "#d0f1f3" },
+  "/training": { accent: "#946800", hover: "#6b4a00", tint: "#fffbeb", ring: "#fef3c7" },
+  "/financial-literacy": { accent: "#946800", hover: "#6b4a00", tint: "#fffbeb", ring: "#fef3c7" },
 }
 
 export default function Header() {
@@ -91,7 +91,7 @@ export default function Header() {
   }, [open])
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `relative rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
+    `relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
       overlay
         ? `text-white after:bg-white hover:bg-white/10 ${isActive ? "after:scale-x-100" : "text-white/80 after:scale-x-0"}`
         : `hover:text-[var(--brand)] after:bg-[var(--brand)] hover:after:scale-x-100 ${
@@ -100,7 +100,7 @@ export default function Header() {
     }`
 
   const mobileNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `rounded-xl px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
+    `rounded-lg px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
       isActive ? "bg-[var(--brand-tint)] text-[var(--brand)]" : "text-slate-700"
     }`
 
@@ -133,7 +133,7 @@ export default function Header() {
             <button
               type="button"
               aria-haspopup="true"
-              className={`relative flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
+              className={`relative flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
                 overlay
                   ? `text-white after:bg-white group-hover/divisions:bg-white/10 ${onADivisionRoute ? "after:scale-x-100" : "text-white/80 after:scale-x-0"}`
                   : `after:bg-[var(--brand)] group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
@@ -157,7 +157,7 @@ export default function Header() {
                       key={d.path}
                       to={d.path}
                       className={({ isActive }) =>
-                        `group/item relative flex flex-col gap-3 overflow-hidden rounded-xl p-4 transition-colors hover:bg-slate-50 ${
+                        `group/item relative flex flex-col gap-3 overflow-hidden rounded-2xl p-4 transition-colors hover:bg-slate-50 ${
                           isActive ? "bg-slate-50" : ""
                         }`
                       }
@@ -168,7 +168,7 @@ export default function Header() {
                         style={{ backgroundColor: accent }}
                       />
                       <span
-                        className="grid size-10 shrink-0 place-items-center rounded-xl transition-all duration-200 group-hover/item:-translate-y-0.5 group-hover/item:scale-105"
+                        className="grid size-10 shrink-0 place-items-center rounded-lg transition-all duration-200 group-hover/item:-translate-y-0.5 group-hover/item:scale-105"
                         style={{ backgroundColor: `${accent}1a`, color: accent }}
                       >
                         <Icon className="size-[18px]" strokeWidth={2} />
@@ -251,7 +251,7 @@ export default function Header() {
             type="button"
             aria-expanded={divisionsOpenMobile}
             onClick={() => setDivisionsOpenMobile((v) => !v)}
-            className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
+            className={`flex items-center justify-between rounded-lg px-4 py-3.5 text-base font-semibold transition-colors hover:bg-[var(--brand-tint)] hover:text-[var(--brand)] ${
               onADivisionRoute ? "text-[var(--brand)]" : "text-slate-700"
             }`}
           >

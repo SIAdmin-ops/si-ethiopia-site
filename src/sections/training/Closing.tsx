@@ -13,8 +13,8 @@ export default function TrainingClosing() {
 
   return (
     <section
-      className="relative overflow-hidden py-24 sm:py-32"
-      style={{ background: "linear-gradient(90deg, #1e3a8a 0%, #0284c7 100%)" }}
+      className="relative overflow-hidden py-16 sm:py-24"
+      style={{ background: "linear-gradient(90deg, #0e1f21 0%, #0b4f55 100%)" }}
     >
       <div aria-hidden className="absolute inset-0">
         <img
@@ -25,12 +25,12 @@ export default function TrainingClosing() {
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(90deg, rgba(30,58,138,0.75) 0%, rgba(2,132,199,0.7) 100%)" }}
+          style={{ backgroundImage: "linear-gradient(90deg, rgba(14,31,33,0.75) 0%, rgba(11,79,85,0.7) 100%)" }}
         />
       </div>
       <div className={`${wrap} relative`}>
         <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-7 text-center text-white">
-          <h2 className="font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[36px] lg:text-[42px]">
+          <h2 className="font-display text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {c.heading}
           </h2>
           <p className="text-base leading-relaxed text-white/80 sm:text-lg">{c.body}</p>
@@ -62,7 +62,7 @@ export default function TrainingClosing() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href="#programmes"
-              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-blue-800 shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
+              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-gold-text shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
             >
               {c.ctaPrimary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

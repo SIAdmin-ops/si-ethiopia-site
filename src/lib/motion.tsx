@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react"
 
-export const wrap = "mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-20"
+export const wrap = "mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-20"
 
 type Variant = "up" | "left" | "right" | "zoom" | "blur"
 
@@ -183,7 +183,7 @@ export function ScrollProgress() {
   return (
     <div className="fixed inset-x-0 top-0 z-[60] h-0.5 bg-transparent">
       <div
-        className="h-full origin-left bg-gradient-to-r from-indigo-500 to-emerald-400"
+        className="h-full origin-left bg-gradient-to-r from-teal-600 to-teal-300"
         style={{ transform: `scaleX(${p})` }}
       />
     </div>

@@ -12,14 +12,14 @@ export default function ContactHero() {
     <section className="relative bg-white pb-4 pt-32 sm:pb-8 sm:pt-40 lg:pt-48">
       <div className={`${wrap} flex flex-col items-center text-center`}>
         <Reveal className="inline-flex items-center gap-2.5">
-          <span className="h-px w-8 bg-indigo-600" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-indigo-600">
+          <span className="h-px w-8 bg-teal-600" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
             {c.eyebrow}
           </span>
-          <span className="h-px w-8 bg-indigo-600" />
+          <span className="h-px w-8 bg-teal-600" />
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-6 max-w-3xl font-display text-[40px] font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-[56px] lg:text-[72px]">
+          <h1 className="mt-6 max-w-3xl font-display text-[28px] leading-[36px] font-bold tracking-tight text-slate-900 sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">
             {c.heading}
           </h1>
         </Reveal>

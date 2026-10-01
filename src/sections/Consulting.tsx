@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import { Reveal, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
 import { HighlightSI } from "../lib/highlightSI"
-import { glow } from "../lib/glow"
 
 /** Splits on explicit "\n" breaks so a field written as several distinct
     sentences renders as separate paragraphs instead of one run-on block. */
@@ -17,7 +16,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-amber-300" />
+            <HighlightSI text={p} className="text-teal-deep" />
           </p>
         ))}
     </div>
@@ -26,15 +25,15 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
 
 /* Gradient badge colors cycled across the numbered consulting items. */
 const CONSULT_BADGES = [
-  "from-amber-500 to-yellow-500",
-  "from-emerald-400 to-teal-500",
-  "from-amber-400 to-orange-500",
-  "from-teal-500 to-emerald-600",
-  "from-yellow-400 to-amber-500",
-  "from-orange-400 to-amber-500",
-  "from-emerald-500 to-teal-600",
-  "from-amber-500 to-orange-600",
-  "from-emerald-400 to-green-500",
+  "from-teal-deep to-teal-600",
+  "from-teal-400 to-teal-600",
+  "from-amber-500 to-amber-700",
+  "from-teal-500 to-teal-700",
+  "from-teal-300 to-teal-500",
+  "from-amber-600 to-amber-800",
+  "from-teal-600 to-teal-800",
+  "from-amber-500 to-amber-800",
+  "from-teal-700 to-teal-900",
 ]
 
 /** Master–detail layout: a numbered list drives a persistent preview panel. */
@@ -44,25 +43,22 @@ export default function Consulting() {
   const item = t.consulting.items[active]
 
   return (
-    <section
-      className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-32"
-      style={{ backgroundImage: glow("amber") }}
-    >
+    <section id="advisory" className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-amber-400" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-amber-300">
+          <span className="size-1.5 rounded-full bg-teal-deep" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
             {t.consulting.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-4xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[44px]"
+          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.consulting.heading}
         </Reveal>
-        <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-white/65 sm:text-lg">
+        <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-text-secondary sm:text-lg">
           {t.consulting.sub}
         </Reveal>
 
@@ -79,8 +75,8 @@ export default function Consulting() {
                   aria-pressed={on}
                   className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-all ${
                     on
-                      ? "border-white/25 bg-white/[0.08] translate-x-1"
-                      : "border-white/10 bg-white/[0.02] hover:translate-x-1 hover:border-white/20"
+                      ? "border-teal-200 bg-teal-50 translate-x-1"
+                      : "border-border bg-white hover:translate-x-1 hover:border-teal-200"
                   }`}
                 >
                   <span
@@ -92,14 +88,14 @@ export default function Consulting() {
                   </span>
                   <span
                     className={`flex-1 text-sm font-semibold transition-colors ${
-                      on ? "text-white" : "text-white/70"
+                      on ? "text-teal-deep" : "text-text-secondary"
                     }`}
                   >
                     {it.title}
                   </span>
                   <ChevronRight
                     className={`size-4 shrink-0 transition-all ${
-                      on ? "translate-x-0 text-amber-300" : "-translate-x-1 text-white/30"
+                      on ? "translate-x-0 text-teal" : "-translate-x-1 text-slate-300"
                     }`}
                   />
                 </button>
@@ -109,7 +105,7 @@ export default function Consulting() {
 
           {/* detail preview */}
           <Reveal variant="right" className="lg:sticky lg:top-24 lg:self-start">
-            <div className="flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] backdrop-blur-sm">
+            <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-mist">
               <div>
                 <div className="relative h-40 overflow-hidden sm:h-48">
                   <img
@@ -123,7 +119,7 @@ export default function Consulting() {
                     className="absolute inset-0"
                     style={{
                       backgroundImage:
-                        "linear-gradient(180deg, rgba(2,6,23,0.15) 0%, rgba(2,6,23,0.75) 100%)",
+                        "linear-gradient(180deg, rgba(14,31,33,0.05) 0%, rgba(14,31,33,0.55) 100%)",
                     }}
                   />
                 </div>
@@ -133,19 +129,19 @@ export default function Consulting() {
                   >
                     {String(active + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-6 font-display text-2xl font-extrabold leading-tight sm:text-[30px]">
+                  <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">
                     {item.title}
                   </h3>
                   <div className="mt-4">
-                    <Paragraphs text={item.desc} className="leading-relaxed text-white/75" />
+                    <Paragraphs text={item.desc} className="leading-relaxed text-text-secondary" />
                   </div>
                 </div>
               </div>
-              <div className="mt-8 flex items-center gap-2 px-8 pb-8 text-xs font-semibold uppercase tracking-wider text-white/40 sm:px-10 sm:pb-10">
+              <div className="mt-8 flex items-center gap-2 px-8 pb-8 text-xs font-semibold uppercase tracking-wider text-text-secondary/70 sm:px-10 sm:pb-10">
                 <span>
                   {String(active + 1).padStart(2, "0")} / {String(t.consulting.items.length).padStart(2, "0")}
                 </span>
-                <span className="h-px flex-1 bg-white/10" />
+                <span className="h-px flex-1 bg-border" />
               </div>
             </div>
           </Reveal>
@@ -154,7 +150,7 @@ export default function Consulting() {
         <Reveal delay={120} className="mt-10 flex justify-center">
           <Link
             to="/contact"
-            className="text-sm font-semibold text-amber-300 underline decoration-amber-300/40 underline-offset-4 transition-colors hover:text-amber-200"
+            className="text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 transition-colors hover:text-teal-deep"
           >
             {t.consulting.cta}
           </Link>

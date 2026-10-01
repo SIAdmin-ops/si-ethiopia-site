@@ -13,7 +13,7 @@ export default function AdminLayout() {
             <span className="text-sm font-extrabold uppercase tracking-tight text-slate-900">
               Strategy Innovations Consultancy PLC
             </span>
-            <span className="text-xs font-semibold text-indigo-600">News Admin</span>
+            <span className="text-xs font-semibold text-teal-600">News Admin</span>
           </Link>
           <button
             onClick={() => void signOut()}

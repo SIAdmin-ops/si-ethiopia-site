@@ -4,19 +4,30 @@
 @theme {
   --font-display: 'Outfit', 'Noto Sans Ethiopic', sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
-  --color-ink: #0f172a;
-  --color-slate-body: #625f5b;
-  --color-indigo-brand: #198388;
 
-  /* Client-supplied "Color System" reference: Primary = Teal, Secondary =
-     Amber, Neutral = warm Slate. Redefined at the Tailwind primitive level
-     (the teal, amber and slate scales) rather than only the semantic
-     primary, secondary and neutral aliases below, so every existing
-     utility class already used site-wide (division accents, buttons,
-     text, backgrounds) picks up the new palette without a file-by-file
-     rename. The indigo scale is redefined to the same teal values since
-     teal is now the site's single default brand color, replacing indigo
-     everywhere it was previously used as the default accent. */
+  /* ---- Brand color system (single source of truth) ----
+     Primary = Teal, Secondary = Gold (dark-surface accent only),
+     Neutral = cool Slate anchored on Ink/Mist. Named semantic tokens
+     below are the ones new code should reach for; the numbered
+     teal/amber/slate scales are redefined to the same underlying
+     values so every existing utility class (division accents,
+     buttons, text, backgrounds) already used site-wide picks up the
+     new palette without a file-by-file class rename. */
+  --color-teal-deep: #0b4f55;
+  --color-teal: #198388;
+  --color-aqua: #6bcfd4;
+  --color-gold: #e3a614;
+  --color-gold-text: #946800;
+  --color-ink: #0e1f21;
+  --color-mist: #f3f6f5;
+  --color-white: #ffffff;
+  --color-text-secondary: #4f5d5b;
+  --color-border: #d5dddb;
+
+  --color-success: #1f7a4d;
+  --color-warning: #b45309;
+  --color-error: #b42318;
+
   --color-teal-50: #effafb;
   --color-teal-100: #d0f1f3;
   --color-teal-200: #a3e2e6;
@@ -24,46 +35,34 @@
   --color-teal-400: #3ab9bf;
   --color-teal-500: #1f9ea4;
   --color-teal-600: #198388;
-  --color-teal-700: #156a6e;
-  --color-teal-800: #115457;
-  --color-teal-900: #0d3f42;
-  --color-teal-950: #092c2e;
+  --color-teal-700: #14676b;
+  --color-teal-800: #0b4f55;
+  --color-teal-900: #083a3e;
+  --color-teal-950: #062a2d;
 
-  --color-indigo-50: var(--color-teal-50);
-  --color-indigo-100: var(--color-teal-100);
-  --color-indigo-200: var(--color-teal-200);
-  --color-indigo-300: var(--color-teal-300);
-  --color-indigo-400: var(--color-teal-400);
-  --color-indigo-500: var(--color-teal-500);
-  --color-indigo-600: var(--color-teal-600);
-  --color-indigo-700: var(--color-teal-700);
-  --color-indigo-800: var(--color-teal-800);
-  --color-indigo-900: var(--color-teal-900);
-  --color-indigo-950: var(--color-teal-950);
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde896;
+  --color-amber-300: #f6d35c;
+  --color-amber-400: #edbe2e;
+  --color-amber-500: #f0b62a;
+  --color-amber-600: #e3a614;
+  --color-amber-700: #b9860f;
+  --color-amber-800: #946800;
+  --color-amber-900: #6b4a00;
+  --color-amber-950: #4a3300;
 
-  --color-amber-50: #fffcf0;
-  --color-amber-100: #fff6d6;
-  --color-amber-200: #ffeba8;
-  --color-amber-300: #ffdd73;
-  --color-amber-400: #ffcd42;
-  --color-amber-500: #e8b316;
-  --color-amber-600: #c49610;
-  --color-amber-700: #9e780d;
-  --color-amber-800: #7b5d0b;
-  --color-amber-900: #5b4508;
-  --color-amber-950: #3e3006;
-
-  --color-slate-50: #f8f9f8;
-  --color-slate-100: #f0f0ef;
-  --color-slate-200: #dfdedd;
-  --color-slate-300: #c6c4c2;
-  --color-slate-400: #adaaa6;
-  --color-slate-500: #93908b;
-  --color-slate-600: #7a7772;
-  --color-slate-700: #625f5b;
-  --color-slate-800: #4c4945;
-  --color-slate-900: #383532;
-  --color-slate-950: #262422;
+  --color-slate-50: #f3f6f5;
+  --color-slate-100: #e7ecea;
+  --color-slate-200: #d5dddb;
+  --color-slate-300: #b9c4c1;
+  --color-slate-400: #93a19d;
+  --color-slate-500: #71827e;
+  --color-slate-600: #4f5d5b;
+  --color-slate-700: #3a4544;
+  --color-slate-800: #293230;
+  --color-slate-900: #182120;
+  --color-slate-950: #0e1f21;
 
   --color-primary-50: var(--color-teal-50);
   --color-primary-100: var(--color-teal-100);
@@ -113,14 +112,14 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
-  background-color: #f8f9f8;
-  color: #0f172a;
+  background-color: #f3f6f5;
+  color: #0e1f21;
   overflow-x: hidden;
 }
 
 ::selection {
   background: rgba(25, 131, 136, 0.18);
-  color: #0d3f42;
+  color: #0b4f55;
 }
 
 /* Hide scrollbars until scrolling */
@@ -129,7 +128,7 @@ body {
   scrollbar-color: transparent transparent;
 }
 *:hover {
-  scrollbar-color: rgba(147, 144, 139, 0.35) transparent;
+  scrollbar-color: rgba(79, 93, 91, 0.35) transparent;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -142,7 +141,7 @@ body {
   background-clip: content-box;
 }
 *:hover::-webkit-scrollbar-thumb {
-  background: rgba(147, 144, 139, 0.35);
+  background: rgba(79, 93, 91, 0.35);
   background-clip: content-box;
 }
 
@@ -251,6 +250,25 @@ body {
   50% { opacity: 0.55; }
 }
 
+/* Hero scroll cue: a dot traveling down inside its track, replacing the
+   default Tailwind bounce/ping (too generic, doesn't imply "scroll"). */
+@keyframes scroll-cue {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+/* Route-change cross-fade, keyed by pathname in Layout.tsx. Short and
+   understated: a page swap should read as "settled," not as a slide show. */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.page-enter {
+  animation: page-enter 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* Left-to-right fill for autoplaying step/segment progress bars. */
 @keyframes segment-fill {
   from { transform: scaleX(0); }
@@ -308,4 +326,5 @@ body {
   .segment-fill { animation: none; transform: scaleX(1); }
   .marquee-track { animation: none; }
   .detail-fade { animation: none; }
+  .page-enter { animation: none; }
 }

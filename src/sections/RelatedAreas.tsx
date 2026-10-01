@@ -12,7 +12,7 @@ const DIVISIONS_META = [
 const ACCENT: Record<string, { chip: string; border: string }> = {
   amber: { chip: "bg-amber-50 text-amber-700", border: "hover:border-amber-300" },
   teal: { chip: "bg-teal-50 text-teal-700", border: "hover:border-teal-300" },
-  blue: { chip: "bg-blue-50 text-blue-700", border: "hover:border-blue-300" },
+  blue: { chip: "bg-amber-50 text-gold-text", border: "hover:border-amber-300" },
 }
 
 /** Cross-links to the organization's other two divisions, appended near the
@@ -26,7 +26,7 @@ export default function RelatedAreas({ current }: { current: 0 | 1 | 2 }) {
     .filter(({ i }) => i !== current)
 
   return (
-    <section className="bg-slate-50 py-20 sm:py-24">
+    <section className="bg-slate-50 py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="flex items-center gap-2">
           <span className="size-1.5 rounded-full bg-slate-400" />
@@ -49,7 +49,7 @@ export default function RelatedAreas({ current }: { current: 0 | 1 | 2 }) {
                     <Icon className="icon-pop size-5" strokeWidth={1.8} />
                   </span>
                   <div className="min-w-0 flex-1">
-                    <h3 className="text-base font-extrabold text-slate-900">{item.title}</h3>
+                    <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
                     <p className="mt-0.5 truncate text-sm text-slate-500">{item.tagline}</p>
                   </div>
                   <ArrowRight className="size-4 shrink-0 text-slate-400 transition-transform group-hover:translate-x-1" />

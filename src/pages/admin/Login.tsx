@@ -32,11 +32,11 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         <div className="flex flex-col items-center text-center">
           <span className="text-sm font-extrabold uppercase tracking-tight">Strategy Innovations Consultancy PLC</span>
-          <span className="mt-1 text-xs font-semibold text-indigo-300">News Admin</span>
+          <span className="mt-1 text-xs font-semibold text-teal-300">News Admin</span>
         </div>
 
         {!isSupabaseConfigured && (
-          <p className="mt-6 rounded-xl border border-amber-400/30 bg-amber-400/10 p-4 text-center text-sm text-amber-200">
+          <p className="mt-6 rounded-2xl border border-amber-400/30 bg-amber-400/10 p-4 text-center text-sm text-amber-200">
             Supabase isn't configured yet. Set <code>VITE_SUPABASE_URL</code> and{" "}
             <code>VITE_SUPABASE_ANON_KEY</code> in <code>.env.local</code>.
           </p>
@@ -51,7 +51,7 @@ export default function AdminLogin() {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-xl border border-white/15 bg-white/[0.06] px-4 py-3 text-sm text-white outline-none transition-shadow placeholder:text-white/30 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30"
+              className="w-full rounded-lg border border-white/15 bg-white/[0.06] px-4 py-3 text-sm text-white outline-none transition-shadow placeholder:text-white/30 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/30"
             />
           </label>
           <label className="flex flex-col gap-1.5">
@@ -62,16 +62,16 @@ export default function AdminLogin() {
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-white/15 bg-white/[0.06] px-4 py-3 text-sm text-white outline-none transition-shadow placeholder:text-white/30 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-500/30"
+              className="w-full rounded-lg border border-white/15 bg-white/[0.06] px-4 py-3 text-sm text-white outline-none transition-shadow placeholder:text-white/30 focus:border-teal-400 focus:ring-2 focus:ring-teal-500/30"
             />
           </label>
 
-          {error && <p className="text-sm text-rose-300">{error}</p>}
+          {error && <p className="text-sm text-error">{error}</p>}
 
           <button
             type="submit"
             disabled={submitting}
-            className="group press shine mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-indigo-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="group press shine mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Signing in…" : "Sign In"}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

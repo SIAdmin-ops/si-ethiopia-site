@@ -14,8 +14,8 @@ const ACCENT: Record<
 > = {
   amber: { chip: "bg-amber-50 text-amber-700", bar: "bg-amber-500", ring: "ring-amber-400", glow: "shadow-amber-500/20" },
   teal: { chip: "bg-teal-50 text-teal-700", bar: "bg-teal-500", ring: "ring-teal-400", glow: "shadow-teal-500/20" },
-  rose: { chip: "bg-rose-50 text-rose-700", bar: "bg-rose-500", ring: "ring-rose-400", glow: "shadow-rose-500/20" },
-  sky: { chip: "bg-sky-50 text-sky-700", bar: "bg-sky-500", ring: "ring-sky-400", glow: "shadow-sky-500/20" },
+  rose: { chip: "bg-teal-100 text-teal-900", bar: "bg-teal-900", ring: "ring-teal-800", glow: "shadow-teal-900/20" },
+  sky: { chip: "bg-amber-100 text-amber-900", bar: "bg-amber-800", ring: "ring-amber-700", glow: "shadow-amber-800/20" },
 }
 
 /** Splits on explicit "\n" breaks so a field written as several distinct
@@ -62,10 +62,10 @@ export default function FocusSectors() {
   }, [flowAutoplay, reducedMotion, f.techFlow.length])
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-indigo-600" />
+          <span className="size-1.5 rounded-full bg-teal-600" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-slate-500">
             {f.eyebrow}
           </span>
@@ -73,7 +73,7 @@ export default function FocusSectors() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-2xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] lg:text-[44px]"
+          className="mt-4 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {f.heading}
         </Reveal>
@@ -111,7 +111,7 @@ export default function FocusSectors() {
                   >
                     <Icon className="icon-pop size-5" strokeWidth={1.8} />
                   </span>
-                  <h3 className="text-lg font-extrabold leading-tight text-slate-900">{sector.title}</h3>
+                  <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">{sector.title}</h3>
                   <Paragraphs text={sector.desc} className="text-[15px] leading-relaxed text-slate-600" />
                 </button>
               </Reveal>
@@ -122,13 +122,13 @@ export default function FocusSectors() {
         {/* technology as the connective thread across every focus sector */}
         <Reveal
           delay={220}
-          className="mt-14 rounded-3xl border border-slate-200 bg-slate-950 p-8 text-white sm:p-10"
+          className="mt-14 rounded-2xl border border-slate-200 bg-slate-950 p-8 text-white sm:p-10"
         >
-          <h3 className="max-w-xl font-sans text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">
+          <h3 className="max-w-xl font-sans text-[20px] leading-[28px] font-semibold tracking-tight lg:text-[24px] lg:leading-[32px]">
             {f.techHeading}
           </h3>
           <div className="mt-4 max-w-2xl">
-            <Paragraphs text={f.techBody} className="leading-relaxed text-white/70" highlightClassName="text-indigo-300" />
+            <Paragraphs text={f.techBody} className="leading-relaxed text-white/70" highlightClassName="text-teal-300" />
           </div>
 
           <div className="mt-9 flex flex-col items-stretch gap-2 lg:flex-row lg:items-center">
@@ -143,9 +143,9 @@ export default function FocusSectors() {
                       setFlowAutoplay(false)
                     }}
                     aria-pressed={isOn}
-                    className={`press relative flex flex-1 items-center justify-center overflow-hidden rounded-xl border px-4 py-4 text-center transition-all duration-500 ${
+                    className={`press relative flex flex-1 items-center justify-center overflow-hidden rounded-lg border px-4 py-4 text-center transition-all duration-500 ${
                       isOn
-                        ? "border-indigo-400/60 bg-indigo-500/15 shadow-lg shadow-indigo-500/10"
+                        ? "border-teal-400/60 bg-teal-500/15 shadow-lg shadow-teal-500/10"
                         : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.07]"
                     }`}
                   >
@@ -153,7 +153,7 @@ export default function FocusSectors() {
                       <span
                         key={flowStep}
                         aria-hidden
-                        className="segment-fill absolute inset-x-0 bottom-0 h-[3px] origin-left bg-indigo-400"
+                        className="segment-fill absolute inset-x-0 bottom-0 h-[3px] origin-left bg-teal-400"
                         style={{ "--dur": `${FLOW_STEP_DURATION}ms` } as React.CSSProperties}
                       />
                     )}
@@ -169,12 +169,12 @@ export default function FocusSectors() {
                     <>
                       <ArrowRight
                         className={`hidden size-4 shrink-0 transition-colors duration-500 lg:block ${
-                          isOn ? "text-indigo-400" : "text-white/30"
+                          isOn ? "text-teal-400" : "text-white/30"
                         }`}
                       />
                       <ArrowDown
                         className={`mx-auto size-4 shrink-0 transition-colors duration-500 lg:hidden ${
-                          isOn ? "text-indigo-400" : "text-white/30"
+                          isOn ? "text-teal-400" : "text-white/30"
                         }`}
                       />
                     </>

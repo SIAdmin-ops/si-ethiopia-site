@@ -27,19 +27,19 @@ export default function TrainingPartnership() {
   const p = t.home.trainingPartnership
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={`${wrap} grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16`}>
         <Reveal variant="left">
-          <p className="text-sm font-bold text-blue-600">{p.tagline}</p>
-          <h2 className="mt-2 font-display text-[26px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] lg:text-[44px]">
+          <p className="text-sm font-bold text-gold-text">{p.tagline}</p>
+          <h2 className="mt-2 font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {p.eyebrow}
           </h2>
           <div className="mt-5 max-w-md">
-            <Paragraphs text={p.body} className="leading-relaxed text-slate-600" highlightClassName="text-blue-600" />
+            <Paragraphs text={p.body} className="leading-relaxed text-slate-600" highlightClassName="text-gold-text" />
           </div>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-slate-600">{p.closingBody}</p>
           <p className="mt-6 max-w-md text-base font-extrabold leading-snug text-slate-900">{p.closing}</p>
-          <p className="mt-3 text-sm font-semibold italic text-blue-600">{p.finalTagline}</p>
+          <p className="mt-3 text-sm font-semibold italic text-gold-text">{p.finalTagline}</p>
         </Reveal>
 
         <Reveal variant="right" delay={120}>
@@ -51,7 +51,7 @@ export default function TrainingPartnership() {
               return (
                 <div
                   key={partner}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-all duration-200 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-white hover:shadow-md hover:shadow-blue-900/5"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-200 hover:bg-white hover:shadow-md hover:shadow-amber-900/5"
                 >
                   {logo ? (
                     <div
@@ -73,14 +73,14 @@ export default function TrainingPartnership() {
                         loading="lazy"
                       />
                       <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/5 to-transparent" />
-                      <span className="absolute bottom-2 left-2 grid size-8 place-items-center rounded-lg bg-white/95 text-blue-600 shadow-sm backdrop-blur-sm">
+                      <span className="absolute bottom-2 left-2 grid size-8 place-items-center rounded-lg bg-white/95 text-gold-text shadow-sm backdrop-blur-sm">
                         <Icon className="size-4" strokeWidth={1.8} />
                       </span>
                     </div>
                   )}
                   <div className="p-3.5">
                     <span className="text-sm font-bold text-slate-800">{partner}</span>
-                    {logo && <span className="mt-0.5 block text-xs font-semibold text-blue-600">{logo.role}</span>}
+                    {logo && <span className="mt-0.5 block text-xs font-semibold text-gold-text">{logo.role}</span>}
                   </div>
                 </div>
               )

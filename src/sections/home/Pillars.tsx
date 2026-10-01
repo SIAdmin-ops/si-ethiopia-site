@@ -9,14 +9,14 @@ const PILLAR_NUMS = ["01", "02", "03"]
 
 const ACCENT: Record<string, { text: string; chip: string; num: string }> = {
   indigo: {
-    text: "text-indigo-600",
-    chip: "bg-indigo-50 text-indigo-700 ring-indigo-200",
-    num: "text-indigo-600",
+    text: "text-teal-600",
+    chip: "bg-teal-50 text-teal-700 ring-teal-200",
+    num: "text-teal-600",
   },
   emerald: {
-    text: "text-emerald-600",
-    chip: "bg-emerald-50 text-emerald-700 ring-emerald-200",
-    num: "text-emerald-600",
+    text: "text-gold-text",
+    chip: "bg-amber-100 text-gold-text ring-amber-300",
+    num: "text-gold-text",
   },
   amber: {
     text: "text-amber-600",
@@ -33,11 +33,11 @@ export default function HomePillars() {
   const p = t.home.pillars
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-24 sm:py-32">
-      <Motif variant="network" className="text-indigo-600" />
+    <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-24">
+      <Motif variant="network" className="text-teal-600" />
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-indigo-600" />
+          <span className="size-1.5 rounded-full bg-teal-600" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-slate-500">
             {p.eyebrow}
           </span>
@@ -45,7 +45,7 @@ export default function HomePillars() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-xl font-display text-[28px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[36px] lg:text-[44px]"
+          className="mt-4 max-w-xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {p.heading}
         </Reveal>
@@ -67,7 +67,7 @@ export default function HomePillars() {
                     {PILLAR_NUMS[i]}
                   </span>
                   <div>
-                    <h3 className="text-2xl font-extrabold leading-tight text-slate-900 sm:text-[28px]">
+                    <h3 className="text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-[15px] leading-relaxed text-slate-500">{item.lead}</p>

@@ -19,11 +19,11 @@ export default function Footer() {
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "radial-gradient(60% 70% at 15% 0%, rgba(25,131,136,0.22) 0%, transparent 55%), radial-gradient(45% 60% at 100% 100%, rgba(255,205,66,0.12) 0%, transparent 50%)",
+            "radial-gradient(60% 70% at 15% 0%, rgba(25,131,136,0.22) 0%, transparent 55%), radial-gradient(45% 60% at 100% 100%, rgba(227,166,20,0.12) 0%, transparent 50%)",
         }}
       />
 
-      <div className={`${wrap} relative py-20 sm:py-28`}>
+      <div className={`${wrap} relative py-16 sm:py-24`}>
         <Reveal className="flex items-center gap-3">
           <img
             src="/Strategy_Innovations_Logo.png"
@@ -75,16 +75,21 @@ export default function Footer() {
         <div
           className={`${wrap} flex flex-col gap-1 py-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between`}
         >
-          <span>{t.footer.rights}</span>
-          <span className="flex items-center gap-3">
-            {t.footer.location}
-            <Link
-              to="/admin/login"
-              aria-label="Admin"
-              tabIndex={-1}
-              className="size-1.5 shrink-0 rounded-full bg-white/10 outline-none transition-colors hover:bg-white/40 focus-visible:bg-white/40"
-            />
+          <span className="flex flex-col gap-1">
+            <span>{t.footer.rights}</span>
+            <span>
+              {t.footer.parentCompany}{" "}
+              <a
+                href="https://strategy-innovations.com"
+                target="_blank"
+                rel="noopener"
+                className="text-teal-400 underline-offset-2 hover:underline"
+              >
+                strategy-innovations.com
+              </a>
+            </span>
           </span>
+          <span className="flex items-center gap-3">{t.footer.location}</span>
         </div>
       </div>
     </footer>

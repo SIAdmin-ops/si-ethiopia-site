@@ -4,24 +4,23 @@ import { Link } from "react-router-dom"
 import { Reveal, wrap } from "../../lib/motion"
 import { useI18n } from "../../i18n"
 import { Paragraphs } from "../../lib/paragraphs"
-import { glow } from "../../lib/glow"
 
 /* Gradient badge colors cycled across the 14 numbered capability items. */
 const BADGES = [
-  "from-teal-500 to-emerald-600",
-  "from-cyan-500 to-teal-600",
-  "from-emerald-400 to-teal-500",
-  "from-teal-400 to-cyan-500",
-  "from-emerald-500 to-teal-600",
-  "from-cyan-400 to-emerald-500",
-  "from-teal-500 to-cyan-600",
-  "from-emerald-400 to-cyan-500",
-  "from-teal-600 to-emerald-500",
-  "from-cyan-500 to-emerald-600",
-  "from-emerald-500 to-cyan-600",
-  "from-teal-400 to-emerald-600",
-  "from-cyan-600 to-teal-500",
-  "from-emerald-600 to-teal-400",
+  "from-teal-600 to-teal-900",
+  "from-teal-300 to-teal-600",
+  "from-amber-400 to-amber-700",
+  "from-teal-800 to-slate-950",
+  "from-teal-400 to-teal-700",
+  "from-amber-500 to-amber-800",
+  "from-teal-500 to-teal-800",
+  "from-teal-300 to-teal-700",
+  "from-amber-300 to-amber-600",
+  "from-teal-700 to-teal-900",
+  "from-amber-600 to-amber-900",
+  "from-teal-400 to-teal-800",
+  "from-teal-600 to-teal-400",
+  "from-amber-700 to-amber-500",
 ]
 
 /** Master–detail layout (numbered list drives a persistent preview panel)
@@ -37,24 +36,23 @@ export default function TechCapabilities() {
   return (
     <section
       id="capabilities"
-      className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-32"
-      style={{ backgroundImage: glow("teal") }}
+      className="relative overflow-hidden bg-white py-16 sm:py-24"
     >
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-400" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-300">
+          <span className="size-1.5 rounded-full bg-teal-deep" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
             {c.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-4xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[44px]"
+          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {c.heading}
         </Reveal>
-        <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-white/65 sm:text-lg">
+        <Reveal as="p" delay={140} className="mt-4 max-w-2xl text-text-secondary sm:text-lg">
           {c.intro}
         </Reveal>
 
@@ -71,8 +69,8 @@ export default function TechCapabilities() {
                   aria-pressed={on}
                   className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-all ${
                     on
-                      ? "border-white/25 bg-white/[0.08] translate-x-1"
-                      : "border-white/10 bg-white/[0.02] hover:translate-x-1 hover:border-white/20"
+                      ? "border-teal-200 bg-teal-50 translate-x-1"
+                      : "border-border bg-white hover:translate-x-1 hover:border-teal-200"
                   }`}
                 >
                   <span
@@ -84,14 +82,14 @@ export default function TechCapabilities() {
                   </span>
                   <span
                     className={`flex-1 text-sm font-semibold transition-colors ${
-                      on ? "text-white" : "text-white/70"
+                      on ? "text-teal-deep" : "text-text-secondary"
                     }`}
                   >
                     {it.title}
                   </span>
                   <ChevronRight
                     className={`size-4 shrink-0 transition-all ${
-                      on ? "translate-x-0 text-teal-300" : "-translate-x-1 text-white/30"
+                      on ? "translate-x-0 text-teal" : "-translate-x-1 text-slate-300"
                     }`}
                   />
                 </button>
@@ -103,7 +101,7 @@ export default function TechCapabilities() {
           <Reveal variant="right" className="lg:sticky lg:top-24 lg:self-start">
             <div
               key={active}
-              className="detail-fade flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/[0.05] p-8 backdrop-blur-sm sm:p-10"
+              className="detail-fade flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-mist p-8 sm:p-10"
             >
               <div>
                 <span
@@ -111,12 +109,12 @@ export default function TechCapabilities() {
                 >
                   {String(active + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-6 font-display text-[28px] font-extrabold leading-tight sm:text-[34px]">
+                <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm font-semibold text-teal-300 sm:text-base">{item.tagline}</p>
+                <p className="mt-2 text-sm font-semibold text-teal sm:text-base">{item.tagline}</p>
                 <div className="mt-4">
-                  <Paragraphs text={item.intro} className="leading-relaxed text-white/70" highlightClassName="text-teal-300" />
+                  <Paragraphs text={item.intro} className="leading-relaxed text-text-secondary" highlightClassName="text-teal-deep" />
                 </div>
 
                 {item.teaserChips ? (
@@ -125,7 +123,7 @@ export default function TechCapabilities() {
                       {item.teaserChips.map((chip) => (
                         <span
                           key={chip}
-                          className="rounded-full border border-teal-400/20 bg-teal-500/10 px-3.5 py-2 text-[13px] font-semibold text-teal-200"
+                          className="rounded-full border border-teal-200 bg-teal-50 px-3.5 py-2 text-[13px] font-semibold text-teal-deep"
                         >
                           {chip}
                         </span>
@@ -137,7 +135,7 @@ export default function TechCapabilities() {
                     {item.groups.map((group, gi) => (
                       <div key={group.title ?? gi}>
                         {group.title && (
-                          <p className="text-xs font-bold uppercase tracking-wider text-white/40">
+                          <p className="text-xs font-bold uppercase tracking-wider text-text-secondary/70">
                             {group.title}
                           </p>
                         )}
@@ -145,8 +143,8 @@ export default function TechCapabilities() {
                           <div className={group.title ? "mt-2" : ""}>
                             <Paragraphs
                               text={group.intro}
-                              className="text-sm leading-relaxed text-white/60"
-                              highlightClassName="text-teal-300"
+                              className="text-sm leading-relaxed text-text-secondary"
+                              highlightClassName="text-teal-deep"
                             />
                           </div>
                         )}
@@ -155,7 +153,7 @@ export default function TechCapabilities() {
                             {group.items.map((chip) => (
                               <span
                                 key={chip}
-                                className="rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-2 text-[13px] font-semibold text-white/85"
+                                className="rounded-full border border-border bg-white px-3.5 py-2 text-[13px] font-semibold text-ink"
                               >
                                 {chip}
                               </span>
@@ -168,13 +166,13 @@ export default function TechCapabilities() {
                 )}
 
                 {item.disclaimer && (
-                  <p className="mt-6 text-xs italic leading-relaxed text-white/40">{item.disclaimer}</p>
+                  <p className="mt-6 text-xs italic leading-relaxed text-text-secondary/70">{item.disclaimer}</p>
                 )}
 
                 {item.closing.length > 0 && (
-                  <div className="mt-6 border-t border-white/10 pt-6">
+                  <div className="mt-6 border-t border-border pt-6">
                     {item.closing.length === 1 ? (
-                      <p className="text-sm font-semibold italic leading-relaxed text-teal-200 sm:text-base">
+                      <p className="text-sm font-semibold italic leading-relaxed text-teal-deep sm:text-base">
                         {item.closing[0]}
                       </p>
                     ) : (
@@ -184,8 +182,8 @@ export default function TechCapabilities() {
                             key={li}
                             className={`text-sm leading-relaxed sm:text-base ${
                               li === item.closing.length - 1
-                                ? "font-bold text-teal-200"
-                                : "text-white/70"
+                                ? "font-bold text-teal-deep"
+                                : "text-text-secondary"
                             }`}
                           >
                             {line}
@@ -198,17 +196,17 @@ export default function TechCapabilities() {
 
                 <Link
                   to={item.ctaOverride?.to ?? "/contact"}
-                  className="group/cta mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-teal-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-teal-500"
+                  className="group/cta mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-teal-deep px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-teal"
                 >
                   {item.ctaOverride?.label ?? c.cta}
                   <ArrowRight className="size-4 transition-transform group-hover/cta:translate-x-1" />
                 </Link>
               </div>
-              <div className="mt-8 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/40">
+              <div className="mt-8 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
                 <span>
                   {String(active + 1).padStart(2, "0")} / {String(c.items.length).padStart(2, "0")}
                 </span>
-                <span className="h-px flex-1 bg-white/10" />
+                <span className="h-px flex-1 bg-border" />
               </div>
             </div>
           </Reveal>

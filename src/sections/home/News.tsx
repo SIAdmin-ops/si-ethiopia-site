@@ -7,10 +7,10 @@ import { useI18n } from "../../i18n"
 import { fetchPublishedNews, formatNewsDate, localize, type NewsItem } from "../../lib/news"
 
 const CATEGORY_META = [
-  { icon: Landmark, chip: "bg-white text-indigo-700" },
-  { icon: Cpu, chip: "bg-white text-emerald-700" },
+  { icon: Landmark, chip: "bg-white text-teal-800" },
+  { icon: Cpu, chip: "bg-white text-teal-600" },
   { icon: GraduationCap, chip: "bg-white text-amber-700" },
-  { icon: Building2, chip: "bg-white text-fuchsia-700" },
+  { icon: Building2, chip: "bg-white text-amber-900" },
 ]
 
 type DisplayItem = {
@@ -49,42 +49,7 @@ export default function News() {
 
   if (items === null) return null
 
-  if (items.length === 0) {
-    return (
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-teal-500 to-amber-600 py-24 text-white sm:py-32">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at center, rgba(255,255,255,0.6) 1px, transparent 1.4px)",
-            backgroundSize: "26px 26px",
-          }}
-        />
-        <div className={`${wrap} relative flex flex-col items-center py-6 text-center`}>
-          <Reveal className="flex items-center gap-2">
-            <span className="size-1.5 rounded-full bg-white" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-white/80">
-              {n.eyebrow}
-            </span>
-          </Reveal>
-          <Reveal
-            as="h2"
-            delay={80}
-            className="mt-4 max-w-2xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[40px] lg:text-[44px]"
-          >
-            {n.heading}
-          </Reveal>
-          <Reveal
-            delay={160}
-            className="mt-8 rounded-2xl border border-white/15 bg-white/[0.06] px-8 py-6 text-base font-semibold text-white/80"
-          >
-            {n.empty}
-          </Reveal>
-        </div>
-      </section>
-    )
-  }
+  if (items.length === 0) return null
 
   const display: DisplayItem[] = items.slice(0, 4).map((item) => ({
     cat: item.category,
@@ -96,7 +61,7 @@ export default function News() {
   const [featured, ...rest] = display
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-teal-500 to-amber-600 py-24 text-white sm:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-teal-700 via-teal-500 to-amber-600 py-16 text-white sm:py-24">
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.12]"
@@ -110,13 +75,13 @@ export default function News() {
       {/* looping headline ticker */}
       <div className="relative border-y border-white/15 bg-black/10 py-3">
         <div className="flex items-center gap-4 overflow-hidden">
-          <span className="ml-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-indigo-700 sm:ml-8">
+          <span className="ml-5 inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-teal-700 sm:ml-8">
             <span className="relative flex size-2">
               <span
-                className="absolute inline-flex size-full rounded-full bg-indigo-500 opacity-75"
+                className="absolute inline-flex size-full rounded-full bg-teal-600 opacity-75"
                 style={{ animation: "soft-pulse 1.6s ease-in-out infinite" }}
               />
-              <span className="relative inline-flex size-2 rounded-full bg-indigo-600" />
+              <span className="relative inline-flex size-2 rounded-full bg-teal-700" />
             </span>
             {n.liveLabel}
           </span>
@@ -143,7 +108,7 @@ export default function News() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-2xl font-display text-[28px] font-extrabold leading-tight tracking-tight sm:text-[40px] lg:text-[44px]"
+          className="mt-4 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {n.heading}
         </Reveal>
@@ -168,7 +133,7 @@ export default function News() {
           <p className="text-base font-semibold sm:text-lg">{n.ctaText}</p>
           <Link
             to="/contact"
-            className="group press shine inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-bold uppercase tracking-wide text-indigo-700 transition-all hover:-translate-y-0.5"
+            className="group press shine inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-teal-700 transition-all hover:-translate-y-0.5"
           >
             {n.ctaButton}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -196,7 +161,7 @@ function FeaturedCard({
   return (
     <Reveal variant="left" delay={180} className="block h-full">
       <div
-        className="group flex h-full flex-col justify-between overflow-hidden rounded-3xl ring-1 ring-white/15 backdrop-blur-md transition-all hover:-translate-y-1"
+        className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl ring-1 ring-white/15 backdrop-blur-md transition-all hover:-translate-y-1"
         style={{ backgroundColor: themed ? `rgba(${color}, 0.55)` : undefined }}
       >
         {item.imageUrl && (
@@ -205,7 +170,7 @@ function FeaturedCard({
             <div
               className="absolute inset-x-0 bottom-0 h-24"
               style={{
-                backgroundImage: `linear-gradient(to bottom, transparent, rgba(${color ?? "88, 28, 135"}, 0.9))`,
+                backgroundImage: `linear-gradient(to bottom, transparent, rgba(${color ?? "11, 79, 85"}, 0.9))`,
               }}
             />
           </div>
@@ -216,8 +181,8 @@ function FeaturedCard({
               <span
                 className={
                   themed
-                    ? "grid size-10 place-items-center rounded-xl bg-white"
-                    : `grid size-10 place-items-center rounded-xl ${meta.chip}`
+                    ? "grid size-10 place-items-center rounded-lg bg-white"
+                    : `grid size-10 place-items-center rounded-lg ${meta.chip}`
                 }
                 style={themed ? { color: `rgb(${color})` } : undefined}
               >
@@ -230,7 +195,7 @@ function FeaturedCard({
                 <span className="text-xs text-white/50">{item.date}</span>
               </div>
             </div>
-            <h3 className="mt-6 text-2xl font-extrabold leading-tight sm:text-3xl">{item.title}</h3>
+            <h3 className="mt-6 text-[20px] leading-[28px] font-semibold lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
             <p className="mt-4 max-w-lg leading-relaxed text-white/75">{item.summary}</p>
           </div>
           <span className="mt-7 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-white">
@@ -269,7 +234,7 @@ function MinorCard({
             <div
               className="absolute inset-x-0 bottom-0 h-14"
               style={{
-                backgroundImage: `linear-gradient(to bottom, transparent, rgba(${color ?? "88, 28, 135"}, 0.9))`,
+                backgroundImage: `linear-gradient(to bottom, transparent, rgba(${color ?? "11, 79, 85"}, 0.9))`,
               }}
             />
           </div>
@@ -291,7 +256,7 @@ function MinorCard({
             </span>
             <span className="ml-auto shrink-0 text-[11px] text-white/45">{item.date}</span>
           </div>
-          <h3 className="mt-3 text-[15px] font-bold leading-snug">{item.title}</h3>
+          <h3 className="mt-3 text-[15px] font-semibold leading-snug">{item.title}</h3>
           <p className="mt-2 flex-1 text-sm leading-relaxed text-white/70">{item.summary}</p>
         </div>
       </div>
