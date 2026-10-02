@@ -39,25 +39,25 @@ export default function SetsApart() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section className="relative overflow-hidden bg-green py-16 text-white sm:py-24">
       <div className={wrap}>
         <Reveal className="flex items-center justify-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-600" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
+          <span className="size-1.5 rounded-full bg-gold" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-gold">
             {s.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mx-auto mt-4 max-w-2xl text-center font-display text-[24px] leading-[32px] font-bold tracking-tight text-slate-900 sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mx-auto mt-4 max-w-2xl text-center font-display text-[24px] leading-[32px] font-bold tracking-tight text-white sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {s.heading}
         </Reveal>
         <Reveal
           as="p"
           delay={140}
-          className="mx-auto mt-5 max-w-2xl text-center leading-relaxed text-slate-600 sm:text-lg"
+          className="mx-auto mt-5 max-w-2xl text-center leading-relaxed text-white/80 sm:text-lg"
         >
           {s.intro}
         </Reveal>
@@ -69,7 +69,7 @@ export default function SetsApart() {
               key={item.title}
               type="button"
               onClick={() => jumpTo(i)}
-              className="press group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-2 pl-2 pr-4 text-xs font-bold text-slate-500 transition-all hover:-translate-y-0.5 hover:border-teal-300 hover:text-teal-700 hover:shadow-md hover:shadow-teal-900/5"
+              className="press group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white py-2 pl-2 pr-4 text-xs font-bold text-text-secondary transition-[transform,border-color,color,box-shadow] hover:-translate-y-0.5 hover:border-teal-300 hover:text-teal-700 hover:shadow-md hover:shadow-teal-900/5"
             >
               <span className="grid size-6 place-items-center rounded-full bg-teal-50 text-[11px] text-teal-600 transition-colors group-hover:bg-teal-600 group-hover:text-white">
                 {NUMS[i]}
@@ -79,7 +79,7 @@ export default function SetsApart() {
           ))}
         </Reveal>
 
-        <div className="mt-14 border-t border-slate-200">
+        <div className="mt-14 border-t border-white/20">
           {s.items.map((item, i) => {
             const Icon = ICONS[i]
             const isFlashed = flashed === i
@@ -93,29 +93,29 @@ export default function SetsApart() {
                   ref={(el) => {
                     rowRefs.current[i] = el
                   }}
-                  className={`group relative grid gap-6 overflow-hidden border-b border-slate-200 py-10 transition-all duration-500 sm:gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:py-12 ${
-                    isFlashed ? "bg-teal-50/60" : "hover:bg-slate-50/80"
+                  className={`group relative grid gap-6 overflow-hidden border-b border-white/20 py-10 transition-colors duration-500 sm:gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:py-12 ${
+                    isFlashed ? "bg-white/10" : "hover:bg-white/5"
                   }`}
                 >
                   <span
                     aria-hidden
-                    className={`absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-teal-600 transition-transform duration-300 group-hover:scale-y-100 ${
+                    className={`absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-gold transition-transform duration-300 group-hover:scale-y-100 ${
                       isFlashed ? "scale-y-100" : ""
                     }`}
                   />
                   <div className="flex items-start gap-5 pl-4 lg:pl-5">
                     <span
-                      className={`font-display text-4xl font-extrabold tracking-tight transition-all duration-300 sm:text-5xl ${
-                        isFlashed ? "scale-110 text-teal-700" : "text-teal-600 group-hover:scale-105"
+                      className={`font-display text-4xl font-extrabold tracking-tight transition-transform duration-300 sm:text-5xl ${
+                        isFlashed ? "scale-110 text-gold" : "text-gold group-hover:scale-105"
                       }`}
                     >
                       {NUMS[i]}
                     </span>
                     <div>
-                      <span className="grid size-11 place-items-center rounded-2xl bg-teal-50 text-teal-600 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
+                      <span className="grid size-11 place-items-center rounded-2xl bg-white/10 text-gold transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
                         <Icon className="icon-pop size-5" strokeWidth={2} />
                       </span>
-                      <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-slate-900 lg:text-[24px] lg:leading-[32px]">
+                      <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-white lg:text-[24px] lg:leading-[32px]">
                         {item.title}
                       </h3>
                     </div>
@@ -123,7 +123,7 @@ export default function SetsApart() {
                   <div className="pl-4 lg:pl-2">
                     <Paragraphs
                       text={item.desc}
-                      className="max-w-2xl text-[15px] leading-relaxed text-slate-600 sm:text-base"
+                      className="max-w-2xl text-[15px] leading-relaxed text-white/80 sm:text-base"
                     />
                   </div>
                 </div>
@@ -134,7 +134,7 @@ export default function SetsApart() {
 
         <Reveal
           delay={200}
-          className="relative mt-14 overflow-hidden rounded-2xl bg-gradient-to-br from-teal-600 via-teal-800 to-teal-950 px-8 py-10 text-center sm:px-12 sm:py-12"
+          className="relative mt-14 overflow-hidden rounded-2xl bg-basalt px-8 py-10 text-center sm:px-12 sm:py-12"
         >
           <div
             aria-hidden

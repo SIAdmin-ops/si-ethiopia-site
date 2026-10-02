@@ -30,7 +30,7 @@ export default function TrainingDelivery() {
   const d = t.training.delivery
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section className="relative overflow-hidden bg-mist py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-gold-text">
           {d.eyebrow}
@@ -77,7 +77,7 @@ export default function TrainingDelivery() {
               className="absolute inset-0"
               style={{
                 backgroundImage:
-                  "linear-gradient(180deg, rgba(14,31,33,0.92) 0%, rgba(14,31,33,0.88) 100%)",
+                  "linear-gradient(180deg, rgba(22,32,30,0.92) 0%, rgba(22,32,30,0.88) 100%)",
               }}
             />
           </div>
@@ -115,7 +115,7 @@ export default function TrainingDelivery() {
               return (
                 <div
                   key={p.title}
-                  className="group rounded-2xl border border-slate-200 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-md hover:shadow-amber-900/5"
+                  className="group rounded-2xl border border-slate-200 p-6 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-md hover:shadow-amber-900/5"
                 >
                   <span className="grid size-9 place-items-center rounded-lg bg-amber-50 text-gold-text transition-colors duration-200 group-hover:bg-gold group-hover:text-white">
                     <PrincipleIcon className="size-[18px]" strokeWidth={1.8} />

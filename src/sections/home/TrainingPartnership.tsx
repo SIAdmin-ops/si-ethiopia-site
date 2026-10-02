@@ -14,9 +14,9 @@ const PARTNER_IMAGES = [
 /* Real named partners, positionally matched to t.home.trainingPartnership.partners[0..2].
    `dark` cards hold a white-on-transparent logo, so they need a dark background to read. */
 const PARTNER_LOGOS: { src: string; role: string; dark?: boolean }[] = [
-  { src: "/partners/nguc.png", role: "Academic & Education Partner" },
-  { src: "/partners/falcon-systems-tech.png", role: "Technology Partner", dark: true },
-  { src: "/partners/bgm-consultancy.png", role: "Tax & Business Advisory Partner" },
+  { src: "/partners/nguc.webp", role: "Academic & Education Partner" },
+  { src: "/partners/falcon-systems-tech.webp", role: "Technology Partner", dark: true },
+  { src: "/partners/bgm-consultancy.webp", role: "Tax & Business Advisory Partner" },
 ]
 
 /** Light, two-column "editorial + card grid" treatment: statement and close
@@ -51,7 +51,7 @@ export default function TrainingPartnership() {
               return (
                 <div
                   key={partner}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-all duration-200 hover:-translate-y-0.5 hover:border-amber-200 hover:bg-white hover:shadow-md hover:shadow-amber-900/5"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:border-amber-200 hover:bg-white hover:shadow-md hover:shadow-amber-900/5"
                 >
                   {logo ? (
                     <div

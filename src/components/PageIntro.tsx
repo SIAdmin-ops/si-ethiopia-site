@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import { Reveal, RevealText, wrap } from "../lib/motion"
+import { unsplashSrcSet } from "../lib/images"
 
 /** Short banner atop each dedicated page eyebrow, heading, sub, optional extra content.
     `size="large"` matches the scale of the Capital Markets / Technology pages' own
@@ -9,7 +10,7 @@ export default function PageIntro({
   eyebrow,
   heading,
   sub,
-  gradient = "linear-gradient(120deg, #083a3e 0%, #198388 100%)",
+  gradient = "linear-gradient(120deg, #051f19 0%, #0e4d3c 100%)",
   bgImage,
   size = "default",
   overlapHeader = false,
@@ -39,8 +40,11 @@ export default function PageIntro({
           <img
             src={bgImage}
             alt=""
+            srcSet={unsplashSrcSet(bgImage)}
+            sizes="100vw"
             className={`absolute inset-0 size-full object-cover ${overlapHeader ? "hero-zoom" : ""}`}
-            loading="lazy"
+            loading={overlapHeader ? undefined : "lazy"}
+            fetchPriority={overlapHeader ? "high" : undefined}
           />
           <div className="absolute inset-0 opacity-90" style={{ backgroundImage: gradient }} />
         </div>

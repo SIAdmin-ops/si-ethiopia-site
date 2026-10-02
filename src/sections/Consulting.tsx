@@ -16,7 +16,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-teal-deep" />
+            <HighlightSI text={p} className="text-green" />
           </p>
         ))}
     </div>
@@ -25,7 +25,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
 
 /* Gradient badge colors cycled across the numbered consulting items. */
 const CONSULT_BADGES = [
-  "from-teal-deep to-teal-600",
+  "from-green to-teal-600",
   "from-teal-400 to-teal-600",
   "from-amber-500 to-amber-700",
   "from-teal-500 to-teal-700",
@@ -43,18 +43,18 @@ export default function Consulting() {
   const item = t.consulting.items[active]
 
   return (
-    <section id="advisory" className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section id="advisory" className="relative overflow-hidden bg-mist py-16 sm:py-24">
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-deep" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+          <span className="size-1.5 rounded-full bg-green" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
             {t.consulting.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.consulting.heading}
         </Reveal>
@@ -73,7 +73,7 @@ export default function Consulting() {
                   onClick={() => setActive(i)}
                   onMouseEnter={() => setActive(i)}
                   aria-pressed={on}
-                  className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-all ${
+                  className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
                     on
                       ? "border-teal-200 bg-teal-50 translate-x-1"
                       : "border-border bg-white hover:translate-x-1 hover:border-teal-200"
@@ -88,14 +88,14 @@ export default function Consulting() {
                   </span>
                   <span
                     className={`flex-1 text-sm font-semibold transition-colors ${
-                      on ? "text-teal-deep" : "text-text-secondary"
+                      on ? "text-green" : "text-text-secondary"
                     }`}
                   >
                     {it.title}
                   </span>
                   <ChevronRight
-                    className={`size-4 shrink-0 transition-all ${
-                      on ? "translate-x-0 text-teal" : "-translate-x-1 text-slate-300"
+                    className={`size-4 shrink-0 transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
+                      on ? "translate-x-0 text-green" : "-translate-x-1 text-slate-300"
                     }`}
                   />
                 </button>
@@ -105,7 +105,7 @@ export default function Consulting() {
 
           {/* detail preview */}
           <Reveal variant="right" className="lg:sticky lg:top-24 lg:self-start">
-            <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-mist">
+            <div className="flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-white">
               <div>
                 <div className="relative h-40 overflow-hidden sm:h-48">
                   <img
@@ -119,7 +119,7 @@ export default function Consulting() {
                     className="absolute inset-0"
                     style={{
                       backgroundImage:
-                        "linear-gradient(180deg, rgba(14,31,33,0.05) 0%, rgba(14,31,33,0.55) 100%)",
+                        "linear-gradient(180deg, rgba(22,32,30,0.05) 0%, rgba(22,32,30,0.55) 100%)",
                     }}
                   />
                 </div>
@@ -129,7 +129,7 @@ export default function Consulting() {
                   >
                     {String(active + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">
+                  <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-green lg:text-[24px] lg:leading-[32px]">
                     {item.title}
                   </h3>
                   <div className="mt-4">
@@ -150,7 +150,7 @@ export default function Consulting() {
         <Reveal delay={120} className="mt-10 flex justify-center">
           <Link
             to="/contact"
-            className="text-sm font-semibold text-teal underline decoration-teal/40 underline-offset-4 transition-colors hover:text-teal-deep"
+            className="text-sm font-semibold text-green underline decoration-green/40 underline-offset-4 transition-colors hover:text-green"
           >
             {t.consulting.cta}
           </Link>

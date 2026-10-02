@@ -29,7 +29,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-amber-100" />
+            <HighlightSI text={p} className="text-gold" />
           </p>
         ))}
     </div>
@@ -64,7 +64,7 @@ export default function CapitalMarkets() {
       <PageIntro
         eyebrow={m.eyebrow}
         heading={m.heading}
-        gradient="linear-gradient(120deg, #0e1f21 0%, #0b4f55 100%)"
+        gradient="linear-gradient(0deg, var(--color-green), var(--color-green))"
       >
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {m.journey.items.map((item, i) => (
@@ -94,12 +94,12 @@ export default function CapitalMarkets() {
       {/* academy teaser */}
       <section className="bg-white py-16 sm:py-24">
         <Reveal
-          className={`${wrap} flex flex-col items-center gap-6 rounded-2xl bg-gradient-to-br from-teal-deep to-teal-600 p-8 text-center text-white sm:p-12`}
+          className={`${wrap} flex flex-col items-center gap-6 rounded-2xl bg-basalt p-8 text-center text-white sm:p-12`}
         >
           <span className="grid size-12 place-items-center rounded-2xl bg-white/15">
             <GraduationCap className="size-6" strokeWidth={2} />
           </span>
-          <span className="text-xs font-bold uppercase tracking-[0.66px] text-amber-100">
+          <span className="text-xs font-bold uppercase tracking-[0.66px] text-gold">
             {m.academy.eyebrow}
           </span>
           <h2 className="max-w-xl font-display text-[24px] leading-[32px] font-bold tracking-tight sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
@@ -112,14 +112,14 @@ export default function CapitalMarkets() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               to="/training"
-              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-amber-800 transition-all hover:-translate-y-0.5"
+              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
             >
               {m.academy.ctaPrimary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               to="/contact"
-              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-all hover:border-white hover:bg-white/10"
+              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-white/10"
             >
               {m.academy.ctaSecondary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

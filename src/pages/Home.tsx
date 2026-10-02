@@ -1,4 +1,5 @@
 import Hero from "../sections/home/Hero"
+import StatStrip from "../sections/home/StatStrip"
 import VisionMission from "../sections/home/VisionMission"
 import FocusSectors from "../sections/home/FocusSectors"
 import Pillars from "../sections/home/Pillars"
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StatStrip />
       <VisionMission />
       <FocusSectors />
       <Pillars />

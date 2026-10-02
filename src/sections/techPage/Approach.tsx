@@ -13,24 +13,24 @@ export default function TechApproach() {
   return (
     <section className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={wrap}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-600">
           {a.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {a.heading}
         </Reveal>
         <Reveal delay={140} className="mt-5 max-w-2xl">
-          <Paragraphs text={a.body} className="leading-relaxed text-text-secondary" highlightClassName="text-teal-deep" />
+          <Paragraphs text={a.body} className="leading-relaxed text-text-secondary" highlightClassName="text-blue-600" />
         </Reveal>
 
         <Reveal delay={180} className="mt-6">
           <FlowChips
             steps={a.flow}
-            chipClassName="border-teal-100 bg-teal-50 text-teal-deep"
+            chipClassName="border-blue-100 bg-blue-50 text-blue-600"
             arrowClassName="text-slate-300"
           />
         </Reveal>
@@ -41,7 +41,7 @@ export default function TechApproach() {
 
         <Reveal
           delay={240}
-          className="mt-8 max-w-2xl text-lg font-extrabold italic leading-snug tracking-tight text-teal-deep sm:text-xl"
+          className="mt-8 max-w-2xl text-lg font-extrabold italic leading-snug tracking-tight text-green sm:text-xl"
         >
           {a.tagline}
         </Reveal>

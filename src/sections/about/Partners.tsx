@@ -3,9 +3,9 @@ import { useI18n } from "../../i18n"
 
 /* Fallback gradient (used when a partner has no photo yet), index-matched to partners.people. */
 const ACCENT_GRADIENTS = [
-  "linear-gradient(135deg, #198388 0%, #083a3e 100%)",
-  "linear-gradient(135deg, #1f9ea4 0%, #0b4f55 100%)",
-  "linear-gradient(135deg, #6bcfd4 0%, #0b4f55 100%)",
+  "linear-gradient(135deg, #0e4d3c 0%, #051f19 100%)",
+  "linear-gradient(135deg, #2d7158 0%, #072c23 100%)",
+  "linear-gradient(135deg, #78ad98 0%, #072c23 100%)",
 ]
 
 /** Large alternating photo/name rows rather than a 3-up card grid —
@@ -16,7 +16,7 @@ export default function Partners() {
   const p = t.aboutPage.partners
 
   return (
-    <section className="bg-slate-50 py-16 sm:py-24">
+    <section className="overflow-hidden bg-mist py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-3 text-center">
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">

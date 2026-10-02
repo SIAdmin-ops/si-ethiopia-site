@@ -35,11 +35,11 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
   }
 
   const field =
-    "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-shadow placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
+    "w-full rounded-lg border border-border bg-white px-4 py-3 text-base text-basalt outline-none transition-shadow placeholder:text-text-secondary/70 focus:border-green focus:ring-2 focus:ring-green"
 
   return (
     <section id="contact" className="relative overflow-hidden bg-mist py-16 sm:py-24">
-      <Motif variant="contact" className="text-teal" />
+      <Motif variant="contact" className="text-green" />
       <div className={`${wrap} relative grid gap-8 lg:grid-cols-2`}>
         {/* form white card */}
         <Reveal
@@ -51,7 +51,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
               <span className="grid size-14 place-items-center rounded-full bg-success/10 text-success">
                 <Check className="size-7" strokeWidth={2.5} />
               </span>
-              <h3 className="mt-5 text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">
+              <h3 className="mt-5 text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">
                 {t.contact.successTitle.replace("{name}", form.name.split(" ")[0])}
               </h3>
               <p className="mt-2 max-w-xs text-sm text-text-secondary">{t.contact.successBody}</p>
@@ -60,14 +60,14 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
                   setSent(false)
                   setForm({ name: "", email: "", org: "", msg: "" })
                 }}
-                className="mt-6 text-sm font-semibold text-teal-deep"
+                className="mt-6 text-sm font-semibold text-green"
               >
                 {t.contact.sendAnother}
               </button>
             </div>
           ) : (
             <form onSubmit={submit} className="flex flex-col gap-4" noValidate>
-              <h3 className="text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">{t.contact.formTitle}</h3>
+              <h3 className="text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">{t.contact.formTitle}</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1.5">
                   <span className="text-xs font-semibold text-text-secondary">{t.contact.fullName}</span>
@@ -115,7 +115,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
               <button
                 type="submit"
                 disabled={!valid || submitting}
-                className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-teal-deep px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal enabled:hover:shadow-xl enabled:hover:shadow-teal-deep/30 disabled:cursor-not-allowed disabled:opacity-50"
+                className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-green px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] enabled:hover:-translate-y-0.5 enabled:hover:bg-green-hover enabled:hover:shadow-xl enabled:hover:shadow-green/30 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {submitting ? t.contact.submitting : t.contact.submit}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -128,17 +128,17 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
         <Reveal
           delay={120}
           variant="right"
-          className="order-1 rounded-2xl bg-ink p-6 text-white sm:p-8 lg:order-2"
+          className="order-1 rounded-2xl bg-basalt p-6 text-white sm:p-8 lg:order-2"
         >
           {showIntro && (
             <>
-              <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-aqua">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-sky">
                 {t.contact.eyebrow}
               </span>
               <h2 className="mt-3 font-display text-[24px] leading-[32px] font-bold tracking-tight text-white sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
                 {t.contact.heading}
               </h2>
-              <p className="mt-4 max-w-md text-white/70">{t.contact.desc}</p>
+              <p className="mt-4 max-w-md text-white/80">{t.contact.desc}</p>
             </>
           )}
 
@@ -149,7 +149,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
               { icon: MapPin, label: t.contact.location },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="group flex items-center gap-3 text-white/80">
-                <span className="grid size-10 place-items-center rounded-lg bg-white/10 text-aqua transition-colors group-hover:bg-aqua group-hover:text-ink">
+                <span className="grid size-10 place-items-center rounded-lg bg-white/10 text-sky transition-colors group-hover:bg-sky group-hover:text-basalt">
                   <Icon className="icon-pop size-[18px]" strokeWidth={2} />
                 </span>
                 <span className="whitespace-pre-line text-sm font-medium">{label}</span>
@@ -157,7 +157,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
             ))}
           </div>
 
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-aqua ring-1 ring-white/15">
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-bold text-sky ring-1 ring-white/15">
             <Zap className="size-3.5" /> {t.contact.limited}
           </div>
         </Reveal>

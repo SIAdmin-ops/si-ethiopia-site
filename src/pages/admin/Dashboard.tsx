@@ -59,7 +59,7 @@ export default function AdminDashboard() {
         <h1 className="text-[28px] leading-[36px] font-bold text-slate-900 sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">News items</h1>
         <Link
           to="/admin/news/new"
-          className="press inline-flex items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-teal-500"
+          className="press inline-flex items-center gap-2 rounded-lg bg-teal-600 px-4 py-2.5 text-sm font-bold text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:-translate-y-0.5 hover:bg-teal-500"
         >
           <Plus className="size-4" />
           Add news item

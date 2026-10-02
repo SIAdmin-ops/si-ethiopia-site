@@ -217,7 +217,7 @@ export default function NewsEditor() {
           <button
             onClick={submit}
             disabled={saving}
-            className="press shine inline-flex items-center rounded-lg bg-teal-600 px-6 py-2.5 text-sm font-bold text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="press shine inline-flex items-center rounded-lg bg-teal-600 px-6 py-2.5 text-sm font-bold text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {saving ? "Saving…" : "Save"}
           </button>

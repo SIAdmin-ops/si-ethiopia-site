@@ -26,13 +26,13 @@ export default function ServicesGrid() {
   return (
     <section id="services" className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div className={wrap}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
           {t.services.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.services.heading}
         </Reveal>
@@ -41,7 +41,7 @@ export default function ServicesGrid() {
         </Reveal>
 
         <Reveal delay={180} className="mt-8 rounded-2xl border border-border bg-mist p-6 sm:p-8">
-          <h3 className="text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">
+          <h3 className="text-[20px] leading-[28px] font-semibold text-green lg:text-[24px] lg:leading-[32px]">
             {t.services.outcome.heading}
           </h3>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-text-secondary sm:text-base">
@@ -50,7 +50,7 @@ export default function ServicesGrid() {
           <div className="mt-5 flex flex-wrap items-center gap-x-1.5 gap-y-2">
             {t.services.outcome.flow.map((step, i) => (
               <div key={step} className="flex items-center gap-1.5">
-                <span className="rounded-full border border-teal-100 bg-teal-50 px-3 py-1.5 text-xs font-bold text-teal-deep sm:text-sm">
+                <span className="rounded-full border border-teal-100 bg-teal-50 px-3 py-1.5 text-xs font-bold text-green sm:text-sm">
                   {step}
                 </span>
                 {i < t.services.outcome.flow.length - 1 && (
@@ -59,7 +59,7 @@ export default function ServicesGrid() {
               </div>
             ))}
           </div>
-          <p className="mt-5 max-w-2xl text-sm font-semibold italic leading-relaxed text-ink/85 sm:text-base">
+          <p className="mt-5 max-w-2xl text-sm font-semibold italic leading-relaxed text-basalt/85 sm:text-base">
             {t.services.outcome.closing}
           </p>
         </Reveal>
@@ -67,7 +67,7 @@ export default function ServicesGrid() {
         <Reveal delay={220} className="mt-6">
           <Link
             to="/contact"
-            className="flex items-center justify-center rounded-2xl border border-dashed border-teal-200 bg-teal-50/60 px-5 py-4 text-center text-sm font-semibold text-teal-deep transition-colors hover:border-teal-300 hover:bg-teal-50"
+            className="flex items-center justify-center rounded-2xl border border-dashed border-teal-200 bg-teal-50/60 px-5 py-4 text-center text-sm font-semibold text-green transition-colors hover:border-teal-300 hover:bg-teal-50"
           >
             {t.services.banner}
           </Link>
@@ -81,12 +81,12 @@ export default function ServicesGrid() {
               <Reveal key={group.label} delay={gi * 30} className="block border-b border-border py-10 first:pt-8">
                 <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:gap-10">
                   <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-deep">
+                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-50 text-green">
                       <CatIcon className="size-[18px]" strokeWidth={2} />
                     </span>
                     <div className="flex items-baseline gap-2 lg:flex-col lg:items-start lg:gap-1">
                       <span className="font-mono text-xs text-slate-300">{String(gi + 1).padStart(2, "0")}</span>
-                      <h3 className="text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">{group.label}</h3>
+                      <h3 className="text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">{group.label}</h3>
                     </div>
                   </div>
 
@@ -105,7 +105,7 @@ export default function ServicesGrid() {
                           <span className="w-6 shrink-0 font-mono text-xs text-slate-300 sm:w-8 sm:text-sm">
                             {String(ii + 1).padStart(2, "0")}
                           </span>
-                          <span className="min-w-0 flex-1 text-[15px] font-bold text-ink sm:text-base">
+                          <span className="min-w-0 flex-1 text-[15px] font-bold text-basalt sm:text-base">
                             {item.title}
                           </span>
                         </span>

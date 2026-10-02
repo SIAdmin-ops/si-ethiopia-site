@@ -17,7 +17,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-teal-deep" />
+            <HighlightSI text={p} className="text-green" />
           </p>
         ))}
     </div>
@@ -35,13 +35,13 @@ export default function Regulatory() {
   return (
     <section id="regulatory" className="relative overflow-hidden bg-mist py-16 sm:py-24">
       <div className={wrap}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
           {r.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {r.heading}
         </Reveal>
@@ -59,15 +59,15 @@ export default function Regulatory() {
                 className="flex flex-col rounded-2xl border border-border bg-white p-6 sm:p-7"
               >
                 <div className="flex items-start gap-4">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-teal-50 text-teal-deep">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-teal-50 text-green">
                     <Icon className="size-5" strokeWidth={1.8} />
                   </span>
                   <span className="font-sans text-2xl font-extrabold tracking-tight text-teal-100">
                     {NUMS[i]}
                   </span>
                 </div>
-                <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
-                <p className="mt-1.5 text-sm font-semibold text-teal">{item.tagline}</p>
+                <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-green lg:text-[24px] lg:leading-[32px]">{item.title}</h3>
+                <p className="mt-1.5 text-sm font-semibold text-green">{item.tagline}</p>
 
                 <Paragraphs text={item.body} className="mt-3 text-[15px] leading-relaxed text-text-secondary" />
                 {item.tags && (
@@ -75,7 +75,7 @@ export default function Regulatory() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-teal-50 px-3 py-1.5 text-[13px] font-semibold text-teal-deep ring-1 ring-teal-100"
+                        className="rounded-full bg-teal-50 px-3 py-1.5 text-[13px] font-semibold text-green ring-1 ring-teal-100"
                       >
                         {tag}
                       </span>

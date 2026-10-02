@@ -69,7 +69,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
         aria-hidden
         className="absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage: "radial-gradient(circle at center, rgba(148,104,0,0.8) 1px, transparent 1.4px)",
+          backgroundImage: "radial-gradient(circle at center, rgba(138,98,0,0.8) 1px, transparent 1.4px)",
           backgroundSize: "26px 26px",
         }}
       />
@@ -90,13 +90,13 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
           <span className="mt-5 grid size-12 place-items-center rounded-2xl bg-amber-50 text-gold-text">
             <Cpu className="size-5" strokeWidth={1.8} />
           </span>
-          <h2 className="mt-5 font-display text-[24px] leading-[32px] font-bold tracking-tight text-ink sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
+          <h2 className="mt-5 font-display text-[24px] leading-[32px] font-bold tracking-tight text-basalt sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]">
             {sector.title}
           </h2>
           <p className="mt-5 max-w-md leading-relaxed text-text-secondary sm:text-lg">{sector.desc}</p>
           <Link
             to="/contact"
-            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-amber-700 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-amber-600"
+            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-green px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-green-hover"
           >
             {cta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -111,7 +111,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
               return (
                 <div
                   key={training.title}
-                  className={`mb-4 break-inside-avoid rounded-2xl border transition-all duration-200 ${
+                  className={`mb-4 break-inside-avoid rounded-2xl border transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 ${
                     isOpen
                       ? "border-amber-400 bg-amber-50"
                       : "border-border bg-white hover:-translate-y-0.5 hover:border-amber-200"
@@ -129,7 +129,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
                     >
                       <Check className="size-4" strokeWidth={2.5} />
                     </span>
-                    <span className="min-w-0 flex-1 text-sm font-bold leading-snug text-ink">{training.title}</span>
+                    <span className="min-w-0 flex-1 text-sm font-bold leading-snug text-basalt">{training.title}</span>
                     <ChevronDown
                       className={`size-4 shrink-0 text-text-secondary transition-transform ${isOpen ? "rotate-180" : ""}`}
                     />
@@ -173,7 +173,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
                   return (
                     <div
                       key={level.title}
-                      className="group overflow-hidden rounded-2xl border border-border bg-white transition-all duration-200 hover:-translate-y-1 hover:border-amber-300"
+                      className="group overflow-hidden rounded-2xl border border-border bg-white transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-300"
                     >
                       <div className="relative h-24 overflow-hidden">
                         <img
@@ -188,7 +188,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
                         </span>
                       </div>
                       <div className="p-5">
-                        <p className="text-sm font-bold text-ink">{level.title}</p>
+                        <p className="text-sm font-bold text-basalt">{level.title}</p>
                         <p className="mt-1 text-xs leading-relaxed text-text-secondary">{level.desc}</p>
                         <div className="mt-3 flex flex-wrap gap-1.5">
                           {level.points.map((p) => (
@@ -210,7 +210,7 @@ function TechnologySector({ sector, cta, hint }: SectorProps) {
 
           {sector.buildTraining && (
             <div className="mt-10 rounded-2xl border border-border bg-white p-7">
-              <h4 className="text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">
+              <h4 className="text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">
                 {sector.buildTraining.heading}
               </h4>
               <div className="mt-2.5">
@@ -251,12 +251,12 @@ function CapitalMarketsSector({ sector, cta, hint }: SectorProps) {
   const reducedMotion = usePrefersReducedMotion()
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 py-16 sm:py-24">
+    <section className="relative overflow-hidden bg-white py-16 sm:py-24">
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: "radial-gradient(circle at center, rgba(148,104,0,0.9) 1px, transparent 1.4px)",
+          backgroundImage: "radial-gradient(circle at center, rgba(138,98,0,0.9) 1px, transparent 1.4px)",
           backgroundSize: "26px 26px",
         }}
       />
@@ -284,7 +284,7 @@ function CapitalMarketsSector({ sector, cta, hint }: SectorProps) {
           <p className="mt-5 max-w-md leading-relaxed text-slate-600 sm:text-lg">{sector.desc}</p>
           <Link
             to="/contact"
-            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-amber-700 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-amber-600"
+            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-green px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-green-hover"
           >
             {cta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -320,7 +320,7 @@ function CapitalMarketsSector({ sector, cta, hint }: SectorProps) {
                       {training.title}
                     </span>
                     <ChevronDown
-                      className={`size-4 shrink-0 text-slate-300 transition-all group-hover/row:translate-y-0.5 ${isOpen ? "rotate-180 text-gold-text" : ""}`}
+                      className={`size-4 shrink-0 text-slate-300 transition-[color,background-color,border-color,opacity,transform,box-shadow] group-hover/row:translate-y-0.5 ${isOpen ? "rotate-180 text-gold-text" : ""}`}
                     />
                   </button>
                   <div
@@ -382,7 +382,7 @@ function SoftSkillsSector({ sector, cta, hint }: SectorProps) {
         aria-hidden
         className="absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage: "radial-gradient(circle at center, rgba(148,104,0,0.8) 1px, transparent 1.4px)",
+          backgroundImage: "radial-gradient(circle at center, rgba(138,98,0,0.8) 1px, transparent 1.4px)",
           backgroundSize: "26px 26px",
         }}
       />
@@ -415,7 +415,7 @@ function SoftSkillsSector({ sector, cta, hint }: SectorProps) {
           )}
           <Link
             to="/contact"
-            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-amber-700 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-amber-600"
+            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-green px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-green-hover"
           >
             {cta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -432,7 +432,7 @@ function SoftSkillsSector({ sector, cta, hint }: SectorProps) {
                   key={training.title}
                   onClick={() => setActive(isActive ? null : i)}
                   aria-pressed={isActive}
-                  className={`press flex items-center gap-2.5 rounded-2xl border-2 px-5 py-[18px] text-sm font-bold transition-all duration-200 ${
+                  className={`press flex items-center gap-2.5 rounded-2xl border-2 px-5 py-[18px] text-sm font-bold transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 ${
                     isActive
                       ? "border-amber-700 bg-amber-700 text-white shadow-lg shadow-amber-700/20"
                       : "border-slate-200 bg-white text-slate-700 hover:-translate-y-0.5 hover:border-amber-200 hover:shadow-md hover:shadow-amber-900/5"
@@ -512,7 +512,7 @@ function FinancialLiteracySector({ sector, cta, hint }: SectorProps) {
                   key={training.title}
                   onClick={() => setActive(isActive ? null : i)}
                   aria-pressed={isActive}
-                  className={`press inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-all ${
+                  className={`press inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-semibold transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
                     isActive
                       ? "border-amber-700 bg-amber-700 text-white"
                       : "border-slate-200 bg-slate-50 text-slate-700 hover:border-amber-300 hover:bg-amber-50"
@@ -540,7 +540,7 @@ function FinancialLiteracySector({ sector, cta, hint }: SectorProps) {
 
           <Link
             to="/contact"
-            className="group press shine mt-9 inline-flex items-center gap-2 rounded-lg bg-amber-500 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-slate-900 transition-all hover:-translate-y-0.5 hover:bg-amber-400"
+            className="group press shine mt-9 inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
           >
             {cta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

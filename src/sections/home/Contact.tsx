@@ -36,7 +36,7 @@ export default function HomeContact() {
   }
 
   const field =
-    "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition-shadow placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-200"
+    "w-full rounded-lg border border-border bg-white px-4 py-3 text-base text-basalt outline-none transition-shadow placeholder:text-text-secondary/70 focus:border-green focus:ring-2 focus:ring-green"
 
   const infoRows = [
     { icon: Mail, label: c.emailLabel, value: c.email },
@@ -46,7 +46,7 @@ export default function HomeContact() {
   ]
 
   return (
-    <section id="contact" className="bg-slate-50 py-16 sm:py-24">
+    <section id="contact" className="overflow-hidden bg-mist py-16 sm:py-24 [.news-section+&]:bg-white">
       <div className={`${wrap} grid gap-12 lg:grid-cols-2`}>
         <Reveal variant="left">
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
@@ -167,7 +167,7 @@ export default function HomeContact() {
               <button
                 type="submit"
                 disabled={!valid || submitting}
-                className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 enabled:hover:shadow-xl enabled:hover:shadow-teal-600/30 disabled:cursor-not-allowed disabled:opacity-50"
+                className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-green px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] enabled:hover:-translate-y-0.5 enabled:hover:bg-green-hover enabled:hover:shadow-xl enabled:hover:shadow-teal-600/30 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {submitting ? c.submitting : c.submit}
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

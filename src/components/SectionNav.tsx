@@ -50,12 +50,12 @@ export default function SectionNav({ items }: { items: SectionNavItem[] }) {
               key={it.id}
               href={`#${it.id}`}
               className={`relative shrink-0 whitespace-nowrap px-4 py-3.5 text-sm font-semibold transition-colors ${
-                on ? "text-teal-deep" : "text-text-secondary hover:text-teal-deep"
+                on ? "text-green" : "text-text-secondary hover:text-green"
               }`}
             >
               {it.label}
               <span
-                className={`absolute inset-x-4 bottom-0 h-[2px] rounded-full bg-teal-deep transition-opacity ${
+                className={`absolute inset-x-4 bottom-0 h-[2px] rounded-full bg-green transition-opacity ${
                   on ? "opacity-100" : "opacity-0"
                 }`}
               />

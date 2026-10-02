@@ -51,10 +51,17 @@ type FigmaSiteConfiguration = {
   }
   icons?: {
     icon?: string
+    svg?: string
+    favicon32?: string
+    appleTouchIcon?: string
+    icon192?: string
+    icon512?: string
+    manifest?: string
   }
   openGraph?: {
     image?: string
   }
+  themeColor?: string
   analytics?: {
     googleAnalyticsId?: string
   }
@@ -84,7 +91,14 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
   const title = config.title ?? "Figma Make App"
   const description = config.description ?? ''
   const favicon = config.icons?.icon ?? ''
+  const faviconSvg = config.icons?.svg ?? ''
+  const favicon32 = config.icons?.favicon32 ?? ''
+  const appleTouchIcon = config.icons?.appleTouchIcon ?? ''
+  const icon192 = config.icons?.icon192 ?? ''
+  const icon512 = config.icons?.icon512 ?? ''
+  const manifest = config.icons?.manifest ?? ''
   const socialImage = config.openGraph?.image ?? ''
+  const themeColor = config.themeColor ?? ''
   const language = sanitizeHtmlValue(config.language) || 'en'
   const googleAnalyticsId = sanitizeHtmlValue(config.analytics?.googleAnalyticsId)
   const headStart = config.customScripts?.headStart ?? ''
@@ -130,7 +144,28 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (config.robots?.index === false) {
           tags.push({ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' })
         }
-        if (favicon) {
+        if (faviconSvg) {
+          tags.push({ tag: 'link', attrs: { rel: 'icon', type: 'image/svg+xml', href: faviconSvg }, injectTo: 'head' })
+        }
+        if (favicon32) {
+          tags.push({ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '32x32', href: favicon32 }, injectTo: 'head' })
+        }
+        if (icon192) {
+          tags.push({ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '192x192', href: icon192 }, injectTo: 'head' })
+        }
+        if (icon512) {
+          tags.push({ tag: 'link', attrs: { rel: 'icon', type: 'image/png', sizes: '512x512', href: icon512 }, injectTo: 'head' })
+        }
+        if (appleTouchIcon) {
+          tags.push({ tag: 'link', attrs: { rel: 'apple-touch-icon', sizes: '180x180', href: appleTouchIcon }, injectTo: 'head' })
+        }
+        if (manifest) {
+          tags.push({ tag: 'link', attrs: { rel: 'manifest', href: manifest }, injectTo: 'head' })
+        }
+        if (themeColor) {
+          tags.push({ tag: 'meta', attrs: { name: 'theme-color', content: themeColor }, injectTo: 'head' })
+        }
+        if (!faviconSvg && favicon) {
           tags.push({ tag: 'link', attrs: { rel: 'icon', href: favicon }, injectTo: 'head' })
         }
         if (title) {

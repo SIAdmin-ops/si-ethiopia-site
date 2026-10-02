@@ -97,7 +97,7 @@ export default function FocusSectors() {
                   type="button"
                   onClick={() => setActive(isActive ? null : i)}
                   aria-pressed={isActive}
-                  className={`press group relative flex w-full flex-col gap-3 overflow-hidden rounded-2xl border bg-white p-7 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5 ${
+                  className={`press group relative flex w-full flex-col gap-3 overflow-hidden rounded-2xl border bg-white p-7 text-left transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5 ${
                     isActive
                       ? `-translate-y-1 border-transparent shadow-xl ${a.glow} ring-2 ${a.ring}`
                       : "border-slate-200"
@@ -143,7 +143,7 @@ export default function FocusSectors() {
                       setFlowAutoplay(false)
                     }}
                     aria-pressed={isOn}
-                    className={`press relative flex flex-1 items-center justify-center overflow-hidden rounded-lg border px-4 py-4 text-center transition-all duration-500 ${
+                    className={`press relative flex flex-1 items-center justify-center overflow-hidden rounded-lg border px-4 py-4 text-center transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-500 ${
                       isOn
                         ? "border-teal-400/60 bg-teal-500/15 shadow-lg shadow-teal-500/10"
                         : "border-white/10 bg-white/[0.04] hover:border-white/20 hover:bg-white/[0.07]"

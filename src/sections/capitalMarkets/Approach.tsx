@@ -69,11 +69,11 @@ export default function CapitalMarketsApproach() {
   const Icon = STEP_ICONS[active]
 
   return (
-    <section id="approach" className="relative overflow-hidden bg-white py-16 sm:py-24">
-      <Motif variant="markets" className="text-teal-deep" />
+    <section id="approach" className="relative overflow-hidden bg-mist py-16 sm:py-24">
+      <Motif variant="markets" className="text-green" />
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-deep" />
+          <span className="size-1.5 rounded-full bg-green" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-slate-500">
             {a.eyebrow}
           </span>
@@ -98,7 +98,7 @@ export default function CapitalMarketsApproach() {
             onKeyDown={onKeyDown}
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
-            className="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-[#0e1f21] to-slate-900 p-6 text-white shadow-2xl shadow-slate-900/10 outline-none focus-visible:ring-2 focus-visible:ring-teal-400 sm:p-8 lg:p-10"
+            className="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-[#16201e] to-slate-900 p-6 text-white shadow-2xl shadow-slate-900/10 outline-none focus-visible:ring-2 focus-visible:ring-teal-400 sm:p-8 lg:p-10"
           >
             {/* segmented progress rail */}
             <div className="flex items-center gap-4">

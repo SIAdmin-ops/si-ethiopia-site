@@ -13,18 +13,18 @@ export default function ContactHero() {
       <div className={`${wrap} flex flex-col items-center text-center`}>
         <Reveal className="inline-flex items-center gap-2.5">
           <span className="h-px w-8 bg-teal-600" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-600">
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
             {c.eyebrow}
           </span>
           <span className="h-px w-8 bg-teal-600" />
         </Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-6 max-w-3xl font-display text-[28px] leading-[36px] font-bold tracking-tight text-slate-900 sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">
+          <h1 className="mt-6 max-w-3xl font-display text-[28px] leading-[36px] font-bold tracking-tight text-green sm:text-[36px] sm:leading-[44px] lg:text-[44px] lg:leading-[52px]">
             {c.heading}
           </h1>
         </Reveal>
         <Reveal delay={160}>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-600 sm:text-xl">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-text-secondary sm:text-xl">
             {c.desc}
           </p>
         </Reveal>

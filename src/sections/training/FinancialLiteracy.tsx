@@ -51,7 +51,7 @@ export default function FinancialLiteracy() {
           <p className="mt-3 max-w-xl text-xs italic text-white/60">{fl.disclaimer}</p>
           <Link
             to="/contact"
-            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-gold-text transition-all hover:-translate-y-0.5"
+            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
           >
             {fl.ctaButton}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -72,7 +72,7 @@ export default function FinancialLiteracy() {
             />
             <div
               aria-hidden
-              className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-transparent"
+              className="absolute inset-0 bg-gradient-to-t from-basalt/85 via-basalt/10 to-transparent"
             />
           </div>
           <div className="p-7 pt-6 sm:p-8 sm:pt-7">
@@ -106,7 +106,7 @@ export default function FinancialLiteracy() {
                   >
                     <span className="min-w-0 flex-1 text-sm font-semibold">{course.title}</span>
                     <ChevronDown
-                      className={`size-4 shrink-0 text-white/50 transition-all group-hover/row:text-white/80 ${isOpen ? "rotate-180" : ""}`}
+                      className={`size-4 shrink-0 text-white/50 transition-[color,background-color,border-color,opacity,transform,box-shadow] group-hover/row:text-white/80 ${isOpen ? "rotate-180" : ""}`}
                     />
                   </button>
                   <div
@@ -157,7 +157,7 @@ export default function FinancialLiteracy() {
               <Reveal
                 key={journey.title}
                 delay={i * 80}
-                className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:bg-white hover:shadow-lg hover:shadow-amber-900/5"
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-slate-50/60 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-200 hover:bg-white hover:shadow-lg hover:shadow-amber-900/5"
               >
                 <div className="relative h-28 overflow-hidden">
                   <img
@@ -193,20 +193,13 @@ export default function FinancialLiteracy() {
     </section>
 
     {/* deliver financial literacy to your community */}
-    <section className="relative overflow-hidden bg-slate-950 py-16 text-white sm:py-24">
+    <section className="relative overflow-hidden bg-green py-16 text-white sm:py-24">
       <div aria-hidden className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop&auto=format"
           alt=""
-          className="absolute inset-0 size-full object-cover opacity-25"
+          className="absolute inset-0 size-full object-cover opacity-10"
           loading="lazy"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(180deg, rgba(14,31,33,0.92) 0%, rgba(14,31,33,0.85) 50%, rgba(14,31,33,0.95) 100%)",
-          }}
         />
       </div>
       <div className={`${wrap} relative`}>
@@ -227,7 +220,7 @@ export default function FinancialLiteracy() {
           </div>
           <Link
             to="/contact"
-            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-gold-text transition-all hover:-translate-y-0.5"
+            className="group press shine mt-7 inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
           >
             {fl.community.cta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

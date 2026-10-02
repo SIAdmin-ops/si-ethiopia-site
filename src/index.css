@@ -5,104 +5,104 @@
   --font-display: 'Outfit', 'Noto Sans Ethiopic', sans-serif;
   --font-sans: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
 
-  /* ---- Brand color system (single source of truth) ----
-     Primary = Teal, Secondary = Gold (dark-surface accent only),
-     Neutral = cool Slate anchored on Ink/Mist. Named semantic tokens
-     below are the ones new code should reach for; the numbered
-     teal/amber/slate scales are redefined to the same underlying
-     values so every existing utility class (division accents,
-     buttons, text, backgrounds) already used site-wide picks up the
-     new palette without a file-by-file class rename. */
-  --color-teal-deep: #0b4f55;
-  --color-teal: #198388;
-  --color-aqua: #6bcfd4;
-  --color-gold: #e3a614;
-  --color-gold-text: #946800;
-  --color-ink: #0e1f21;
-  --color-mist: #f3f6f5;
+  /* ================================================================
+     THE THREE STELAE — brand color system (single source of truth)
+     Strategy Innovations group identity, Ethiopia site first,
+     UK site to reuse this same token set later.
+
+     Primary = Highland Green (Capital Markets, headings, primary
+     buttons). Secondary = Teff Gold (dark-surface accent only).
+     Tertiary = Lake Blue (Technology). Neutral = Basalt/Mist.
+     Named tokens below are what new code should reach for; the
+     numbered teal/amber/slate/blue scales are redefined to the same
+     underlying values so every existing utility class (division
+     accents, buttons, text, backgrounds) already used site-wide
+     picks up the new palette without a file-by-file class rename.
+     Tailwind key names (teal/amber/slate) are kept as-is on purpose
+     — only their hex values change — to avoid a mass class rename;
+     "teal" now means Highland Green, "amber" now means Teff Gold.
+     ================================================================ */
+  --color-green: #0e4d3c;
+  --color-green-hover: #0a3b2e;
+  --color-green-tint: #e7f0ec;
+  --color-gold: #e0a526;
+  --color-gold-text: #8a6200;
+  --color-blue: #2a6fa8;
+  --color-blue-hover: #225c8c;
+  --color-basalt: #16201e;
+  --color-mist: #f4f5f1;
   --color-white: #ffffff;
-  --color-text-secondary: #4f5d5b;
-  --color-border: #d5dddb;
+  --color-text-secondary: #4a5450;
+  --color-border: #d3d8d2;
+  --color-leaf: #5fb592;
+  --color-sky: #8cc3e8;
 
   --color-success: #1f7a4d;
   --color-warning: #b45309;
   --color-error: #b42318;
 
-  --color-teal-50: #effafb;
-  --color-teal-100: #d0f1f3;
-  --color-teal-200: #a3e2e6;
-  --color-teal-300: #6bcfd4;
-  --color-teal-400: #3ab9bf;
-  --color-teal-500: #1f9ea4;
-  --color-teal-600: #198388;
-  --color-teal-700: #14676b;
-  --color-teal-800: #0b4f55;
-  --color-teal-900: #083a3e;
-  --color-teal-950: #062a2d;
+  /* teal-* utility scale = Highland Green family */
+  --color-teal-50: #e7f0ec;
+  --color-teal-100: #cfe1da;
+  --color-teal-200: #a3c7b9;
+  --color-teal-300: #78ad98;
+  --color-teal-400: #4d9277;
+  --color-teal-500: #2d7158;
+  --color-teal-600: #0e4d3c;
+  --color-teal-700: #0a3b2e;
+  --color-teal-800: #072c23;
+  --color-teal-900: #051f19;
+  --color-teal-950: #03130f;
 
+  /* amber-* utility scale = Teff Gold family */
   --color-amber-50: #fffbeb;
-  --color-amber-100: #fef3c7;
-  --color-amber-200: #fde896;
-  --color-amber-300: #f6d35c;
-  --color-amber-400: #edbe2e;
-  --color-amber-500: #f0b62a;
-  --color-amber-600: #e3a614;
-  --color-amber-700: #b9860f;
-  --color-amber-800: #946800;
-  --color-amber-900: #6b4a00;
-  --color-amber-950: #4a3300;
+  --color-amber-100: #fcf0c8;
+  --color-amber-200: #f8df8f;
+  --color-amber-300: #f3cc5c;
+  --color-amber-400: #eab93a;
+  --color-amber-500: #e0a526;
+  --color-amber-600: #c78a1c;
+  --color-amber-700: #a06d13;
+  --color-amber-800: #8a6200;
+  --color-amber-900: #5e4300;
+  --color-amber-950: #3d2c00;
 
-  --color-slate-50: #f3f6f5;
-  --color-slate-100: #e7ecea;
-  --color-slate-200: #d5dddb;
-  --color-slate-300: #b9c4c1;
-  --color-slate-400: #93a19d;
-  --color-slate-500: #71827e;
-  --color-slate-600: #4f5d5b;
-  --color-slate-700: #3a4544;
-  --color-slate-800: #293230;
-  --color-slate-900: #182120;
-  --color-slate-950: #0e1f21;
+  /* blue-* utility scale = Lake Blue family (Technology division) */
+  --color-blue-50: #edf4fa;
+  --color-blue-100: #d7e7f4;
+  --color-blue-200: #afd2ea;
+  --color-blue-300: #8cc3e8;
+  --color-blue-400: #5a9dd1;
+  --color-blue-500: #3a85bd;
+  --color-blue-600: #2a6fa8;
+  --color-blue-700: #225c8c;
+  --color-blue-800: #1a4769;
+  --color-blue-900: #123349;
+  --color-blue-950: #0a1e2a;
 
-  --color-primary-50: var(--color-teal-50);
-  --color-primary-100: var(--color-teal-100);
-  --color-primary-200: var(--color-teal-200);
-  --color-primary-300: var(--color-teal-300);
-  --color-primary-400: var(--color-teal-400);
-  --color-primary-500: var(--color-teal-500);
-  --color-primary-600: var(--color-teal-600);
-  --color-primary-700: var(--color-teal-700);
-  --color-primary-800: var(--color-teal-800);
-  --color-primary-900: var(--color-teal-900);
-  --color-primary-950: var(--color-teal-950);
-
-  --color-secondary-50: var(--color-amber-50);
-  --color-secondary-100: var(--color-amber-100);
-  --color-secondary-200: var(--color-amber-200);
-  --color-secondary-300: var(--color-amber-300);
-  --color-secondary-400: var(--color-amber-400);
-  --color-secondary-500: var(--color-amber-500);
-  --color-secondary-600: var(--color-amber-600);
-  --color-secondary-700: var(--color-amber-700);
-  --color-secondary-800: var(--color-amber-800);
-  --color-secondary-900: var(--color-amber-900);
-  --color-secondary-950: var(--color-amber-950);
-
-  --color-neutral-50: var(--color-slate-50);
-  --color-neutral-100: var(--color-slate-100);
-  --color-neutral-200: var(--color-slate-200);
-  --color-neutral-300: var(--color-slate-300);
-  --color-neutral-400: var(--color-slate-400);
-  --color-neutral-500: var(--color-slate-500);
-  --color-neutral-600: var(--color-slate-600);
-  --color-neutral-700: var(--color-slate-700);
-  --color-neutral-800: var(--color-slate-800);
-  --color-neutral-900: var(--color-slate-900);
-  --color-neutral-950: var(--color-slate-950);
+  /* slate-* utility scale = Basalt/Mist neutral family */
+  --color-slate-50: #f4f5f1;
+  --color-slate-100: #e8eae5;
+  --color-slate-200: #d3d8d2;
+  --color-slate-300: #b4bcb4;
+  --color-slate-400: #8c978e;
+  --color-slate-500: #6b766c;
+  --color-slate-600: #4a5450;
+  --color-slate-700: #38423d;
+  --color-slate-800: #263029;
+  --color-slate-900: #1c2420;
+  --color-slate-950: #16201e;
 }
 
 :root {
-  --ring: #198388;
+  --ring: #0e4d3c;
+
+  /* Motion tokens (Phase 5) */
+  --motion-fast: 150ms;
+  --motion-base: 300ms;
+  --motion-slow: 600ms;
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-state: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -112,14 +112,14 @@ html {
 
 body {
   font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
-  background-color: #f3f6f5;
-  color: #0e1f21;
+  background-color: #f4f5f1;
+  color: #16201e;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: rgba(25, 131, 136, 0.18);
-  color: #0b4f55;
+  background: rgba(14, 77, 60, 0.18);
+  color: #0e4d3c;
 }
 
 /* Hide scrollbars until scrolling */
@@ -128,7 +128,7 @@ body {
   scrollbar-color: transparent transparent;
 }
 *:hover {
-  scrollbar-color: rgba(79, 93, 91, 0.35) transparent;
+  scrollbar-color: rgba(74, 84, 80, 0.35) transparent;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -141,7 +141,7 @@ body {
   background-clip: content-box;
 }
 *:hover::-webkit-scrollbar-thumb {
-  background: rgba(79, 93, 91, 0.35);
+  background: rgba(74, 84, 80, 0.35);
   background-clip: content-box;
 }
 
@@ -155,9 +155,9 @@ body {
 .reveal {
   opacity: 0;
   transition:
-    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.8s ease;
+    opacity var(--motion-slow) var(--ease-entrance),
+    transform var(--motion-slow) var(--ease-entrance),
+    filter var(--motion-slow) var(--ease-state);
   will-change: opacity, transform;
 }
 .reveal[data-variant="up"] {
@@ -193,15 +193,19 @@ body {
   from { transform: scale(1); }
   to { transform: scale(1.08); }
 }
-.hero-zoom {
-  animation: hero-zoom 24s ease-out forwards;
+/* Slow zoom only where there is room for it: fine-pointer desktop widths.
+   Phones, tablets and reduced-motion users get a static image. */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .hero-zoom {
+    animation: hero-zoom 24s ease-out forwards;
+  }
 }
 
 /* ---------------------------------------------------------- interaction fx */
 
 /* Springy press feedback for clickable elements (buttons, tabs, links). */
 .press {
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform var(--motion-fast) var(--ease-state);
 }
 .press:active {
   transform: scale(0.955);
@@ -241,7 +245,7 @@ body {
   transform: translateY(-2px) scale(1.08) rotate(-3deg);
 }
 .icon-pop {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform var(--motion-base) var(--ease-entrance);
 }
 
 /* Gentle continuous pulse for "live" indicators. */
@@ -327,4 +331,27 @@ body {
   .marquee-track { animation: none; }
   .detail-fade { animation: none; }
   .page-enter { animation: none; }
+  /* Catch-all so no animation or transition added later can ignore the setting. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus everywhere: a Highland Green ring with a white
+   inner band so it reads on light, Mist and Basalt surfaces alike. */
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-offset: 0;
+  box-shadow: none;
 }

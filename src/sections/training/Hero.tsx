@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Reveal, wrap } from "../../lib/motion"
 import { useI18n } from "../../i18n"
 import { Paragraphs } from "../../lib/paragraphs"
+import { unsplashSrcSet } from "../../lib/images"
 
 export default function TrainingHero() {
   const { t } = useI18n()
@@ -14,12 +15,14 @@ export default function TrainingHero() {
         <img
           src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop&auto=format"
           alt=""
+          srcSet={unsplashSrcSet("https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1600&h=900&fit=crop&auto=format")}
+          sizes="100vw"
           className="hero-zoom absolute inset-0 size-full object-cover"
-          loading="lazy"
+          fetchPriority="high"
         />
         <div
           className="absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(120deg, rgba(14,31,33,0.9) 0%, rgba(11,79,85,0.85) 100%)" }}
+          style={{ backgroundImage: "linear-gradient(120deg, rgba(22,32,30,0.9) 0%, rgba(14,77,60,0.85) 100%)" }}
         />
         <div
           aria-hidden
@@ -50,21 +53,21 @@ export default function TrainingHero() {
         <Reveal delay={260} className="order-3 flex flex-wrap gap-3 sm:order-6">
           <a
             href="#programmes"
-            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-gold-text shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
+            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
           >
             {h.ctaPrimary}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
           <Link
             to="/financial-literacy"
-            className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-amber-300/60 bg-amber-500/10 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:border-amber-200 hover:bg-amber-500/20"
+            className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-amber-300/60 bg-amber-500/10 px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:border-amber-200 hover:bg-amber-500/20"
           >
             {h.ctaTertiary}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             to="/contact"
-            className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:border-white hover:bg-white/10"
+            className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-white/10"
           >
             {h.ctaSecondary}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

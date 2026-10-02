@@ -29,23 +29,23 @@ export default function Approach() {
   const step = t.approach.steps[active]
   const Icon = STEP_ICONS[active]
   return (
-    <section id="approach" className="relative overflow-hidden bg-white py-16 text-ink sm:py-24">
+    <section id="approach" className="relative overflow-hidden bg-white py-16 text-basalt sm:py-24">
       <div
         aria-hidden
         className="absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "radial-gradient(50% 50% at 80% 0%, rgba(25,131,136,0.08) 0%, transparent 60%)",
+            "radial-gradient(50% 50% at 80% 0%, rgba(14,77,60,0.08) 0%, transparent 60%)",
         }}
       />
       <div className={`${wrap} relative`}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
           {t.approach.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-2xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {t.approach.heading}
         </Reveal>
@@ -61,20 +61,20 @@ export default function Approach() {
               <button
                 key={s.key}
                 onClick={() => setActive(i)}
-                className={`press flex shrink-0 snap-start items-center gap-2.5 rounded-lg border px-4 py-3 text-left transition-all ${
+                className={`press flex shrink-0 snap-start items-center gap-2.5 rounded-lg border px-4 py-3 text-left transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
                   on
-                    ? "border-teal bg-teal-50"
+                    ? "border-green bg-teal-50"
                     : "border-border bg-mist hover:-translate-y-0.5 hover:border-teal-200"
                 }`}
               >
                 <span
                   className={`grid size-8 place-items-center rounded-lg text-sm font-bold ${
-                    on ? "bg-teal text-white" : "bg-white text-text-secondary"
+                    on ? "bg-green text-white" : "bg-white text-text-secondary"
                   }`}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className={`text-sm font-semibold ${on ? "text-teal-deep" : "text-text-secondary"}`}>
+                <span className={`text-sm font-semibold ${on ? "text-green" : "text-text-secondary"}`}>
                   {s.key}
                 </span>
               </button>
@@ -87,11 +87,11 @@ export default function Approach() {
           key={active}
           className="reveal in mt-6 grid gap-8 rounded-2xl border border-border bg-mist p-6 sm:p-10 md:grid-cols-[auto_1fr]"
         >
-          <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-teal-50 text-teal-deep">
+          <div className="grid size-16 shrink-0 place-items-center rounded-2xl bg-teal-50 text-green">
             <Icon className="size-8" strokeWidth={1.8} />
           </div>
           <div>
-            <h3 className="text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">{step.tagline}</h3>
+            <h3 className="text-[20px] leading-[28px] font-semibold text-green lg:text-[24px] lg:leading-[32px]">{step.tagline}</h3>
             <div className="mt-4 max-w-2xl">
               <Paragraphs text={step.desc} className="leading-relaxed text-text-secondary" />
             </div>
@@ -105,9 +105,9 @@ export default function Approach() {
                   key={it.title}
                   className="flex items-start gap-3 rounded-2xl border border-border bg-white p-4"
                 >
-                  <Check className="mt-0.5 size-4 shrink-0 text-teal" />
+                  <Check className="mt-0.5 size-4 shrink-0 text-green" />
                   <div>
-                    <p className="text-sm font-bold text-ink">{it.title}</p>
+                    <p className="text-sm font-bold text-basalt">{it.title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-text-secondary">{it.desc}</p>
                   </div>
                 </div>

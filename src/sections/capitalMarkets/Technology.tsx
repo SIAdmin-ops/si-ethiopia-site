@@ -25,7 +25,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-teal-deep" />
+            <HighlightSI text={p} className="text-blue-600" />
           </p>
         ))}
     </div>
@@ -33,22 +33,23 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
 }
 
 /** Technology capability catalogue for the capital-markets transaction
-    lifecycle, same grouped-list grammar as ServicesGrid, but teal-accented
-    to read as the page's dedicated "technology" register. */
+    lifecycle, same grouped-list grammar as ServicesGrid, but Lake-Blue
+    accented to read as the page's dedicated "technology" register (and to
+    match the Technology division's own brand colour). */
 export default function CapitalMarketsTechnology() {
   const { t } = useI18n()
   const tech = t.capitalMarketsPage.technology
 
   return (
-    <section id="technology" className="relative overflow-hidden bg-white py-16 sm:py-24">
+    <section id="technology" className="relative overflow-hidden bg-mist py-16 sm:py-24">
       <div className={wrap}>
-        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+        <Reveal className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-600">
           {tech.eyebrow}
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {tech.heading}
         </Reveal>
@@ -57,9 +58,9 @@ export default function CapitalMarketsTechnology() {
         </Reveal>
         <Reveal
           delay={200}
-          className="mt-6 max-w-2xl rounded-2xl border border-teal-100 bg-teal-50 p-5"
+          className="mt-6 max-w-2xl rounded-2xl border border-blue-100 bg-blue-50 p-5"
         >
-          <p className="text-sm font-semibold italic leading-relaxed text-teal-deep sm:text-base">
+          <p className="text-sm font-semibold italic leading-relaxed text-blue-600 sm:text-base">
             {tech.emphasis}
           </p>
         </Reveal>
@@ -75,12 +76,12 @@ export default function CapitalMarketsTechnology() {
               >
                 <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:gap-10">
                   <div className="flex items-center gap-3 lg:flex-col lg:items-start lg:gap-3">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-teal-50 text-teal-deep">
+                    <span className="grid size-10 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-600">
                       <Icon className="size-[18px]" strokeWidth={2} />
                     </span>
                     <div className="flex items-baseline gap-2 lg:flex-col lg:items-start lg:gap-1">
                       <span className="font-mono text-xs text-slate-300">{String(gi + 1).padStart(2, "0")}</span>
-                      <h3 className="text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">{group.title}</h3>
+                      <h3 className="text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">{group.title}</h3>
                     </div>
                   </div>
 
@@ -92,7 +93,7 @@ export default function CapitalMarketsTechnology() {
                       {group.items.map((item) => (
                         <span
                           key={item}
-                          className="rounded-full border border-border bg-mist px-3.5 py-2 text-[13px] font-semibold text-ink"
+                          className="rounded-full border border-border bg-white px-3.5 py-2 text-[13px] font-semibold text-basalt"
                         >
                           {item}
                         </span>
@@ -112,7 +113,7 @@ export default function CapitalMarketsTechnology() {
 
         <Reveal
           delay={200}
-          className="mt-10 text-center text-lg font-extrabold italic leading-snug tracking-tight text-teal-deep sm:text-xl"
+          className="mt-10 text-center text-lg font-extrabold italic leading-snug tracking-tight text-blue-600 sm:text-xl"
         >
           {tech.closing}
         </Reveal>

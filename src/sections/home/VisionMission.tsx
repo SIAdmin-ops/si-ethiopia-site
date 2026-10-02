@@ -11,10 +11,7 @@ export default function VisionMission() {
   ]
 
   return (
-    <section
-      className="relative overflow-hidden text-white"
-      style={{ backgroundImage: "linear-gradient(120deg, #083a3e 0%, #198388 100%)" }}
-    >
+    <section className="relative overflow-hidden bg-mist text-basalt">
       <div className={`${wrap} relative py-16 sm:py-24`}>
         <div className="grid gap-12 md:grid-cols-2 md:gap-0">
           {cards.map((c, i) => (
@@ -22,16 +19,16 @@ export default function VisionMission() {
               key={c.title}
               delay={i * 120}
               variant={i === 0 ? "left" : "right"}
-              className={`group ${i === 1 ? "md:border-l md:border-white/15 md:pl-14" : "md:pr-14"}`}
+              className={`group ${i === 1 ? "md:border-l md:border-border md:pl-14" : "md:pr-14"}`}
             >
-              <div className="flex items-center gap-3 text-teal-200">
+              <div className="flex items-center gap-3 text-green">
                 <c.icon
                   className="size-5 shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
                   strokeWidth={1.8}
                 />
                 <h3 className="font-display text-xs font-bold uppercase tracking-[3px]">{c.title}</h3>
               </div>
-              <p className="mt-6 font-display text-[22px] font-medium leading-[32px] tracking-tight text-white sm:text-[26px] sm:leading-[36px]">
+              <p className="mt-6 font-display text-[22px] font-medium leading-[32px] tracking-tight text-basalt sm:text-[26px] sm:leading-[36px]">
                 {c.body}
               </p>
             </Reveal>

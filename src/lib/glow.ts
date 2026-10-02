@@ -4,20 +4,18 @@
     here so every dark section shares one tuned recipe, parameterized by the
     page's own accent so Capital Markets/Technology/Training/default all read
     as the same system in a different color. */
-export type GlowAccent = "amber" | "teal" | "blue" | "indigo"
+export type GlowAccent = "amber" | "teal" | "blue"
 
 const ACCENT_RGB: Record<GlowAccent, string> = {
-  amber: "227,166,20",
-  teal: "25,131,136",
-  blue: "227,166,20",
-  indigo: "25,131,136",
+  amber: "224,165,38", // Teff Gold
+  teal: "14,77,60", // Highland Green
+  blue: "42,111,168", // Lake Blue
 }
 
 const COMPLEMENT_RGB: Record<GlowAccent, string> = {
-  amber: "58,185,191",
-  teal: "237,190,46",
-  blue: "56,189,248",
-  indigo: "237,190,46",
+  amber: "95,181,146", // Leaf
+  teal: "224,165,38", // Teff Gold
+  blue: "140,195,232", // Sky
 }
 
 export function glow(accent: GlowAccent = "amber") {
@@ -27,7 +25,7 @@ export function glow(accent: GlowAccent = "amber") {
 /** Same recipe with a dark scrim layered on top, for image/video-backed
     heroes that need the glow plus guaranteed text legibility. */
 export function glowWithScrim(accent: GlowAccent = "amber") {
-  return `linear-gradient(100deg, rgba(14,31,33,0.92) 0%, rgba(14,31,33,0.75) 45%, rgba(14,31,33,0.92) 100%), ${glow(accent)}`
+  return `linear-gradient(100deg, rgba(22,32,30,0.92) 0%, rgba(22,32,30,0.75) 45%, rgba(22,32,30,0.92) 100%), ${glow(accent)}`
 }
 
 /** Subtle dotted-grid texture overlay, reused across hero/statement sections. */

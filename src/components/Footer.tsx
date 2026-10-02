@@ -19,20 +19,20 @@ export default function Footer() {
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{
           backgroundImage:
-            "radial-gradient(60% 70% at 15% 0%, rgba(25,131,136,0.22) 0%, transparent 55%), radial-gradient(45% 60% at 100% 100%, rgba(227,166,20,0.12) 0%, transparent 50%)",
+            "radial-gradient(60% 70% at 15% 0%, rgba(14,77,60,0.22) 0%, transparent 55%), radial-gradient(45% 60% at 100% 100%, rgba(224,165,38,0.12) 0%, transparent 50%)",
         }}
       />
 
       <div className={`${wrap} relative py-16 sm:py-24`}>
-        <Reveal className="flex items-center gap-3">
-          <img
-            src="/Strategy_Innovations_Logo.png"
-            alt="Strategy Innovations Consultancy"
-            className="h-9 w-auto brightness-0 invert"
-          />
-          <span className="font-display text-sm font-bold uppercase tracking-[3px] text-white/70">
-            Strategy Innovations Consultancy PLC
-          </span>
+        <Reveal>
+          <Link to="/" aria-label="Strategy Innovations Consultancy PLC, home" className="inline-block">
+            <img
+              src="/sic-ethiopia-horizontal-reversed.svg"
+              loading="lazy"
+              alt=""
+              className="h-14 w-auto sm:h-16"
+            />
+          </Link>
         </Reveal>
 
         <Reveal
@@ -46,7 +46,7 @@ export default function Footer() {
         <Reveal delay={120}>
           <Link
             to="/contact"
-            className="group press shine mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-slate-900 transition-all hover:-translate-y-0.5"
+            className="group press shine mt-8 inline-flex items-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
           >
             {t.navCta}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -62,7 +62,7 @@ export default function Footer() {
               <Link
                 key={NAV_ROUTES[i]}
                 to={NAV_ROUTES[i]}
-                className="text-sm font-semibold text-white/60 transition-colors hover:text-white"
+                className="text-[15px] font-semibold text-sky transition-colors duration-150 hover:text-sky hover:underline underline-offset-4"
               >
                 {l}
               </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
 
       <div className="relative border-t border-white/10">
         <div
-          className={`${wrap} flex flex-col gap-1 py-5 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between`}
+          className={`${wrap} flex flex-col gap-1 py-5 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between`}
         >
           <span className="flex flex-col gap-1">
             <span>{t.footer.rights}</span>
@@ -83,7 +83,7 @@ export default function Footer() {
                 href="https://strategy-innovations.com"
                 target="_blank"
                 rel="noopener"
-                className="text-teal-400 underline-offset-2 hover:underline"
+                className="text-sky underline-offset-2 hover:underline"
               >
                 strategy-innovations.com
               </a>

@@ -12,20 +12,13 @@ export default function TrainingClosing() {
   const c = t.training.closing
 
   return (
-    <section
-      className="relative overflow-hidden py-16 sm:py-24"
-      style={{ background: "linear-gradient(90deg, #0e1f21 0%, #0b4f55 100%)" }}
-    >
+    <section className="relative overflow-hidden bg-green py-16 sm:py-24">
       <div aria-hidden className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1758270705290-62b6294dd044?w=1600&h=900&fit=crop&auto=format"
           alt=""
-          className="absolute inset-0 size-full object-cover opacity-20"
+          className="absolute inset-0 size-full object-cover opacity-10"
           loading="lazy"
-        />
-        <div
-          className="absolute inset-0"
-          style={{ backgroundImage: "linear-gradient(90deg, rgba(14,31,33,0.75) 0%, rgba(11,79,85,0.7) 100%)" }}
         />
       </div>
       <div className={`${wrap} relative`}>
@@ -62,14 +55,14 @@ export default function TrainingClosing() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href="#programmes"
-              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-gold-text shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-black/25"
+              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-gold/90"
             >
               {c.ctaPrimary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
             <Link
               to="/contact"
-              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:border-white hover:bg-white/10"
+              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-white/10"
             >
               {c.ctaSecondary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

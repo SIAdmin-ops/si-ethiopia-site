@@ -5,8 +5,14 @@
     "index": true
   },
   "icons": {
-    "icon": "/Strategy_Innovations_Icon.png"
+    "svg": "/si-app-icon.svg",
+    "favicon32": "/favicon-32.png",
+    "appleTouchIcon": "/apple-touch-icon-180.png",
+    "icon192": "/icon-192.png",
+    "icon512": "/icon-512.png",
+    "manifest": "/site.webmanifest"
   },
+  "themeColor": "#0E4D3C",
   "accessibility": {
     "addBypassLinks": false,
     "ignoreReducedMotion": false

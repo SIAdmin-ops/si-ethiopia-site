@@ -87,7 +87,7 @@ export default function CapitalMarketsTraining() {
               return (
                 <div
                   key={level.title}
-                  className="group overflow-hidden rounded-2xl border border-slate-200 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/10"
+                  className="group overflow-hidden rounded-2xl border border-slate-200 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-900/10"
                 >
                   <div className="relative h-28 overflow-hidden">
                     <img
@@ -147,7 +147,7 @@ export default function CapitalMarketsTraining() {
         <Reveal delay={260} className="mt-12 flex justify-center">
           <Link
             to="/training"
-            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-amber-700 px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white shadow-xl shadow-amber-700/20 transition-all hover:-translate-y-0.5 hover:bg-amber-600 hover:shadow-2xl hover:shadow-amber-700/30"
+            className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-green px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[transform,background-color] duration-300 hover:-translate-y-0.5 hover:bg-green-hover"
           >
             <GraduationCap className="size-4" strokeWidth={2} />
             {tr.cta}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Reveal, RevealText, useParallax, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
 import { HighlightSI } from "../lib/highlightSI"
+import { unsplashSrcSet } from "../lib/images"
 
 const HERO_CHIP_ICONS = [Check, Users, Layers]
 
@@ -39,8 +40,10 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1689732888407-310424e3a372?w=2000&h=1400&fit=crop&auto=format"
           alt=""
+          srcSet={unsplashSrcSet("https://images.unsplash.com/photo-1689732888407-310424e3a372?w=2000&h=1400&fit=crop&auto=format")}
+          sizes="100vw"
           className="hero-zoom size-full object-cover"
-          loading="lazy"
+          fetchPriority="high"
         />
       </div>
       <div
@@ -48,7 +51,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(100deg, rgba(14,31,33,0.94) 0%, rgba(14,31,33,0.82) 38%, rgba(14,31,33,0.45) 65%, rgba(14,31,33,0.75) 100%), linear-gradient(0deg, rgba(14,31,33,0.5) 0%, transparent 40%), linear-gradient(200deg, rgba(11,79,85,0.35) 0%, transparent 45%)",
+            "linear-gradient(100deg, rgba(22,32,30,0.94) 0%, rgba(22,32,30,0.82) 38%, rgba(22,32,30,0.45) 65%, rgba(22,32,30,0.75) 100%), linear-gradient(0deg, rgba(22,32,30,0.5) 0%, transparent 40%), linear-gradient(200deg, rgba(14,77,60,0.35) 0%, transparent 45%)",
         }}
       />
 
@@ -70,14 +73,14 @@ export default function Hero() {
           <Reveal delay={340} className="order-3 mt-9 flex flex-col gap-3 sm:order-none sm:flex-row">
             <Link
               to="/contact"
-              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-ink shadow-xl shadow-black/20 transition-all hover:-translate-y-0.5 hover:brightness-110 hover:shadow-2xl"
+              className="group press shine inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-basalt shadow-xl shadow-black/20 transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:-translate-y-0.5 hover:brightness-110 hover:shadow-2xl"
             >
               {t.hero.ctaPrimary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
               href="#approach"
-              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-all hover:border-white hover:bg-white/10"
+              className="group press inline-flex items-center justify-center gap-2 rounded-lg border border-white px-7 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-white/10"
             >
               {t.hero.ctaSecondary}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -90,7 +93,7 @@ export default function Hero() {
               return (
                 <span
                   key={label}
-                  className="group inline-flex cursor-default items-center gap-2 rounded-full border border-white/20 bg-white/[0.07] px-3.5 py-2 text-xs font-bold backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/[0.12]"
+                  className="group inline-flex cursor-default items-center gap-2 rounded-full border border-white/20 bg-white/[0.07] px-3.5 py-2 text-xs font-bold backdrop-blur-sm transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/[0.12]"
                 >
                   <Icon className="icon-pop size-4 text-white" strokeWidth={2.5} />
                   {label}

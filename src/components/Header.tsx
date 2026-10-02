@@ -1,4 +1,4 @@
-import { useState, useEffect, type CSSProperties } from "react"
+import { useState, useEffect, useRef, type CSSProperties } from "react"
 import { Menu, X, ChevronDown, Landmark, Cpu, GraduationCap } from "lucide-react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { wrap } from "../lib/motion"
@@ -30,15 +30,16 @@ const OVERLAY_ROUTES = [
 ]
 
 /** Header accent per page, applied as CSS variables so every `[var(--brand)]`
-    class below repaints instantly on navigation matches each division's own
-    brand colour (Capital Markets' deep teal, Technology's teal,
-    Training's gold); everything else keeps the site's default teal. */
-const DEFAULT_THEME = { accent: "#198388", hover: "#0b4f55", tint: "#effafb", ring: "#d0f1f3" }
+    class below repaints instantly on navigation and matches each division's
+    own brand colour (Capital Markets' Highland Green, Technology's Lake
+    Blue, Training's Teff Gold text); everything else keeps the site's
+    default Highland Green. */
+const DEFAULT_THEME = { accent: "var(--color-green)", tint: "var(--color-green-tint)" }
 const PAGE_THEMES: Record<string, typeof DEFAULT_THEME> = {
-  "/capital-markets": { accent: "#0b4f55", hover: "#083a3e", tint: "#effafb", ring: "#d0f1f3" },
-  "/technology": { accent: "#198388", hover: "#0b4f55", tint: "#effafb", ring: "#d0f1f3" },
-  "/training": { accent: "#946800", hover: "#6b4a00", tint: "#fffbeb", ring: "#fef3c7" },
-  "/financial-literacy": { accent: "#946800", hover: "#6b4a00", tint: "#fffbeb", ring: "#fef3c7" },
+  "/capital-markets": { accent: "var(--color-green)", tint: "var(--color-green-tint)" },
+  "/technology": { accent: "var(--color-blue)", tint: "var(--color-blue-50)" },
+  "/training": { accent: "var(--color-gold-text)", tint: "var(--color-amber-50)" },
+  "/financial-literacy": { accent: "var(--color-gold-text)", tint: "var(--color-amber-50)" },
 }
 
 export default function Header() {
@@ -47,14 +48,14 @@ export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [divisionsOpenMobile, setDivisionsOpenMobile] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   const onADivisionRoute = DIVISIONS.some((d) => d.path === location.pathname)
   const theme = PAGE_THEMES[location.pathname] ?? DEFAULT_THEME
   const themeVars = {
     "--brand": theme.accent,
-    "--brand-hover": theme.hover,
     "--brand-tint": theme.tint,
-    "--brand-ring": theme.ring,
   } as CSSProperties
 
   /* Pages that open on a full-bleed hero get a header that starts
@@ -90,12 +91,29 @@ export default function Header() {
     }
   }, [open])
 
+  /* Keyboard support for the mobile panel: Escape closes it, focus moves in
+     on open and returns to the toggle on close. */
+  useEffect(() => {
+    if (!open) return
+    closeRef.current?.focus()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false)
+        toggleRef.current?.focus()
+      }
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [open])
+
+  useEffect(() => setOpen(false), [location.pathname])
+
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
     `relative rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300 after:absolute after:inset-x-3 after:bottom-1 after:h-px after:origin-left after:transition-transform after:duration-300 ${
       overlay
         ? `text-white after:bg-white hover:bg-white/10 ${isActive ? "after:scale-x-100" : "text-white/80 after:scale-x-0"}`
         : `hover:text-[var(--brand)] after:bg-[var(--brand)] hover:after:scale-x-100 ${
-            isActive ? "text-[var(--brand)] after:scale-x-100" : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+            isActive ? "text-[var(--brand)] after:scale-x-100" : "text-text-secondary after:scale-x-0 hover:bg-slate-50"
           }`
     }`
 
@@ -107,7 +125,7 @@ export default function Header() {
   return (
     <header
       style={themeVars}
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
         overlay
           ? "border-transparent bg-gradient-to-b from-black/40 via-black/10 to-transparent"
           : scrolled
@@ -116,13 +134,11 @@ export default function Header() {
       }`}
     >
       <div className={`${wrap} flex h-[68px] items-center justify-between`}>
-        <Link to="/" className="group flex items-center">
+        <Link to="/" className="group flex items-center" aria-label="Strategy Innovations Consultancy PLC, home">
           <img
-            src="/Strategy_Innovations_Logo.png"
-            alt="Strategy Innovations Consultancy"
-            className={`h-12 w-auto transition-all duration-500 group-hover:scale-105 ${
-              overlay ? "brightness-0 invert" : ""
-            }`}
+            src={overlay ? "/sic-ethiopia-horizontal-reversed-transparent.svg" : "/sic-ethiopia-horizontal.svg"}
+            alt=""
+            className="h-10 w-auto transition-transform duration-500 group-hover:scale-105 sm:h-11"
           />
         </Link>
 
@@ -139,7 +155,7 @@ export default function Header() {
                   : `after:bg-[var(--brand)] group-hover/divisions:text-[var(--brand)] group-hover/divisions:after:scale-x-100 ${
                       onADivisionRoute
                         ? "text-[var(--brand)] after:scale-x-100"
-                        : "text-slate-600 after:scale-x-0 hover:bg-slate-50"
+                        : "text-text-secondary after:scale-x-0 hover:bg-slate-50"
                     }`
               }`}
             >
@@ -147,8 +163,8 @@ export default function Header() {
               <ChevronDown className="size-3.5 transition-transform duration-200 group-hover/divisions:rotate-180" />
             </button>
 
-            <div className="invisible absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-[250ms] ease-out group-hover/divisions:visible group-hover/divisions:opacity-100 group-focus-within/divisions:visible group-focus-within/divisions:opacity-100">
-              <div className="grid origin-top translate-y-1 scale-[0.97] grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-900/10 transition-all duration-[250ms] ease-out group-hover/divisions:translate-y-0 group-hover/divisions:scale-100 group-focus-within/divisions:translate-y-0 group-focus-within/divisions:scale-100">
+            <div className="invisible absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3 opacity-0 transition-[opacity,visibility,transform] duration-[250ms] ease-out group-hover/divisions:visible group-hover/divisions:opacity-100 group-focus-within/divisions:visible group-focus-within/divisions:opacity-100">
+              <div className="grid origin-top translate-y-1 scale-[0.97] grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-2xl shadow-slate-900/10 transition-[opacity,visibility,transform] duration-[250ms] ease-out group-hover/divisions:translate-y-0 group-hover/divisions:scale-100 group-focus-within/divisions:translate-y-0 group-focus-within/divisions:scale-100">
                 {DIVISIONS.map((d, i) => {
                   const Icon = d.icon
                   const accent = (PAGE_THEMES[d.path] ?? DEFAULT_THEME).accent
@@ -168,14 +184,14 @@ export default function Header() {
                         style={{ backgroundColor: accent }}
                       />
                       <span
-                        className="grid size-10 shrink-0 place-items-center rounded-lg transition-all duration-200 group-hover/item:-translate-y-0.5 group-hover/item:scale-105"
-                        style={{ backgroundColor: `${accent}1a`, color: accent }}
+                        className="grid size-10 shrink-0 place-items-center rounded-lg transition-transform duration-200 group-hover/item:-translate-y-0.5 group-hover/item:scale-105"
+                        style={{ backgroundColor: `color-mix(in srgb, ${accent} 10%, transparent)`, color: accent }}
                       >
                         <Icon className="size-[18px]" strokeWidth={2} />
                       </span>
                       <span>
                         <span className="block text-sm font-bold text-slate-900">{t.nav[i]}</span>
-                        <span className="mt-1 block text-xs leading-snug text-slate-500">
+                        <span className="mt-1 block text-xs leading-snug text-text-secondary">
                           {t.home.divisions.items[i]?.tagline}
                         </span>
                       </span>
@@ -201,13 +217,19 @@ export default function Header() {
           <LangToggle className="hidden lg:inline-flex" />
           <Link
             to="/contact"
-            className="press shine hidden rounded-lg bg-[var(--brand)] px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[var(--brand)]/20 transition-all hover:-translate-y-0.5 hover:bg-[var(--brand-hover)] hover:shadow-xl hover:shadow-[var(--brand)]/30 lg:inline-block"
+            className={`press shine hidden rounded-lg px-5 py-2.5 text-[15px] font-semibold transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 lg:inline-block ${
+              overlay
+                ? "bg-gold text-basalt hover:bg-gold/90"
+                : "bg-green text-white hover:bg-green-hover"
+            }`}
           >
             {t.navCta}
           </Link>
           <button
+            ref={toggleRef}
             aria-label="Toggle menu"
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
             className={`press grid size-10 place-items-center rounded-lg ring-1 backdrop-blur-md transition-colors lg:hidden ${
               overlay
@@ -230,6 +252,11 @@ export default function Header() {
         }`}
       />
       <div
+        id="mobile-menu"
+        role="dialog"
+        aria-label="Menu"
+        aria-modal={open}
+        inert={!open}
         className={`fixed inset-y-0 right-0 z-[70] flex w-full max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
@@ -237,6 +264,7 @@ export default function Header() {
         <div className="flex h-[68px] shrink-0 items-center justify-between border-b border-slate-100 px-5">
           <span className="font-display text-sm font-bold uppercase tracking-[3px] text-slate-900">Menu</span>
           <button
+            ref={closeRef}
             aria-label="Close menu"
             onClick={() => setOpen(false)}
             className="press grid size-10 place-items-center rounded-lg text-slate-700 ring-1 ring-slate-200 transition-colors hover:bg-slate-50"
@@ -245,7 +273,7 @@ export default function Header() {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-5">
+        <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-5">
           {/* Divisions tap to expand/collapse */}
           <button
             type="button"
@@ -304,7 +332,7 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={() => setOpen(false)}
-            className="press shine rounded-lg bg-[var(--brand)] px-4 py-3.5 text-center text-base font-semibold text-white shadow-lg shadow-[var(--brand)]/20"
+            className="press shine rounded-lg bg-green px-4 py-3.5 text-center text-base font-semibold text-white hover:bg-green-hover"
           >
             {t.navCta}
           </Link>

@@ -47,7 +47,7 @@ export default function LangToggle({ className = "" }: { className?: string }) {
 
       <div
         role="listbox"
-        className={`absolute right-0 top-full z-50 mt-2 w-48 origin-top-right rounded-2xl border border-slate-200 bg-white p-1.5 shadow-xl shadow-slate-900/10 transition-all duration-150 ${
+        className={`absolute right-0 top-full z-50 mt-2 w-48 origin-top-right rounded-2xl border border-slate-200 bg-white p-1.5 shadow-xl shadow-slate-900/10 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-150 ${
           open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-1 opacity-0"
         }`}
       >

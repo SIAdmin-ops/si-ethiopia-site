@@ -19,22 +19,22 @@ const DIVISION_IMAGES = [
 ]
 
 /* Division accent colors per the brand's division coding on light/Mist
-   backgrounds: Capital Markets = Deep Teal, Technology = Teal, Training =
-   Gold-text (gold is reserved for dark backgrounds). */
+   backgrounds: Capital Markets = Highland Green, Technology = Lake Blue,
+   Training = Gold-text (gold is reserved for dark backgrounds). */
 const ACCENT: Record<string, { icon: string; num: string; topBorder: string; chip: string; link: string }> = {
   amber: {
-    icon: "bg-teal-deep/10 text-teal-deep",
-    num: "text-teal-deep",
-    topBorder: "border-t-teal-deep",
-    chip: "bg-teal-deep/10 text-teal-deep ring-1 ring-teal-deep/20",
-    link: "border-teal-deep/40 text-teal-deep hover:bg-teal-deep hover:text-white hover:border-teal-deep",
+    icon: "bg-green/10 text-green",
+    num: "text-green",
+    topBorder: "border-t-green",
+    chip: "bg-green/10 text-green ring-1 ring-green/20",
+    link: "border-green/40 text-green hover:bg-green hover:text-white hover:border-green",
   },
   teal: {
-    icon: "bg-teal/10 text-teal",
-    num: "text-teal",
-    topBorder: "border-t-teal",
-    chip: "bg-teal/10 text-teal ring-1 ring-teal/20",
-    link: "border-teal/40 text-teal hover:bg-teal hover:text-white hover:border-teal",
+    icon: "bg-blue-600/10 text-blue-600",
+    num: "text-blue-600",
+    topBorder: "border-t-blue-600",
+    chip: "bg-blue-600/10 text-blue-600 ring-1 ring-blue-600/20",
+    link: "border-blue-600/40 text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600",
   },
   blue: {
     icon: "bg-gold-text/10 text-gold-text",
@@ -56,7 +56,7 @@ function Paragraphs({ text, className }: { text: string; className: string }) {
         .filter(Boolean)
         .map((p, i) => (
           <p key={i} className={className}>
-            <HighlightSI text={p} className="text-teal-deep" />
+            <HighlightSI text={p} className="text-green" />
           </p>
         ))}
     </div>
@@ -96,20 +96,20 @@ export default function Divisions() {
         className="absolute inset-0 opacity-30"
         style={{
           backgroundImage:
-            "radial-gradient(55% 60% at 15% 0%, rgba(25,131,136,0.1) 0%, transparent 55%), radial-gradient(50% 60% at 100% 100%, rgba(148,104,0,0.08) 0%, transparent 55%)",
+            "radial-gradient(55% 60% at 15% 0%, rgba(14,77,60,0.1) 0%, transparent 55%), radial-gradient(50% 60% at 100% 100%, rgba(138,98,0,0.08) 0%, transparent 55%)",
         }}
       />
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-deep" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal-deep">
+          <span className="size-1.5 rounded-full bg-green" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-green">
             {d.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-ink sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-basalt sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {d.heading}
         </Reveal>
@@ -136,7 +136,7 @@ export default function Divisions() {
                     <span className={`grid size-12 place-items-center rounded-2xl ${a.icon}`}>
                       <Icon className="icon-pop size-5" strokeWidth={1.8} />
                     </span>
-                    <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">
+                    <h3 className="mt-4 text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">
                       {item.title}
                     </h3>
                     <p className={`mt-1.5 text-sm font-semibold ${a.num}`}>{item.tagline}</p>
@@ -163,7 +163,7 @@ export default function Divisions() {
 
                   <Link
                     to={meta.route}
-                    className={`group/cta mt-6 inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-all ${a.link}`}
+                    className={`group/cta mt-6 inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-bold uppercase tracking-wide transition-[color,background-color,border-color,opacity,transform,box-shadow] ${a.link}`}
                   >
                     {item.link}
                     <ArrowRight className="size-4 transition-transform group-hover/cta:translate-x-1" />
@@ -195,24 +195,24 @@ export default function Divisions() {
           delay={200}
           className="mt-14 rounded-2xl border border-border bg-white p-8 sm:p-10"
         >
-          <h3 className="max-w-xl font-sans text-[20px] leading-[28px] font-semibold tracking-tight text-ink lg:text-[24px] lg:leading-[32px]">
+          <h3 className="max-w-xl font-sans text-[20px] leading-[28px] font-semibold tracking-tight text-basalt lg:text-[24px] lg:leading-[32px]">
             {d.connected.heading}
           </h3>
           <p className="mt-3 max-w-xl leading-relaxed text-text-secondary">
-            <HighlightSI text={d.connected.intro} className="text-teal-deep" />
+            <HighlightSI text={d.connected.intro} className="text-green" />
           </p>
 
           <div className="mt-9 flex flex-col items-stretch gap-2 sm:flex-row sm:items-center">
             {d.connected.points.map((point, i) => (
               <div key={point} className="flex items-center gap-2 sm:flex-1">
                 <div className="flex flex-1 flex-col gap-2 rounded-2xl border border-border bg-mist p-5">
-                  <span className="grid size-9 place-items-center rounded-lg bg-teal-deep/10 text-teal-deep">
+                  <span className="grid size-9 place-items-center rounded-lg bg-green/10 text-green">
                     {(() => {
                       const Icon = DIVISIONS_META[i].icon
                       return <Icon className="size-4" strokeWidth={1.8} />
                     })()}
                   </span>
-                  <p className="text-sm font-semibold leading-snug text-ink">{point}</p>
+                  <p className="text-sm font-semibold leading-snug text-basalt">{point}</p>
                 </div>
                 {i < d.connected.points.length - 1 && (
                   <>
@@ -224,8 +224,8 @@ export default function Divisions() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-2xl text-base font-semibold leading-relaxed text-ink sm:text-lg">
-            <HighlightSI text={d.connected.closing} className="text-teal-deep" />
+          <p className="mt-8 max-w-2xl text-base font-semibold leading-relaxed text-basalt sm:text-lg">
+            <HighlightSI text={d.connected.closing} className="text-green" />
           </p>
         </Reveal>
       </div>

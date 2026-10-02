@@ -7,19 +7,19 @@ import { Paragraphs } from "../../lib/paragraphs"
 
 /* Gradient badge colors cycled across the 14 numbered capability items. */
 const BADGES = [
-  "from-teal-600 to-teal-900",
-  "from-teal-300 to-teal-600",
+  "from-blue-600 to-blue-900",
+  "from-blue-300 to-blue-600",
   "from-amber-400 to-amber-700",
-  "from-teal-800 to-slate-950",
-  "from-teal-400 to-teal-700",
+  "from-blue-800 to-slate-950",
+  "from-blue-400 to-blue-700",
   "from-amber-500 to-amber-800",
-  "from-teal-500 to-teal-800",
-  "from-teal-300 to-teal-700",
+  "from-blue-500 to-blue-800",
+  "from-blue-300 to-blue-700",
   "from-amber-300 to-amber-600",
-  "from-teal-700 to-teal-900",
+  "from-blue-700 to-blue-900",
   "from-amber-600 to-amber-900",
-  "from-teal-400 to-teal-800",
-  "from-teal-600 to-teal-400",
+  "from-blue-400 to-blue-800",
+  "from-blue-600 to-blue-400",
   "from-amber-700 to-amber-500",
 ]
 
@@ -36,19 +36,19 @@ export default function TechCapabilities() {
   return (
     <section
       id="capabilities"
-      className="relative overflow-hidden bg-white py-16 sm:py-24"
+      className="relative overflow-hidden bg-mist py-16 sm:py-24"
     >
       <div className={`${wrap} relative`}>
         <Reveal className="flex items-center gap-2">
-          <span className="size-1.5 rounded-full bg-teal-deep" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-teal">
+          <span className="size-1.5 rounded-full bg-blue-600" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.66px] text-blue-600">
             {c.eyebrow}
           </span>
         </Reveal>
         <Reveal
           as="h2"
           delay={80}
-          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-teal-deep sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-4 max-w-4xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-green sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {c.heading}
         </Reveal>
@@ -67,10 +67,10 @@ export default function TechCapabilities() {
                   onClick={() => setActive(i)}
                   onMouseEnter={() => setActive(i)}
                   aria-pressed={on}
-                  className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-all ${
+                  className={`press group flex items-center gap-4 rounded-2xl border px-4 py-3.5 text-left transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
                     on
-                      ? "border-teal-200 bg-teal-50 translate-x-1"
-                      : "border-border bg-white hover:translate-x-1 hover:border-teal-200"
+                      ? "border-blue-200 bg-blue-50 translate-x-1"
+                      : "border-border bg-white hover:translate-x-1 hover:border-blue-200"
                   }`}
                 >
                   <span
@@ -82,14 +82,14 @@ export default function TechCapabilities() {
                   </span>
                   <span
                     className={`flex-1 text-sm font-semibold transition-colors ${
-                      on ? "text-teal-deep" : "text-text-secondary"
+                      on ? "text-blue-600" : "text-text-secondary"
                     }`}
                   >
                     {it.title}
                   </span>
                   <ChevronRight
-                    className={`size-4 shrink-0 transition-all ${
-                      on ? "translate-x-0 text-teal" : "-translate-x-1 text-slate-300"
+                    className={`size-4 shrink-0 transition-[color,background-color,border-color,opacity,transform,box-shadow] ${
+                      on ? "translate-x-0 text-blue-600" : "-translate-x-1 text-slate-300"
                     }`}
                   />
                 </button>
@@ -101,7 +101,7 @@ export default function TechCapabilities() {
           <Reveal variant="right" className="lg:sticky lg:top-24 lg:self-start">
             <div
               key={active}
-              className="detail-fade flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-mist p-8 sm:p-10"
+              className="detail-fade flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-white p-8 sm:p-10"
             >
               <div>
                 <span
@@ -109,12 +109,12 @@ export default function TechCapabilities() {
                 >
                   {String(active + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-teal-deep lg:text-[24px] lg:leading-[32px]">
+                <h3 className="mt-6 font-display text-[20px] leading-[28px] font-semibold text-green lg:text-[24px] lg:leading-[32px]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm font-semibold text-teal sm:text-base">{item.tagline}</p>
+                <p className="mt-2 text-sm font-semibold text-blue-600 sm:text-base">{item.tagline}</p>
                 <div className="mt-4">
-                  <Paragraphs text={item.intro} className="leading-relaxed text-text-secondary" highlightClassName="text-teal-deep" />
+                  <Paragraphs text={item.intro} className="leading-relaxed text-text-secondary" highlightClassName="text-blue-600" />
                 </div>
 
                 {item.teaserChips ? (
@@ -123,7 +123,7 @@ export default function TechCapabilities() {
                       {item.teaserChips.map((chip) => (
                         <span
                           key={chip}
-                          className="rounded-full border border-teal-200 bg-teal-50 px-3.5 py-2 text-[13px] font-semibold text-teal-deep"
+                          className="rounded-full border border-blue-200 bg-blue-50 px-3.5 py-2 text-[13px] font-semibold text-blue-600"
                         >
                           {chip}
                         </span>
@@ -144,7 +144,7 @@ export default function TechCapabilities() {
                             <Paragraphs
                               text={group.intro}
                               className="text-sm leading-relaxed text-text-secondary"
-                              highlightClassName="text-teal-deep"
+                              highlightClassName="text-blue-600"
                             />
                           </div>
                         )}
@@ -153,7 +153,7 @@ export default function TechCapabilities() {
                             {group.items.map((chip) => (
                               <span
                                 key={chip}
-                                className="rounded-full border border-border bg-white px-3.5 py-2 text-[13px] font-semibold text-ink"
+                                className="rounded-full border border-border bg-white px-3.5 py-2 text-[13px] font-semibold text-basalt"
                               >
                                 {chip}
                               </span>
@@ -172,7 +172,7 @@ export default function TechCapabilities() {
                 {item.closing.length > 0 && (
                   <div className="mt-6 border-t border-border pt-6">
                     {item.closing.length === 1 ? (
-                      <p className="text-sm font-semibold italic leading-relaxed text-teal-deep sm:text-base">
+                      <p className="text-sm font-semibold italic leading-relaxed text-green sm:text-base">
                         {item.closing[0]}
                       </p>
                     ) : (
@@ -182,7 +182,7 @@ export default function TechCapabilities() {
                             key={li}
                             className={`text-sm leading-relaxed sm:text-base ${
                               li === item.closing.length - 1
-                                ? "font-bold text-teal-deep"
+                                ? "font-bold text-green"
                                 : "text-text-secondary"
                             }`}
                           >
@@ -196,7 +196,7 @@ export default function TechCapabilities() {
 
                 <Link
                   to={item.ctaOverride?.to ?? "/contact"}
-                  className="group/cta mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-teal-deep px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-white transition-all hover:-translate-y-0.5 hover:bg-teal"
+                  className="group/cta mt-7 inline-flex w-fit items-center gap-2 rounded-lg bg-green px-6 py-3 text-[15px] font-bold uppercase tracking-wide text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:-translate-y-0.5 hover:bg-green-hover"
                 >
                   {item.ctaOverride?.label ?? c.cta}
                   <ArrowRight className="size-4 transition-transform group-hover/cta:translate-x-1" />

@@ -71,7 +71,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={submitting}
-            className="group press shine mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-all enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
+            className="group press shine mt-2 inline-flex items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 py-3.5 text-[15px] font-bold uppercase tracking-wide text-white transition-[color,background-color,border-color,opacity,transform,box-shadow] enabled:hover:-translate-y-0.5 enabled:hover:bg-teal-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {submitting ? "Signing in…" : "Sign In"}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />

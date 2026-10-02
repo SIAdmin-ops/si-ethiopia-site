@@ -23,7 +23,7 @@ export default function TrainingApproach() {
         <Reveal
           as="h2"
           delay={80}
-          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-ink sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
+          className="mt-3 max-w-3xl font-display text-[24px] leading-[32px] font-bold tracking-tight text-basalt sm:text-[28px] sm:leading-[36px] lg:text-[32px] lg:leading-[40px]"
         >
           {a.heading}
         </Reveal>
@@ -74,13 +74,13 @@ export default function TrainingApproach() {
               return (
                 <div
                   key={area.title}
-                  className="group rounded-2xl border border-border bg-mist p-6 transition-all duration-200 hover:-translate-y-1 hover:border-amber-300 hover:bg-amber-50"
+                  className="group rounded-2xl border border-border bg-mist p-6 transition-[color,background-color,border-color,opacity,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-amber-300 hover:bg-amber-50"
                 >
                   <span className="grid size-10 place-items-center rounded-lg bg-amber-100 text-gold-text transition-colors duration-200 group-hover:bg-amber-200">
                     <Icon className="size-[18px]" strokeWidth={1.8} />
                   </span>
                   <p className="mt-4 font-mono text-xs text-text-secondary/60">{String(i + 1).padStart(2, "0")}</p>
-                  <h4 className="mt-1 text-[20px] leading-[28px] font-semibold text-ink lg:text-[24px] lg:leading-[32px]">{area.title}</h4>
+                  <h4 className="mt-1 text-[20px] leading-[28px] font-semibold text-basalt lg:text-[24px] lg:leading-[32px]">{area.title}</h4>
                   <p className="mt-2 text-xs leading-relaxed text-text-secondary">{area.desc}</p>
                 </div>
               )

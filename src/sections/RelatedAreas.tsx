@@ -26,7 +26,7 @@ export default function RelatedAreas({ current }: { current: 0 | 1 | 2 }) {
     .filter(({ i }) => i !== current)
 
   return (
-    <section className="bg-slate-50 py-16 sm:py-24">
+    <section className="bg-white py-16 sm:py-24">
       <div className={wrap}>
         <Reveal className="flex items-center gap-2">
           <span className="size-1.5 rounded-full bg-slate-400" />
@@ -43,7 +43,7 @@ export default function RelatedAreas({ current }: { current: 0 | 1 | 2 }) {
               <Reveal key={item.title} delay={idx * 100} className="min-w-0">
                 <Link
                   to={meta.route}
-                  className={`group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5 ${a.border}`}
+                  className={`group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-6 transition-[color,background-color,border-color,opacity,transform,box-shadow] hover:-translate-y-1 hover:shadow-lg hover:shadow-slate-900/5 ${a.border}`}
                 >
                   <span className={`grid size-12 shrink-0 place-items-center rounded-2xl ${a.chip}`}>
                     <Icon className="icon-pop size-5" strokeWidth={1.8} />
