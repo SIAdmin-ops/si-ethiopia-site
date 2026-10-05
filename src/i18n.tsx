@@ -749,7 +749,7 @@ const CONTENT = {
         people: [
           { name: "Peter Morris", role: "Managing Partner", focus: "Capital Markets & Client Advisory", initials: "PM", photo: "/team/peter-morris.jpeg" },
           { name: "Fantu Gola", role: "Partner", focus: "Training & Institutional Capacity", initials: "FG", photo: "/team/fantu-gola.jpeg" },
-          { name: "Gerard Lelliot", role: "Partner", focus: "Technology & Talent", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
+          { name: "Gerard Lelliott", role: "Partner", focus: "Technology & Talent", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
         ],
       },
     },
@@ -1992,7 +1992,7 @@ const CONTENT = {
         people: [
           { name: "Peter Morris", role: "አስተዳዳሪ አጋር", focus: "ካፒታል ገበያዎች እና የደንበኛ ማማከር", initials: "PM", photo: "/team/peter-morris.jpeg" },
           { name: "Fantu Gola", role: "አጋር", focus: "ስልጠና እና ተቋማዊ አቅም", initials: "FG", photo: "/team/fantu-gola.jpeg" },
-          { name: "Gerry", role: "አጋር", focus: "ቴክኖሎጂ እና ተሰጥዖ", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
+          { name: "Gerard Lelliott", role: "አጋር", focus: "ቴክኖሎጂ እና ተሰጥዖ", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
         ],
       },
     },
@@ -3233,7 +3233,7 @@ const CONTENT = {
         people: [
           { name: "Peter Morris", role: "Michuu Bulchaa", focus: "Gabaa Kaappitaalaa fi Gorsa Maamilaa", initials: "PM", photo: "/team/peter-morris.jpeg" },
           { name: "Fantu Gola", role: "Michuu", focus: "Leenjii fi Dandeettii Dhaabbataa", initials: "FG", photo: "/team/fantu-gola.jpeg" },
-          { name: "Gerry", role: "Michuu", focus: "Teeknooloojii fi Ogummaa", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
+          { name: "Gerard Lelliott", role: "Michuu", focus: "Teeknooloojii fi Ogummaa", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
         ],
       },
     },
@@ -4473,7 +4473,7 @@ const CONTENT = {
         people: [
           { name: "Peter Morris", role: "ዋና መሻርኽ", focus: "ዕዳጋ ርእሰ-ማልን ምኽሪ ዓሚልን", initials: "PM", photo: "/team/peter-morris.jpeg" },
           { name: "Fantu Gola", role: "መሻርኽ", focus: "ስልጠናን ትካላዊ ዓቕምን", initials: "FG", photo: "/team/fantu-gola.jpeg" },
-          { name: "Gerry", role: "መሻርኽ", focus: "ቴክኖሎጂን ክእለትን", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
+          { name: "Gerard Lelliott", role: "መሻርኽ", focus: "ቴክኖሎጂን ክእለትን", initials: "G", photo: "/team/gerard-lelliot.jpeg" },
         ],
       },
     },
