@@ -1,9 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap');
+@import '@fontsource-variable/outfit';
+@import '@fontsource-variable/plus-jakarta-sans';
+@import '@fontsource-variable/noto-sans-ethiopic';
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Outfit', 'Noto Sans Ethiopic', sans-serif;
-  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
+  --font-display: 'Outfit Variable', 'Noto Sans Ethiopic Variable', sans-serif;
+  --font-sans: 'Plus Jakarta Sans Variable', 'Noto Sans Ethiopic Variable', sans-serif;
 
   /* ================================================================
      THE THREE STELAE — brand color system (single source of truth)
@@ -111,7 +113,7 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', 'Noto Sans Ethiopic', sans-serif;
+  font-family: var(--font-sans);
   background-color: #f4f5f1;
   color: #16201e;
   overflow-x: hidden;

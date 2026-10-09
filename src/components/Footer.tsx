@@ -88,6 +88,14 @@ export default function Footer() {
                 strategy-innovations.com
               </a>
             </span>
+            <span className="flex gap-4">
+              <Link to="/privacy" className="font-semibold text-sky underline-offset-2 hover:underline">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="font-semibold text-sky underline-offset-2 hover:underline">
+                Terms of Use
+              </Link>
+            </span>
           </span>
           <span className="flex items-center gap-3">{t.footer.location}</span>
         </div>

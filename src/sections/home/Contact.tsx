@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react"
 import { Mail, Phone, MapPin, Clock, Check, ChevronDown, ArrowRight } from "lucide-react"
+import FormPrivacyNotice from "../../components/FormPrivacyNotice"
 import { Reveal, wrap } from "../../lib/motion"
 import { useI18n } from "../../i18n"
 import { submitContactForm } from "../../lib/contact"
@@ -105,6 +106,7 @@ export default function HomeContact() {
                   <span className="text-xs font-semibold text-slate-600">{c.nameLabel}</span>
                   <input
                     className={field}
+                    maxLength={254}
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder={c.namePh}
@@ -114,6 +116,7 @@ export default function HomeContact() {
                   <span className="text-xs font-semibold text-slate-600">{c.emailFieldLabel}</span>
                   <input
                     className={field}
+                    maxLength={254}
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -125,6 +128,7 @@ export default function HomeContact() {
                 <span className="text-xs font-semibold text-slate-600">{c.companyLabel}</span>
                 <input
                   className={field}
+                  maxLength={254}
                   value={form.company}
                   onChange={(e) => setForm({ ...form, company: e.target.value })}
                   placeholder={c.companyPh}
@@ -153,12 +157,14 @@ export default function HomeContact() {
               <label className="flex flex-col gap-1.5">
                 <span className="text-xs font-semibold text-slate-600">{c.messageLabel}</span>
                 <textarea
+                  maxLength={5000}
                   className={`${field} min-h-[110px] resize-y`}
                   value={form.msg}
                   onChange={(e) => setForm({ ...form, msg: e.target.value })}
                   placeholder={c.messagePh}
                 />
               </label>
+              <FormPrivacyNotice />
               {error && (
                 <p className="text-sm font-medium text-error" role="alert">
                   {c.error}

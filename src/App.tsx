@@ -11,9 +11,12 @@ import Training from "./pages/Training"
 import FinancialLiteracyPage from "./pages/FinancialLiteracyPage"
 import About from "./pages/About"
 import ContactPage from "./pages/ContactPage"
+import Privacy from "./pages/Privacy"
+import Terms from "./pages/Terms"
 import AdminLogin from "./pages/admin/Login"
 import AdminDashboard from "./pages/admin/Dashboard"
 import NewsEditor from "./pages/admin/NewsEditor"
+import AdminSecurity from "./pages/admin/Security"
 
 export default function App() {
   return (
@@ -29,12 +32,15 @@ export default function App() {
               <Route path="financial-literacy" element={<FinancialLiteracyPage />} />
               <Route path="about" element={<About />} />
               <Route path="contact" element={<ContactPage />} />
+              <Route path="privacy" element={<Privacy />} />
+              <Route path="terms" element={<Terms />} />
             </Route>
 
             <Route path="admin/login" element={<AdminLogin />} />
             <Route element={<RequireAdminAuth />}>
               <Route path="admin" element={<AdminLayout />}>
                 <Route index element={<AdminDashboard />} />
+                <Route path="security" element={<AdminSecurity />} />
                 <Route path="news/new" element={<NewsEditor />} />
                 <Route path="news/:id" element={<NewsEditor />} />
               </Route>

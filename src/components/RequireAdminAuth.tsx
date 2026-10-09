@@ -1,9 +1,10 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom"
 import { useAdminAuth } from "../context/AdminAuth"
 import { isSupabaseConfigured } from "../lib/supabase"
+import MfaChallenge from "./MfaChallenge"
 
 export default function RequireAdminAuth() {
-  const { session, loading } = useAdminAuth()
+  const { session, loading, needsMfa } = useAdminAuth()
   const location = useLocation()
 
   if (!isSupabaseConfigured) {
@@ -32,6 +33,8 @@ export default function RequireAdminAuth() {
   if (!session) {
     return <Navigate to="/admin/login" replace state={{ from: location }} />
   }
+
+  if (needsMfa) return <MfaChallenge />
 
   return <Outlet />
 }

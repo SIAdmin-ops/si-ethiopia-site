@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react"
 import { Mail, Phone, MapPin, Zap, Check, ArrowRight } from "lucide-react"
+import FormPrivacyNotice from "../components/FormPrivacyNotice"
 import { Reveal, wrap } from "../lib/motion"
 import { useI18n } from "../i18n"
 import Motif from "../components/Motif"
@@ -73,6 +74,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
                   <span className="text-xs font-semibold text-text-secondary">{t.contact.fullName}</span>
                   <input
                     className={field}
+                    maxLength={254}
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder={t.contact.phName}
@@ -82,6 +84,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
                   <span className="text-xs font-semibold text-text-secondary">{t.contact.workEmail}</span>
                   <input
                     className={field}
+                    maxLength={254}
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -93,6 +96,7 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
                 <span className="text-xs font-semibold text-text-secondary">{t.contact.institution}</span>
                 <input
                   className={field}
+                  maxLength={254}
                   value={form.org}
                   onChange={(e) => setForm({ ...form, org: e.target.value })}
                   placeholder={t.contact.phOrg}
@@ -101,12 +105,14 @@ export default function Contact({ showIntro = true }: { showIntro?: boolean }) {
               <label className="flex flex-col gap-1.5">
                 <span className="text-xs font-semibold text-text-secondary">{t.contact.building}</span>
                 <textarea
+                  maxLength={5000}
                   className={`${field} min-h-[110px] resize-y`}
                   value={form.msg}
                   onChange={(e) => setForm({ ...form, msg: e.target.value })}
                   placeholder={t.contact.phMsg}
                 />
               </label>
+              <FormPrivacyNotice />
               {error && (
                 <p className="text-sm font-medium text-error" role="alert">
                   {t.contact.error}
